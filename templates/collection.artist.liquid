@@ -1,0 +1,160 @@
+{% comment %} 
+  Single Artist Page
+{% endcomment %}
+
+<div class="single-artist">
+  <div class="single-artist--wrapper">
+
+    <div class="data">
+      {% for collect in collections %}
+        {% case collect.id %}
+          {% when collection.id %}
+            {% case collect.metafields.custom.alumni_status %}
+              {% when blank or false %}
+                <div class="status current">
+                  <a href="/pages/current-artists" title="Current Artists">Current Artists</a>
+                </div>
+
+              {% else %}
+                <div class="status alumni">
+                  <a href="/pages/alumni-artists" title="Artist Alumni">Artist Alumni</a>
+                </div>
+            {% endcase %}
+        {% endcase %}
+      {% endfor %}
+
+      <div class="title">
+        <h1 class="artist-name">
+          {{ collection.title }}
+        </h1>
+      </div>
+
+      <div class="description">
+        <p class="artist-description">
+          {{ collection.description }}
+        </p>
+      </div>
+
+    </div>
+
+    {% comment %} Products {% endcomment %}
+    <div class="products">
+
+      <div class="title">
+        <h3>
+          Products {{ '(' | escape }}{{ collection.products.count }}{{ ')' | escape }}
+        </h3>
+      </div>
+
+      {% paginate collection.products by 10 %}
+
+        <ul class="artist-products">
+          {% for product in collection.products %}
+  
+            <li class="item">
+              <div class="image">
+                <a href="{{ product.url }}" title="{{ product.title }}">
+                  <img src="{{ product.featured_image | img_url: '700x' }}" alt="{{ product.title }}" />
+                </a>
+              </div>
+              <div class="title">
+                <a href="{{ product.url }}" title="{{ product.title }}">
+                  {{ product.title }}
+                </a>
+              </div>
+              <div class="vendor">
+                <a href="{{ product.url }}" title="{{ product.vendor }}">
+                  {{ product.vendor }}
+                </a>
+              </div>
+              <div class="date">
+                <a href="{{ product.url }}" title="{{ product.title }}">
+                  {{ product.metafields.music.release_date | date }}
+                </a>
+              </div>
+              <div class="sku">
+                <a href="{{ product.url }}" title="{{ product.title }}">
+                  {{ product.sku }}
+                </a>
+              </div>
+            </li>
+  
+          {% else %}
+  
+            <li>There are no products in this view.</li>
+  
+          {% endfor %}
+        </ul>
+  
+        {% if paginate.pages > 1 %}
+          {{ paginate | default_pagination }}
+        {% endif %}
+
+      {% endpaginate %}
+    </div>
+
+    {% comment %} Product Data {% endcomment %}
+    <div class="images">
+      <div class="title">
+        <h3>
+          Images {{ '(' | escape }}{{ collection.metafields.dais.artist_gallery.value.count }}{{ ')' | escape }}
+        </h3>
+      </div>
+      <div class="images-wrapper">
+        {% for product in collection.products %}
+          {% for nice in collection.metafields.dais.artist_gallery.value %}
+            <div class="artist-image" style="background: url('{{ nice | image_url: width: 900 }}'); background-size: cover; background-position: center center;" alt="{{ product.title }}" loading="lazy">
+              <div class="view-larger" data-image="{{ nice | image_url: width: 1000 }}">   
+                {% render 'icon--view-more' %}
+              </div>
+            </div>
+          {% endfor %}
+        {% endfor %}
+      </div>
+    </div>
+
+
+
+  </div>
+</div>
+
+{% comment %} 
+Image Overlay
+{% endcomment %}
+<div class="image-overlay">
+  <div class="wrapper">
+
+    <span class="image-overlay--closer">&times;</span>
+
+    <img src="" alt="" class="image-overlay--img" />
+  </div>
+</div>
+
+{% comment %} 
+Image Overlay Script
+{% endcomment %}
+<script>
+  (function($) {
+    
+      $('.view-larger').on('click', function() {
+        var img = $(this).attr('data-image');
+
+        $('.image-overlay').css({
+          display: 'block'
+        });
+
+        $('.image-overlay--img').attr('src', img);
+
+        
+        $('.image-overlay--closer').on('click', function() {
+          $('.image-overlay').css('display', 'none');
+        });
+
+      });
+
+  })(jQuery);
+</script>
+
+<script>
+  console.log({{ collections.metafields | json }})
+</script>

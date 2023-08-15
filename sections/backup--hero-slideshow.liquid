@@ -1,0 +1,109 @@
+{% comment %} 
+  Hero Slideshow
+  @ homepage
+{% endcomment %}
+
+<div id="hero-swiper" class="hero-swiper swiper">
+  <div class="swiper-wrapper">
+    {% for block in section.blocks %}
+
+      <div class="swiper-slide">
+        <div class="image" style="background: url('{{ block.settings.image | image_url: width: 900 }}'); background-size: cover; background-position: center center;">&nbsp;</div>
+
+        {% comment %}
+        BOX
+        {% endcomment %}
+        <div class="slide-box" data-aos="fade-in" data-aos-delay="200">
+          <div class="slide-box--wrapper">
+
+            {% if block.settings.preorder == true %}
+              <div class="preorder-status">
+                <span class="text">Pre-order</span>
+              </div>
+            {% endif %}
+
+            <div class="title">
+              <h2 class="hero-slide--title">{{ block.settings.title }}</h2>
+            </div>
+
+            <div class="sub-title">
+              <h3 class="hero-slide--subtitle">{{ block.settings.subtitle }}</h3>
+            </div>
+
+            <div class="view-more">
+              <a href="{{ block.settings.link-destination }}" title="{{ block.settings.link-text }}">
+                {{ block.settings.link-text }}
+              </a>
+            </div>
+
+            <div class="slider-index">
+              <span class="current">1</span>
+              /
+              <span class="total"></span>
+            </div>
+
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    {% endfor %}
+
+
+  </div>
+
+  <div class="swiper-pagination desktop"></div>
+</div>
+
+
+<script>
+  (function($) {})(jQuery);
+</script>
+
+{% schema %}
+  {
+    "name": "Slideshow (Backup)",
+    "tag": "section",
+    "class": "slideshow-backup",
+    "settings": [],
+    "blocks": [
+      {
+        "name": "Slide",
+        "type": "slide",
+        "settings": [
+          {
+            "type": "checkbox",
+            "id": "preorder",
+            "label": "Preorder"
+          },
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+          },
+          {
+            "type": "text",
+            "id": "subtitle",
+            "label": "Sub-Title"
+          }, {
+            "type": "url",
+            "id": "link-destination",
+            "label": "Link URL"
+          }, {
+            "type": "text",
+            "id": "link-text",
+            "label": "Link Text"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

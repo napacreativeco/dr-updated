@@ -1,0 +1,29 @@
+nav.breadcrumbs {
+    --spacing: 6px;
+    --fontsize: 1.4rem;
+
+    ul {
+        display: flex;
+        flex-direction: row;
+        gap: var(--spacing);
+        padding: 10px 0;
+        margin: 0;
+
+        li::after {
+            content: '/';
+            padding-left: var(--spacing);
+            font-size: var(--fontsize);
+        }
+        li:last-of-type::after {
+            content: '';
+        }
+
+        a {
+            font-size: var(--fontsize);
+        }
+
+        a[aria-current="page"] {
+            text-decoration: underline;
+        }
+    }
+}

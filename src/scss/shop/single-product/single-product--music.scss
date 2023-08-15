@@ -1,0 +1,109 @@
+.single-product.music {
+
+    // Header
+    header {
+        padding: 0 var(--side-padding) 20px var(--side-padding);
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        .product-title {
+            margin: 0 0 10px 0;
+            h1 {
+                font-size: 5.2rem;
+                letter-spacing: -0.3rem;
+            }
+        }
+
+        .data {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: flex-end;
+            gap: 40px;
+            color: var(--grey);
+            font-family: var(--type-writer);
+            text-transform: uppercase;
+            font-size: 1.6rem;
+
+            .band-name {
+                h2 {
+                    font-size: 2rem;
+                    letter-spacing: -1px;
+                    color: var(--grey);
+                    text-decoration: underline;
+                }
+            }
+        }
+
+    }
+
+    .bandcamp {
+        margin: 0px 0 20px 0;
+    }
+
+    .tracklisting {
+
+        li {
+            display: list-item;
+            list-style-position: inside;
+            border-bottom: 1px solid rgba(0, 0, 0, 1);
+            padding: 4px 0 8px 0;
+            margin: 0 0 10px 0;
+            width: 100%;
+            font-family: var(--type-writer);
+            font-size: 1.4rem;
+        }
+    }
+
+}
+
+@media screen and (max-width: 767px) {
+    
+    .single-product.music {
+
+        // Header
+        header {
+    
+            .band-name {
+                margin-bottom: 20px;
+    
+                h2 {
+                    font-size: 11vw;
+                    letter-spacing: -4px;
+                }
+            }
+    
+            .data {
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: flex-start;
+                gap: 4px;
+                color: var(--grey);
+                font-family: var(--type-writer);
+                text-transform: uppercase;
+                font-size: 1.2rem;
+                
+                h1 {
+                    font-size: 2rem;
+                    text-transform: uppercase;
+                    color: var(--black);
+                }
+            }
+    
+        }
+
+        .section-one {
+            padding: 0;
+        }
+    
+        .bandcamp {
+            margin: 0px 0 80px 0;
+        }
+    
+        .tracklisting {
+            margin: 40px 0 0 0;
+        }
+    }
+}

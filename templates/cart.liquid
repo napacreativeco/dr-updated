@@ -1,0 +1,146 @@
+<div class="cart-page">
+  <div class="page-wrapper">
+
+    {% comment %} 
+      Header
+    {% endcomment %}
+    <header class="header-with-link">
+      <div class="header-wrapper">
+        <h1 class="title" data-aos="fade-down">
+          {{ 'Cart' | escape }}
+        </h1>
+        <a  class="view-more" 
+            data-aos="fade-in"
+            data-aos-delay="800"
+            href="/collections/all">
+          {{ 'Back to shop' | escape }}</a>
+      </div>
+    </header>
+
+    {% if cart.item_count > 0 %}
+
+      <div class="cart-holder">
+        <form action="/cart" method="post">
+          
+          {% comment %} Product Items {% endcomment %}
+          <ul class="items-wrapper">
+
+            {% for item in cart.items %}    
+              
+              {% assign collection_url = item.product.collections.last.url %}
+              {% if collection_url == '/collections/frontpage' or collection_url == blank %}
+                {% assign collection_url = '/collections/all' %}
+              {% endif %}
+              
+              {% if forloop.first %}
+                {% assign continue_shopping_url = collection_url %}
+              {% endif %}
+
+              <li class="cart-item">
+
+                <div class="image">
+                  <a href="{{ collection_url }}{{ item.url }}">
+                    <img src="{{ item | img_url: 'compact' }}"  alt="{{ item.title | escape }}" />
+                  </a>
+                </div>
+
+                <div class="vendor">
+                  <h3>{{ item.vendor }}</h3>
+                </div>
+
+                <div class="title">
+                  <h2>
+                    <a href="{{ collection_url }}{{ item.url }}">
+                      {{ item.title }}
+                    </a>
+                  </h2>
+                </div>
+
+                <div class="variants">
+                    {% comment %}
+                    Line Item Properties
+                    {% endcomment %}
+                    {% assign properties_amount = item.properties | size %}
+                    {% if properties_amount > 0 %}
+                      {% for p in item.properties %}
+                        {% unless p.last == blank %}
+                          {{ p.first }}:
+                          {% if p.last contains '/uploads/' %}
+                            <a href="{{ p.last }}">{{ p.last | split: '/' | last }}</a>
+                          {% else %}
+                            {{ p.last }}
+                          {% endif %}
+                        {% endunless %}
+                      {% endfor %}
+                    {% endif %}
+                </div>
+
+                <div class="quantity">
+                  <input type="number" name="updates[]" id="updates_{{ item.id }}" class="quantity" value="{{ item.quantity }}" />
+                </div>
+
+                <div class="price">
+                  {{ item.line_price | money }}
+                </div>
+              
+                <div class="delete">
+                  <a href="/cart/change?line={{ forloop.index }}&quantity=0">
+                    &times;
+                  </a>
+                </div>
+                
+              </li>
+        
+
+            {% endfor %}
+            
+          </ul>
+          
+          {% comment %} Cart Totals {% endcomment %}
+          <div class="cart-totals">
+            <div class="subtotal">
+              <h3>Subtotal</h3>
+              <h3>{{ cart.total_price | money_without_trailing_zeros }}</h3>
+            </div>
+            <div class="update-cart-holder">
+              <input class="update-cart-button" type="submit" name="update" value="Update cart" />
+            </div>
+          </div>
+          
+          {% comment %} Notes {% endcomment %}
+          <details class="additional-notes-holder">
+            <summary>
+              <span>Notes to fulfillment</span>
+              <span class="indicator">&nbsp;</span>
+            </summary>
+            <div class="details-body">
+              <textarea name="note">{{ cart.note }}</textarea>
+            </div>
+          </details>
+
+          {% comment %} Checkout buttons {% endcomment %}
+          <div class="checkout-holder">
+            <input class="checkout-button" type="submit" name="checkout" value="Check out" /> 
+          </div>
+
+          {% comment %} Paypal & Google buttons {% endcomment %}
+          <div class="additional-checkout-holder">
+            {% if additional_checkout_buttons %}
+              {{ content_for_additional_checkout_buttons }}
+            {% endif %}
+          </div>
+          
+        </form>
+      </div>
+
+    {% else %}
+
+      <div class="cart-empty">
+        <h2>It appears that your cart is currently empty!</h2>
+        <h3>You can continue browsing <a href="/collections/all">here</a>.</h3>
+      </div>
+
+    {% endif %}
+
+  </div>
+</div>

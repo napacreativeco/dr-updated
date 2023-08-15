@@ -1,0 +1,39 @@
+.single-product.default {
+
+    .section-wrapper {
+        align-items: center;
+    }
+
+    .left {
+
+    }
+
+    .right {
+
+        .band-name {
+            h2 {
+                font-size: 1.6rem;
+                font-family: var(--type-writer);
+                text-transform: uppercase;
+                margin: 0 0 10px 0;
+            }
+        }
+    
+        .product-title {
+            h1 {
+                font-size: 5.2rem;
+                letter-spacing: -0.3rem;
+            }
+        }
+
+        .description {
+            padding: 40px 0 0 0;
+            font-size: 1.3rem;
+            line-height: 1.6;
+            font-family: var(--type-writer);
+
+        }
+    }
+
+
+}

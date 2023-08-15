@@ -1,0 +1,29 @@
+
+    {% if collection.products_count > 1 %}
+    <fieldset >
+        <label class="sort-by" value="manual">
+        <input type="radio" value="manual">
+        Featured
+        </label>
+        <label class="sort-by" value="price-ascending">
+        <input type="radio" value="price-ascending">
+        Price: low
+        </label>
+        <label class="sort-by" value="price-descending">
+        <input type="radio" value="price-descending">
+        Price: high
+        </label>
+        <label class="sort-by" value="created-ascending">
+        <input type="radio" value="created-ascending">
+        Oldest
+        </label>
+        <label class="sort-by" value="created-descending">
+        <input type="radio" value="created-descending">
+        Newest
+        </label>
+        <label class="sort-by" value="best-selling">
+        <input type="radio" value="best-selling">
+        Best Selling
+        </label>
+    </fieldset>
+    {% endif %}

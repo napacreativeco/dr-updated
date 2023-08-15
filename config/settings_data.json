@@ -1,0 +1,27 @@
+{
+  "current": {
+    "customer_layout": "theme",
+    "example_option": "option",
+    "sections": {
+      "cart-drawer": {
+        "type": "cart-drawer",
+        "settings": {
+        }
+      }
+    },
+    "content_for_index": [
+
+    ]
+  },
+  "presets": {
+    "Standard": {
+      "customer_layout": "theme",
+      "example_option": "option"
+    }
+  },
+  "platform_customizations": {
+    "custom_css": [
+      "\/* test *\/"
+    ]
+  }
+}

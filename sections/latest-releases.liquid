@@ -1,0 +1,107 @@
+<section class="latest-releases section">
+
+  {% comment %} 
+    Header
+  {% endcomment %}
+  <header class="section--header">
+    <div class="section--header-wrapper">
+      <h2 class="title" data-aos="fade-down">
+        {{ section.settings.section_title }}
+      </h2>
+      <a  class="view-more" 
+          data-aos="fade-in"
+          data-aos-delay="800"
+          href="/collections/releases">
+        {{ 'View more' | escape }}</a>
+    </div>
+  </header>
+
+  <div class="latest-releases--wrapper">
+
+    {% for block in section.blocks %}
+
+      <div class="release">
+        {% for album in block.settings.release %}
+
+          {% comment %} 
+            Image
+          {% endcomment %}
+          <div class="image" onclick="window.location='{{ album.url }}';">
+            {% if album.featured_image %}
+              <img src="{{ album.featured_image | image_url: width: 900 }}" alt="{{ album.title }}" loading="lazy" />
+            {% else %}
+              {{ 'image' | placeholder_svg_tag }}
+            {% endif %}
+          </div>
+
+          {% comment %} 
+            Info
+          {% endcomment %}
+          <div class="info">
+
+            {% comment %} Left {% endcomment %}
+            <div class="left">
+              <div class="title type-writer">
+                <a href="{{ album.url }}" title="{{ album.vendor }} - {{ album.title }}">
+                  <h4>{{ album.title }}</h4>
+                </a>
+              </div>
+              <div class="artist">
+                <a href="{{ album.url }}" title="{{ album.vendor }} - {{ album.title }}">
+                  <h3>{{ album.vendor }}</h3>
+                </a>
+              </div>
+            </div>
+
+            {% comment %} Right {% endcomment %}
+            <div class="right">
+              <div class="price type-writer">
+                <a href="{{ album.url }}" title="{{ album.vendor }} - {{ album.title }}">
+                  {{ album.price | money_without_trailing_zeros }}
+                </a>
+              </div>
+            </div>
+
+          </div>
+
+
+        {% endfor %}
+      </div>
+    {% endfor %}
+
+  </div>
+</section>
+
+
+{% schema %}
+  {
+    "name": "Latest Releases",
+    "tag": "section",
+    "class": "latest-releases",
+    "settings": [
+      {
+        "type": "text",
+        "id": "section_title",
+        "label": "Section Title"
+      }, {
+        "type": "page",
+        "id": "link_destination",
+        "label": "Link Destination"
+      }
+    ],
+    "blocks": [
+      {
+        "name": "Release",
+        "type": "text",
+        "settings": [
+          {
+            "type": "product_list",
+            "id": "release",
+            "label": "Product",
+            "limit": 1
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

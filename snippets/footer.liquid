@@ -1,0 +1,69 @@
+<div class="footer"> 
+    <div class="footer--wrapper">
+
+        <div class="left">
+        
+            <div class="logo">
+                <img src="{{ 'dais--full-logo.svg' | asset_url }}" width="100" height="100" loading="lazy" alt="Dais Records" />
+            </div>
+            <div class="links-one">
+                <ul>
+                    {% for link in linklists.footer-left.links %}
+                        <li>
+                            <a class="type-writer" href="{{ link.url }}">{{ link.title }}</a> 
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="links-two">
+                <ul>
+                    {% for link in linklists.footer-right.links %}
+                        <li>
+                            <a class="type-writer" href="{{ link.url }}">{{ link.title }}</a> 
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="right">
+
+            {% comment %} newsletter {% endcomment %}
+            <div clas="newsletter">
+                <div class="wrapper">
+
+                    <div class="top">
+                        <div class="title">
+                            <span>DAIS RECORDS<br />NEWSLETTER</span>
+                        </div>
+                        <div class="offer">
+                            <span>Get 10% off your next order</span>
+                        </div>
+                    </div>
+
+                    <div class="bottom">
+                        {% form 'customer' %}
+                            <div class="email">
+                                <label for="email">Email</label>
+                                <input type="email" name="contact[email]" />
+                            </div>
+                            
+                            <div class="submit">
+                                <input type="submit" value="Sign up" />
+                            </div>
+                        {% endform %}
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="attribution">
+        <span>COPYRIGHT © 2023, DAIS RECORDS</span>
+    </div>
+</div>
+

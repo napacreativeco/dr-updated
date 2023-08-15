@@ -1,0 +1,240 @@
+{% # theme-check-disable RemoteAsset %}
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if IE 9 ]><html class="ie9 no-js"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+  <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8" />
+    <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1' /><![endif]-->
+    <!--[if lt IE 9]>
+      <script src="{{ '//html5shiv.googlecode.com/svn/trunk/html5.js' }}"></script>
+    <![endif]-->
+
+    <title>
+      {{ page_title }}{% if current_tags %}
+        &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif %}
+      {% if current_page != 1 %}
+        &ndash; Page {{ current_page }}{% endif %}
+      {% unless page_title contains shop.name %}
+        &ndash; {{ shop.name }}{% endunless %}
+    </title>
+
+    {% if page_description %}
+      <meta name="description" content="{{ page_description | escape }}" />
+    {% endif %}
+
+    <link rel="canonical" href="{{ canonical_url }}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    {% render 'open-graph-tags' %}
+    {% render 'twitter-card' %}
+
+    {{ content_for_header }}
+
+    {{ 'index.css' | asset_url | stylesheet_tag }}
+    {{ 'typography.css' | asset_url | stylesheet_tag }}
+    {{ 'aos.css' | asset_url | stylesheet_tag }}
+
+
+
+    {% if template contains 'customers' %}
+      <script async src="{{ 'customer_area.js' | shopify_asset_url }}"></script>
+    {% endif %}
+    <script async src="{{ 'shopify_common.js' | asset_url }}"></script>
+    <script async src="{{ 'option_selection.js' | shopify_asset_url }}"></script>
+
+    <script src="{{ 'jquery.min.js' | asset_url }}" type="text/javascript"></script>
+
+    {% # theme-check-disable RemoteAsset %}
+    <script
+      async
+      src="https://kit.fontawesome.com/9b03c3187b.js"
+      crossorigin="anonymous"></script>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    {% # theme-check-enable RemoteAsset %}
+
+  </head>
+
+  <body id="{{ page_title | handle }}" class="{% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}">
+
+    {% render 'navbar' %}
+    {% render 'navbarmobile' %}
+
+    <main role="main"> 
+      {{ content_for_layout }}
+    </main>
+
+    {% # theme-check-disable RemoteAsset %}
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js" integrity="sha512-cOH8ndwGgPo+K7pTvMrqYbmI8u8k6Sho3js0gOqVWTmQMlLIi6TbqGWRTpf1ga8ci9H3iPsvDLr4X7xwhC/+DQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    {% # theme-check-enable RemoteAsset %}
+    <script src="{{ 'shop.js' | asset_url }}" async></script>
+    <script src="{{ 'index-min.js' | asset_url }}" async></script>
+    <script src="{{ 'aos.js' | asset_url }}"></script>
+    <script>
+      AOS.init({
+        // Global settings:
+        disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
+        startEvent: 'DOMContentLoaded', // name of the event dispatched on the document, that AOS should initialize on
+        initClassName: 'aos-init', // class applied after initialization
+        animatedClassName: 'aos-animate', // class applied on animation
+        useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
+        disableMutationObserver: false, // disables automatic mutations' detections (advanced)
+        debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
+        throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
+        // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
+        offset: 120, // offset (in px) from the original trigger point
+        delay: 0, // values from 0 to 3000, with step 50ms
+        duration: 400, // values from 0 to 3000, with step 50ms
+        easing: 'easeInOutQuint', // default easing for AOS animations
+        once: false, // whether animation should happen only once - while scrolling down
+        mirror: true, // whether elements should animate out while scrolling past them
+        anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
+      
+      });
+    </script>
+
+    <footer>
+      {% render 'footer' %}
+    </footer>
+
+    {% comment %} SWIPER {% endcomment %}
+    {% # theme-check-disable RemoteAsset %}
+      <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    {% # theme-check-enable RemoteAsset %}
+    <script>
+      (function($) {
+        const swiper = new Swiper('.hero-swiper', {
+          direction: 'horizontal',
+          loop: true,
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true
+          },
+          grabCursor: true,
+          on: {
+            init: function(e) {
+              $('.slider-index > .total').text(e.slides.length);
+            },
+            slideChange: function(e) {
+              $('.slider-index > .current').text((swiper.realIndex + 1));
+              $('.slider-index > .total').text(e.slides.length);
+            }
+          }
+        });
+
+        const galleryswiper = new Swiper('.gallery-swiper', {
+          direction: 'horizontal',
+          loop: true,
+          pagination: {
+            el: '.gallery-pagination',
+            clickable: true
+          },
+        });
+
+        const bandswiper = new Swiper('.bandcamp-swiper', {
+          direction: 'horizontal',
+          loop: true,
+          pagination: {
+            el: '.bandcamp-pagination',
+            clickable: true
+          },
+          navigation: {
+            nextEl: '.bandcamp-next',
+            prevEl: '.bandcamp-prev',
+          },
+        });
+
+      })(jQuery);
+    </script>
+
+    {% comment %} Show / Hide Navigation {% endcomment %}
+    <script>
+      var lastScrollTop;
+      navbar = document.getElementById('navbar');
+
+      window.addEventListener('scroll', function() {
+        var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (scrollTop > lastScrollTop) {
+          navbar.style.top = '-80px';
+        } else {
+          navbar.style.top = '0';
+        } lastScrollTop = scrollTop;
+      });
+    </script>
+
+
+    {% comment %} AJAX CART {% endcomment %}
+    {{ 'liquid-ajax-cart.js' | asset_url | script_tag }}
+  
+    <script type="application/json" data-ajax-cart-initial-state >
+      {{ cart | json }}
+    </script>
+  
+    {% comment %} Cart Drawer {% endcomment %}
+    <div class="cart-drawer">
+      {% section 'cart-drawer' %}
+    </div>
+  
+    {% comment %} Slideout on Add to Cart {% endcomment %}
+    <script type="module">
+      import { subscribeToCartSectionsUpdate } from '{{ "liquid-ajax-cart.js" | asset_url }}';
+  
+      subscribeToCartSectionsUpdate( sections => {
+        console.log('Sections are updated: ', sections);
+  
+      });
+    </script>
+  
+    <script type="application/json" data-ajax-cart-configuration>
+      {
+        "addToCartCssClass": "js-my-cart-open"
+      }
+    </script>
+  
+  
+    
+    <script type="module">
+      import { subscribeToCartAjaxRequests, subscribeToCartStateUpdate } from '{{ "liquid-ajax-cart.js" | asset_url }}';
+  
+      // Show a pop-up message after adding to cart
+      subscribeToCartAjaxRequests(( requestState, subscribeToResult ) => {
+        if ( requestState.requestType === 'add' ) {
+          subscribeToResult( requestState => {
+            if ( requestState.responseData?.ok ) {
+              let productName = requestState.responseData.body.title;
+              if ( requestState.responseData.body.items?.length === 1 ) {
+                productName = requestState.responseData.body.items[0].title;
+              }
+  
+              //cartSlideOut();
+  
+              console.log(`${ productName ? '«' + productName + '» is' : 'Products are' } successfully added`);
+            }
+          });
+        }
+      });
+    </script>
+
+    <script type="module">
+      import {bandcamp} from '../node_modules/bandcamp-scraper/lib/index';
+
+      $(document).ready(function() {
+        const artistUrl = 'http://musique.coeurdepirate.com'
+        bandcamp.getArtistInfo(artistUrl, function (error, artistInfo) {
+          if (error) {
+            console.log(error)
+          } else {
+            console.log(artistInfo)
+          }
+        })
+      })
+
+    </script>
+
+  </body>
+
+</html>

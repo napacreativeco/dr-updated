@@ -1,0 +1,11 @@
+{
+  "wrapper": "div#index_page.index-page",
+  "sections": {
+    "main": {
+      "type": "hero-slideshow"
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

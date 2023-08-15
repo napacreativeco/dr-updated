@@ -1,0 +1,52 @@
+{% comment %} 
+  Hero Slideshow
+  @ homepage
+{% endcomment %}
+
+<div id="hero-swiper" class="hero-swiper swiper">
+  <div class="swiper-wrapper">
+
+    <div class="swiper-product-container">
+      {% for block in section.blocks %}
+
+        <div class="swiper-slide">
+          <div class="image" style="background: url('{{ block.settings.image | image_url: width: 900 }}'); background-size: cover; background-position: center center;">&nbsp;</div>
+  
+  
+        </div>
+  
+      {% endfor %}
+    </div>
+
+    <div class="swiper-slide-container">
+      {% for block in section.blocks %}
+
+        <div class="swiper-slide">
+          <div class="image" style="background: url('{{ block.settings.image | image_url: width: 900 }}'); background-size: cover; background-position: center center;">&nbsp;</div>
+        </div>
+  
+      {% endfor %}
+    </div>
+
+
+
+  </div>
+
+</div>
+
+
+{% schema %}
+  {
+    "name": "Hero",
+    "tag": "section",
+    "class": "hero",
+    "settings": [],
+    "blocks": [
+      {
+        "type": "collection",
+        "id": "collection",
+        "label": "Collection"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,44 @@
+:root {
+    /* Colors */
+    --bright-white: #ffffff;
+    --white: #F9F9F9;
+    --white-dim: #efefef;
+    --grey: #8f8f8f;
+    --grey-dark: #242424;
+    --grey-light: #e7e7e7;
+    --grey-mid: #dfe1e5;
+    --red: #7D1128;
+    --black: #000000;
+
+    /* Borders */
+    --border-blk: 2px solid var(--black);
+    --border-wht: 2px solid var(--white);
+    --border-gry: 2px solid var(--grey-light);
+    
+    /* Spacing */
+    --side-padding: 5%;
+    --input-padding: 6px 12px;
+    --top-padding: 100px;
+
+    /* Type */
+    --section-title: 4.8rem;
+    --view-more-size: 2rem;
+    --sans-serif: 'Inter', sans-serif;
+    --type-writer: 'DM Mono', monospace;
+
+    /* Navigation */
+    --nav-font--desktop: 14px;
+    --nav-font--mobile: 24px;
+    --subnav-font--mobile: 20px;
+
+    /* Transitions */
+    --quick-transition: 0.32s ease-in-out;
+    --hover-transition: 0.6s ease-in-out;
+    --image-opacity-transition: 0.54s ease-in-out;
+}
+
+@media screen and (max-width: 767px) {
+    :root {
+        --side-padding: 10px;
+    }
+}

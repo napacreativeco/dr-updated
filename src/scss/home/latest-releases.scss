@@ -1,0 +1,120 @@
+section.latest-releases {
+
+    padding-top: 40px; 
+
+    /* Body */
+    .latest-releases--wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 12px;
+        padding: 0 var(--side-padding);
+        width: 100%;
+
+        .release {
+
+            .image {
+                overflow: hidden;
+                cursor: pointer;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    aspect-ratio: 1/1;
+                    transition: all 0.2s ease-in-out;
+                }
+
+                svg {
+                    width: 100%;
+                    height: 100%;
+                    border: 1px solid var(--black);
+                }
+            }
+            .image:hover img {
+                opacity: 0.8;
+            }
+
+            .info {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                gap: 6px;
+                width: 100%;
+                padding: 20px;
+            }
+
+            .left {
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                gap: 6px;
+            }
+
+            .artist h3 {
+                text-transform: uppercase;
+                padding-bottom: 0px;
+                font-size: 1.6rem;
+                color: var(--grey);
+            }
+
+            .title h4 {
+                text-transform: uppercase;
+                font-size: 1.6rem;
+            }
+
+            .price {
+                font-size: 1.6rem;
+            }
+
+            a:hover {
+                text-decoration: underline;
+            }
+
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+    section.latest-releases {
+
+        /* Header */
+        h2.title {
+            font-size: 2rem;
+        }
+
+        .latest-releases--wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 12px;
+            padding: 0 var(--side-padding);
+
+
+            .release {
+
+                .left {
+                    gap: 0px;
+                }
+
+                .artist {
+                    h3 {
+                        font-size: 1.7rem;
+                    }
+                }
+
+                .title {
+                    h4 {
+                        font-size: 1.4rem;
+                    }
+                }
+
+                .info {
+                    padding: 10px 0;
+                }
+            }
+
+            .price {
+                display: none;
+            }
+        }
+    }
+}

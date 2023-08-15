@@ -1,0 +1,56 @@
+{% comment %} 
+  Current Artists Page
+{% endcomment %}
+<div id="artists" class="current artist-archive">
+  <div class="page-wrapper">
+
+    {% comment %} Header {% endcomment %}
+    <header class="page-header" data-aos="fade-down">
+      <div class="header-wrapper">
+        {% render 'breadcrumbs' %}
+        <h1 class="title">{{ 'Artist Alumni' | escape }}</h1>
+      </div>
+    </header>
+
+    {% comment %} Artist Loop {% endcomment %}
+    <div class="artists" data-aos="fade-down" data-aos-delay="400">
+      {% for product in collections.all.products %}
+
+
+        {% case product.type %}
+            {% when 'vinyl' %}
+
+                    {% for collection in collections %}
+
+                        {% if collection.title == product.vendor %}
+
+                            {% case collection.metafields.custom.alumni_status %}
+                                {% when true %}
+
+                                    <div class="artist-card">
+                                        <div class="artist-card-wrapper">
+                                            <div onclick="window.location='{{ collection.url }}';" class="image" style="background: url('{{ collection.image | image_url: width: 900 }}'); background-size: cover; background-position: center center;">
+                                            </div>
+
+                                            <div class="artist">
+                                                <h3>
+                                                <a href="{{ collection.url }}" title="{{ collection.title }}">
+                                                    {{ collection.title }}
+                                                </a>
+                                                </h3>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                            {% endcase %}
+
+                        {% endif %}
+                    {% endfor %}
+
+        {% endcase %}
+
+      {% endfor %}
+    </div>
+
+  </div>
+</div>

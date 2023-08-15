@@ -1,0 +1,65 @@
+.product-card {
+    .product-card-wrapper {
+
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        .image {
+            cursor: pointer;
+            transition: var(--image-opacity-transition);
+            position: relative;
+
+            img {
+                max-width: 100%;
+            }
+
+            .view-more {
+                position: absolute;
+                bottom: 10px;
+                right: 10px;
+                background: var(--white);
+                padding: 6px;
+                border-radius: 4px;
+                opacity: 0;
+            }
+        }
+
+        .image:hover {
+            opacity: 0.8;
+
+            .view-more {
+                opacity: 1;
+            }
+        }
+
+        .data {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+
+            .artist {
+                h3 {
+                    font-size: 1.6rem;
+                }
+            }
+
+            .title {
+                h2 {
+                    font-size: 1.6rem;
+                    font-family: var(--sans-serif);
+                }
+            }
+
+            .price {
+                font-size: 1.4rem;
+                color: var(--black);
+            }
+
+            a:hover {
+                text-decoration: underline;
+            }
+        }
+
+    }
+}
