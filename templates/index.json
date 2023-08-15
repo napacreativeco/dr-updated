@@ -18,18 +18,45 @@
               "modern-mirror"
             ]
           }
+        },
+        "826a25a3-b987-49b3-8435-cd6fa2416b0a": {
+          "type": "text",
+          "settings": {
+            "product": [
+
+            ]
+          }
+        },
+        "e60c5aeb-044d-4b86-b48b-33d1a8506915": {
+          "type": "text",
+          "settings": {
+            "product": [
+
+            ]
+          }
         }
       },
       "block_order": [
         "38e29e2b-94b6-4290-9d97-1396256bdefb",
-        "f15d368f-f6d5-4b3c-a336-7081ed9bd943"
+        "f15d368f-f6d5-4b3c-a336-7081ed9bd943",
+        "826a25a3-b987-49b3-8435-cd6fa2416b0a",
+        "e60c5aeb-044d-4b86-b48b-33d1a8506915"
       ],
       "settings": {
         "show_hero": true
       }
+    },
+    "f68497a9-3f4f-435b-8c50-90b86a210988": {
+      "type": "merchandise",
+      "settings": {
+        "section_title": "Merchandise",
+        "choose_a_collection": false,
+        "merchandise_collection": "merch"
+      }
     }
   },
   "order": [
-    "hero-slideshow"
+    "hero-slideshow",
+    "f68497a9-3f4f-435b-8c50-90b86a210988"
   ]
 }
