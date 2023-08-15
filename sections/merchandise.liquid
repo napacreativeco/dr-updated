@@ -18,9 +18,9 @@
   <div class="merchandise--wrapper">
 
     {% if section.settings.choose_a_collection == false %}
-      {% for product in section.settings.merchandise_collection %}
+      {% for merch in section.settings.merchandise_collection %}
 
-        {% render 'product-card', prod: product %}
+        {% render 'product-card', prod: merch %}
 
       {% endfor %}
     {% endif %}
