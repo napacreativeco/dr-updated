@@ -1,6 +1,6 @@
 {
   "sections": {
-    "main": {
+    "hero-slideshow": {
       "type": "hero-slideshow",
       "settings": {
         "padding_top": 28,
@@ -9,6 +9,6 @@
     }
   },
   "order": [
-    "main"
+    "hero-slideshow"
   ]
 }
