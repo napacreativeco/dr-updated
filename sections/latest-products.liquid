@@ -14,8 +14,7 @@
 
   {% comment %} Products {% endcomment %}
   <div class="latest-products--wrapper">
-    {% for block in section.blocks %}
-      {% for item in block.settings.featured_product %}
+      {% for item in section.settings.latest_collection %}
         <div class="featured-product">
 
         {% comment %} Image {% endcomment %}
@@ -46,7 +45,6 @@
         </div>
 
       {% endfor %}
-    {% endfor %}
   </div>
 
 </div>
@@ -61,11 +59,13 @@
         "type": "text",
         "id": "section_title",
         "label": "Section Title"
-      }, {
-        "type": "page",
-        "id": "link_destination",
-        "label": "Link Destination"
-      },          
+      },
+      {
+        "type": "checkbox",
+        "id": "choose_a_collection",
+        "label": "Choose a collection",
+        "default": false
+      },
       {
         "type": "collection",
         "id": "latest_collection",
