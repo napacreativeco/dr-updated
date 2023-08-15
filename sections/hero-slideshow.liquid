@@ -36,38 +36,30 @@
 
 
 {% schema %}
-{
-  "name": "Hero",
-  "tag": "section",
-  "class": "hero-updated",
-  "limit": 1,
-  "settings": [
-    {
-      "type": "checkbox",
-      "id": "showhide",
-      "label": "Show / Hide"
-    },
-    {
-      "type": "collection",
-      "id": "collection",
-      "label": "Collection"
-    }
-  ],
-  "presets": [
-    {
-      "name": "Hero",
-      "settings": {
-        "default": true
+  {
+    "name": "Hero Slideshow",
+    "tag": "section",
+    "class": "hero-slideshow",
+    "settings": [
+      {
+        "type": "text",
+        "id": "section_title",
+        "label": "Section Title"
       }
-    }
-  ],
-  "locales": {
-    "en": {
-      "title": "Hero"
-    },
-    "fr": {
-      "title": "Héros"
-    }
+    ],
+    "blocks": [
+      {
+        "name": "Product",
+        "type": "text",
+        "settings": [
+          {
+            "type": "product_list",
+            "id": "product",
+            "label": "Product",
+            "limit": 1
+          }
+        ]
+      }
+    ]
   }
-}
 {% endschema %}
