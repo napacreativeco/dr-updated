@@ -2,9 +2,30 @@
   "sections": {
     "hero-slideshow": {
       "type": "hero-slideshow",
+      "blocks": {
+        "38e29e2b-94b6-4290-9d97-1396256bdefb": {
+          "type": "text",
+          "settings": {
+            "product": [
+              "bitter-reflection"
+            ]
+          }
+        },
+        "f15d368f-f6d5-4b3c-a336-7081ed9bd943": {
+          "type": "text",
+          "settings": {
+            "product": [
+              "modern-mirror"
+            ]
+          }
+        }
+      },
+      "block_order": [
+        "38e29e2b-94b6-4290-9d97-1396256bdefb",
+        "f15d368f-f6d5-4b3c-a336-7081ed9bd943"
+      ],
       "settings": {
-        "padding_top": 28,
-        "padding_bottom": 28
+        "show_hero": true
       }
     }
   },
