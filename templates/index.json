@@ -1,8 +1,11 @@
 {
-  "wrapper": "div#index_page.index-page",
   "sections": {
     "main": {
-      "type": "hero-slideshow"
+      "type": "hero-slideshow",
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
     }
   },
   "order": [
