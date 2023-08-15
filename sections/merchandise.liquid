@@ -20,7 +20,7 @@
     {% if section.settings.choose_a_collection == true %}
       {% for product in section.settings.merchandise_collection %}
 
-        {% render 'product-card', product: product %}
+        {% render 'product-card', prod: product %}
 
       {% endfor %}
     {% endif %}
