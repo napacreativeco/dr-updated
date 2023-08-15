@@ -1,4 +1,4 @@
-<section class="featured-products section">
+<div class="latest-products section">
 
   {% comment %} Header {% endcomment %}
   <header class="section--header">
@@ -13,7 +13,7 @@
   </header>
 
   {% comment %} Products {% endcomment %}
-  <div class="featured-products--wrapper">
+  <div class="latest-products--wrapper">
     {% for block in section.blocks %}
       {% for item in block.settings.featured_product %}
         <div class="featured-product">
@@ -49,13 +49,13 @@
     {% endfor %}
   </div>
 
-</section>
+</div>
 
 {% schema %}
   {
-    "name": "Featured Products",
+    "name": "Latest Products",
     "tag": "section",
-    "class": "featured-products",
+    "class": "latest-products",
     "settings": [
       {
         "type": "text",
@@ -65,21 +65,18 @@
         "type": "page",
         "id": "link_destination",
         "label": "Link Destination"
+      },          
+      {
+        "type": "collection",
+        "id": "latest_collection",
+        "label": "Featured Collection"
       }
     ],
-    "blocks": [
-      {
-        "name": "Product",
-        "type": "text",
-        "settings": [
-          {
-            "type": "product_list",
-            "id": "featured_product",
-            "label": "Featured Product",
-            "limit": 1
-          }
-        ]
-      }
-    ]
+    "presets": [{
+      "name": "Latest Products"
+    }],
+    "enabled_on": {
+      "templates": ["*"]
+    }
   }
 {% endschema %}
