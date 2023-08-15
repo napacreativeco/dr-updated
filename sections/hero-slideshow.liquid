@@ -36,16 +36,41 @@
 
 
 {% schema %}
-  {
-    "name": "Hero",
-    "tag": "section",
-    "class": "hero",
-    "settings": [],
-    "blocks": [
-      {
-        "type": "collection",
-        "name": "Collection"
-      }
-    ]
+{
+  "name": "Hero",
+  "tag": "section",
+  "class": "hero-updated",
+  "limit": 1,
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "showhide",
+      "label": "Show / Hide"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    }
+  ],
+  "max_blocks": 1,
+  "blocks": [],
+  "presets": [
+    {
+      "name": "Hero",
+      "settings": {
+        "default": true
+      },
+      "blocks": []
+    }
+  ],
+  "locales": {
+    "en": {
+      "title": "Hero"
+    },
+    "fr": {
+      "title": "Héros"
+    }
   }
+}
 {% endschema %}
