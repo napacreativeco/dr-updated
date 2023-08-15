@@ -17,7 +17,7 @@
 
   <div class="merchandise--wrapper">
 
-    {% if section.settings.choose_a_collection == true %}
+    {% if section.settings.choose_a_collection == false %}
       {% for product in section.settings.merchandise_collection %}
 
         {% render 'product-card', prod: product %}
