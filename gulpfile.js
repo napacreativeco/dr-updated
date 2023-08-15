@@ -38,10 +38,29 @@ function buildScripts() {
 
 exports.buildScripts = buildScripts;
 
+
+/* Components */
+function buildComponents() {
+  return gulp.src('./src/components/*.scss')
+    .pipe(sass().on('error', sass.logError))
+    .pipe(autoprefixer({
+      overrideBrowserslist: ["last 2 versions"]
+    }))
+    .pipe(cleanCSS({debug: true}, (details) => {
+      console.log(`${details.name}: ${details.stats.originalSize}`);
+      console.log(`${details.name}: ${details.stats.minifiedSize}`);
+    }))
+    .pipe(gulp.dest('./assets/'));
+};
+
+exports.buildComponents = buildComponents;
+
+
 function watch() {
+    gulp.watch('./src/components/*.scss', buildComponents);
     gulp.watch('./src/scss/**/*.scss', buildStyles);
     gulp.watch('./src/js/**/*.js', buildScripts);
 }
 exports.watch = watch;
 
-exports.default = series(buildStyles, buildScripts, watch);
+exports.default = series(buildStyles, buildScripts, buildComponents, watch);

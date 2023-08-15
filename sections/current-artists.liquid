@@ -1,6 +1,4 @@
-{% comment %} 
-  Current Artists - Section
-{% endcomment %}
+{{ 'component--current-artists.css' | asset_url | stylesheet_tag }}
 
 <section class="current-artists section" data-aos="fade-down" data-aos-delay="200">
 
@@ -77,7 +75,10 @@
         "id": "link_destination",
         "label": "Link Destination"
       }
-    ]
+    ],
+    "enabled_on": {
+      "templates": ["*"]
+    }
   }
 {% endschema %}
 

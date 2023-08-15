@@ -1,17 +1,87 @@
+{{ 'component--hero-slideshow.css' | asset_url | stylesheet_tag }}
+
 {% comment %} 
   Hero Slideshow
   @ homepage
 {% endcomment %}
-
 <div id="hero-swiper" class="hero-swiper swiper">
-  <div class="swiper-wrapper">
+  <div class="swiper-wrapper" style="min-height: 100vh; display: flex; align-items: center;">
 
-  
+    
+      {% for block in section.blocks %}
+        <div class="swiper-slide">
+
+          {% comment %}
+          Left
+          {% endcomment %}
+          <div class="left">
+            <div class="left-wrapper">
+              {% for prod in block.settings.product %}
+                <script>console.log({{ block.settings | json }})</script>
 
 
+                <div class="product-image">
+                  {% for image in prod.images %}
+                    {{ image | image_url: width: 300 | image_tag }}
+                  {% endfor %}
+                </div>
+
+                <div class="product-vendor">
+                  <h3>{{ prod.vendor }}</h3>
+                </div>
+
+                <div class="product-title">
+                  <h2>{{ prod.title }}</h2>
+                </div>
+
+                <div class="product-variants">
+                  <ul class="list">
+                      {% assign vinyl = '' %}
+                      {% assign cd = '' %}
+                      {% assign digi = '' %}
+                      {% for vari in prod.variants %}
+                          {% if vari.title contains "Vinyl" %}
+                            {% assign vinyl = vari.title | replace: vari.title, 'Vinyl ' | split: ' ' %}
+                        
+                          {% elsif vari.title contains "Compact Disc" or vari.title contains "CD" %}
+                            {% assign cd = vari.title | replace: vari.title, 'CD' | split: ' ' %}
+
+                          {% elsif vari.title contains "Digital" or vari.title contains "Digi" %}
+                            {% assign digi = vari.title | replace: vari.title, 'Digital' | split: ' ' %}
+
+                          {% endif %}
+                      {% endfor %}
+
+                      {% for v in vinyl limit: 1 %}
+                        <li class="item vinyl">{{ v | append: ',' }}</li>
+                      {% endfor %}
+                      {% for c in cd limit: 1 %}
+                        {% if digi != blank %}
+                          <li class="item cd">{{ c | append: ',' }}</li>
+                        {% else %}
+                        <li class="item cd">{{ c }}</li>
+                        {% endif %}
+                      {% endfor %}
+                      {% for d in digi limit: 1 %}
+                        <li class="item digital">{{ d }}</li>
+                      {% endfor %}
+                  </ul>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+
+          {% comment %}
+          Right
+          {% endcomment %}
+          <div class="right">
+            {% comment %} get collection image by product id {% endcomment %}
+          </div>
+
+        </div>
+      {% endfor %}
 
   </div>
-
 </div>
 
 
