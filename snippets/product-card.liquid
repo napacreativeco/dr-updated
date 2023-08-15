@@ -1,0 +1,44 @@
+<div class="product-item">
+
+{% comment %} 
+  Image
+{% endcomment %}
+<div class="image" onclick="window.location='{{ product.url }}';">
+  {% if product.featured_image %}
+    <img src="{{ product.featured_image | image_url: width: 900 }}" alt="{{ product.title }}" loading="lazy" />
+  {% else %}
+    {{ 'image' | placeholder_svg_tag }}
+  {% endif %}
+</div>
+
+{% comment %} 
+  Info
+{% endcomment %}
+<div class="info">
+
+  {% comment %} Left {% endcomment %}
+  <div class="left">
+    <div class="title type-writer">
+      <a href="{{ product.url }}" title="{{ product.vendor }} - {{ product.title }}">
+        <h4>{{ product.title }}</h4>
+      </a>
+    </div>
+    <div class="artist">
+      <a href="{{ product.url }}" title="{{ product.vendor }} - {{ product.title }}">
+        <h3>{{ product.vendor }}</h3>
+      </a>
+    </div>
+  </div>
+
+  {% comment %} Right {% endcomment %}
+  <div class="right">
+    <div class="price type-writer">
+      <a href="{{ product.url }}" title="{{ product.vendor }} - {{ product.title }}">
+        {{ product.price | money_without_trailing_zeros }}
+      </a>
+    </div>
+  </div>
+
+</div>
+
+</div>

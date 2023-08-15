@@ -1,9 +1,9 @@
-section.latest-releases {
+section.merchandise-section {
 
     padding-top: 40px; 
 
     /* Body */
-    .latest-releases--wrapper {
+    .merchandise--wrapper {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         grid-gap: 12px;
@@ -75,14 +75,14 @@ section.latest-releases {
 
 @media screen and (max-width: 768px) {
 
-    section.latest-releases {
+    section.merchandise-section {
 
         /* Header */
         h2.title {
             font-size: 2rem;
         }
 
-        .latest-releases--wrapper {
+        .merchandise--wrapper {
             display: grid;
             grid-template-columns: 1fr 1fr;
             grid-gap: 12px;

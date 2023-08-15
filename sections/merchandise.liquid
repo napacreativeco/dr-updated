@@ -1,0 +1,58 @@
+{{ 'component--merchandise.css' | asset_url | stylesheet_tag }}
+
+<div class="merchandise section">
+
+  <header class="section--header">
+    <div class="section--header-wrapper">
+      <h2 class="title" data-aos="fade-down">
+        {{ section.settings.section_title }}
+      </h2>
+      <a  class="view-more" 
+          data-aos="fade-in"
+          data-aos-delay="800"
+          href="/collections/releases">
+        {{ 'View more' | escape }}</a>
+    </div>
+  </header>
+
+  <div class="merchandise--wrapper">
+
+    {% if section.settings.choose_a_collection === true %}
+      {% for product in section.settings.merchandise_collection %}
+
+        {% render 'product-card', product: product %}
+
+      {% endfor %}
+    {% endif %}
+
+  </div>
+</div>
+
+
+{% schema %}
+  {
+    "name": "Merchandise",
+    "tag": "section",
+    "class": "merchandise-section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "section_title",
+        "label": "Section Title"
+      },
+      {
+        "type": "checkbox",
+        "id": "choose_a_collection",
+        "label": "Display default collection instead"
+      },
+      {
+        "type": "collection",
+        "id": "merchandise_collection",
+        "label": "Choose a collection"
+      }
+    ],
+    "presets": [{
+      "name": "Merchandise"
+    }]
+  }
+{% endschema %}
