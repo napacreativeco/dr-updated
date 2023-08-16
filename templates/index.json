@@ -63,11 +63,20 @@
         "merchandise_collection": "music",
         "merchandise_collection_rows": "two"
       }
+    },
+    "7538783d-8493-416c-b5c3-b2fd5534ca68": {
+      "type": "block-ad",
+      "settings": {
+        "section_subtitle": "",
+        "section_title": "",
+        "button_link": ""
+      }
     }
   },
   "order": [
     "hero-slideshow",
     "47457f88-b3ab-49ed-b6f1-444987656578",
-    "f68497a9-3f4f-435b-8c50-90b86a210988"
+    "f68497a9-3f4f-435b-8c50-90b86a210988",
+    "7538783d-8493-416c-b5c3-b2fd5534ca68"
   ]
 }
