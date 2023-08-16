@@ -1,10 +1,34 @@
+{{ 'component--block-ad.css' | asset_url | stylesheet_tag }}
+
 <div class="block-ad-wrap">
-    <div class="left">
+    
+        {% if section.settings.text_placement == 'left' %}
+            <div class="left text-side">
+                <a href="{{ section.settings.button_link }}">
+                    <span>{{ section.settings.section_subtitle }}</span>
+                </a>
+                <a href="{{ section.settings.button_link }}">
+                    <h3>{{ section.settings.section_title }}</h3>
+                </a>
+            </div>
 
-    </div>
-    <div class="right">
+            <div class="right image-side" style="background-image: url('{{ section.settings.section_image | image_url }}'); background-size: cover; background-position: center center;"></div>
+        {% else %}
 
-    </div>
+            <div class="right image-side" style="background-image: url('{{ section.settings.section_image | image_url }}'); background-size: cover; background-position: center center;"></div>
+            
+            <div class="left text-side">
+                <a href="{{ section.settings.button_link }}">
+                    <span>{{ section.settings.section_subtitle }}</span>
+                </a>
+                <a href="{{ section.settings.button_link }}">
+                    <h3>{{ section.settings.section_title }}</h3>
+                </a>
+            </div>
+
+        {% endif %}
+   
+
 </div>
 
 {% schema %}
