@@ -1,4 +1,11 @@
-this is the block ad
+<div class="block-ad-wrap">
+    <div class="left">
+
+    </div>
+    <div class="right">
+
+    </div>
+</div>
 
 {% schema %}
     {
@@ -25,7 +32,24 @@ this is the block ad
             "type": "image_picker",
             "id": "section_image",
             "label": "Image"
+        },
+        {
+            "type": "select",
+            "id": "text_placement",
+            "label": "Text placement",
+            "options": [
+                {
+                "value": "left",
+                "label": "Left"
+                },
+                {
+                "value": "right",
+                "label": "Right"
+                }
+            ],
+            "default": "left"
         }
+
       ],
       "presets": [{
         "name": "Block Ad"
