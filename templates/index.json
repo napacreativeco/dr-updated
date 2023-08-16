@@ -55,6 +55,13 @@
         "latest_collection_rows": "three"
       }
     },
+    "3e3c18a1-9a10-442b-8108-d3a92f3d305c": {
+      "type": "current-artists",
+      "settings": {
+        "section_title": "",
+        "link_destination": ""
+      }
+    },
     "f68497a9-3f4f-435b-8c50-90b86a210988": {
       "type": "merchandise",
       "settings": {
@@ -78,6 +85,7 @@
   "order": [
     "hero-slideshow",
     "47457f88-b3ab-49ed-b6f1-444987656578",
+    "3e3c18a1-9a10-442b-8108-d3a92f3d305c",
     "f68497a9-3f4f-435b-8c50-90b86a210988",
     "6e99a931-ff94-4fd9-961e-f84fb4cbc784"
   ]
