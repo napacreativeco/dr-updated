@@ -2,7 +2,7 @@
 
 {% render 'section-header', data: section.settings %}
 
-<div class="merchandise--wrapper">
+<div class="latest-products--wrapper">
   {% if section.settings.use_default_collection == false %}
 
     {% comment %}
@@ -10,16 +10,16 @@
     {% endcomment %}
     <ul class="product-list selected-collection">
 
-      {% if section.settings.latest_collection_rows == 'two' %}
-        {% for prod in collections[section.settings.latest_collection].products limit: 8 %}
-          {% render 'product-card', prod: prod %}
-        {% endfor %}
-      {% elsif section.settings.latest_collection_rows == 'three' %}
+      {% if section.settings.latest_collection_rows == 'three' %}
         {% for prod in collections[section.settings.latest_collection].products limit: 12 %}
           {% render 'product-card', prod: prod %}
         {% endfor %}
+      {% elsif section.settings.latest_collection_rows == 'four' %}
+        {% for prod in collections[section.settings.latest_collection].products limit: 16 %}
+          {% render 'product-card', prod: prod %}
+        {% endfor %}
       {% else %}
-        {% for prod in collections[section.settings.latest_collection].products limit: 4 %}
+        {% for prod in collections[section.settings.latest_collection].products limit: 8 %}
           {% render 'product-card', prod: prod %}
         {% endfor %}
       {% endif %}
@@ -31,16 +31,16 @@
     Default Collection
     {% endcomment %}
     <ul class="product-list default-collection">
-      {% if section.settings.latest_collection_rows == 'two' %}
-        {% for prod in collections.products limit: 8 %}
+      {% if section.settings.latest_collection_rows == 'three' %}
+        {% for prod in collections.all.products limit: 12 %}
           {% render 'product-card', prod: prod %}
         {% endfor %}
-      {% elsif section.settings.latest_collection_rows == 'three' %}
-        {% for prod in collections.products limit: 12 %}
+      {% elsif section.settings.latest_collection_rows == 'four' %}
+        {% for prod in collections.all.products limit: 16 %}
           {% render 'product-card', prod: prod %}
         {% endfor %}
       {% else %}
-        {% for prod in collections.products limit: 1 %}
+        {% for prod in collections.all.products limit: 8 %}
           {% render 'product-card', prod: prod %}
         {% endfor %}
       {% endif %}
@@ -54,7 +54,7 @@
   {
     "name": "Latest Products",
     "tag": "section",
-    "class": "latest-products",
+    "class": "latest-products-section section",
     "settings": [
       {
         "type": "text",
@@ -78,15 +78,15 @@
         "options": [
           {
             "value": "two",
-            "label": "One (8 products)"
+            "label": "Two (8 products)"
           },
           {
             "value": "three",
-            "label": "Two (12 products)"
+            "label": "Three (12 products)"
           },
           {
             "value": "four",
-            "label": "Three (16 products)"
+            "label": "Four (16 products)"
           }
         ],
         "default": "two"

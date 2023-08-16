@@ -46,8 +46,8 @@
                                     {% if has_sub_menu %}
 
                                         {% for l in linklists[child_list_handle].links %}
-                                            <li class="{% if l.active %} active{% endif %}">
-                                                <a href="{{ l.url }}">{{ l.title }}</a>
+                                            <li class="{% if l.active %} active{% endif %}" onclick="window.location='{{ l.url }}';">
+                                                {{ l.title }}
                                             </li>
                                         {% endfor %}
 

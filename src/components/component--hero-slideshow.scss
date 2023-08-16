@@ -7,96 +7,87 @@
         position: relative;
         display: grid;
         grid-template-columns: auto 1fr;
+        align-items: stretch;
+        border-bottom: var(--border-blk);
         
-        .image {
-            width: 100%;
-            height: 100svh;
+        .left {
+            border-right: var(--border-blk);
+            display: flex;
+            align-items: center;
+
+            .left-wrapper {
+                padding: 0 30px;
+                display: flex;
+                align-items: center;
+                height: 100%;
+
+                .hero-product {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                }
+                
+                .product-image {
+                    max-width: 280px;
+                    img {
+                        height: auto;
+                        max-width: 100%;
+                    }
+                }
+
+                .product-vendor {
+                    font-size: var(--30px);
+                }
+
+                .product-title {
+                    font-size: var(--18px);
+                    font-family: var(--type-writer);
+                    color: var(--grey);
+                }
+
+                .product-variants {
+                    font-size: var(--18px);
+                    font-family: var(--type-writer);
+                    text-transform: uppercase;
+                    color: var(--grey);
+
+                    ul {
+                        list-style: none;
+                        margin: 0;
+                        padding: 0;
+                        display: flex;
+                        flex-direction: row;
+                        align-items: flex-start;
+                        justify-content: flex-start;
+                        gap: 4px;
+                    }
+                }
+
+                .actions {
+                    padding-top: 14px;
+                    
+                    a {
+                        display: inline-block;
+                        text-transform: uppercase;
+                        font-size: var(--22px);
+                        background: #D9D9D9;
+                        padding: 10px 20px;
+                    }
+                }
+
+            }
+
         }
-    }
 
-    .slide-box {
-        display: flex;
-        width: 50vw;
-        max-width: 700px;
-        min-height: 40%;
-        padding: 40px;
-        background: var(--black);
-        color: var(--white);
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        cursor: default;
-    }
-
-
-    .slide-box--wrapper {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: center;
-    }
-
-    /* Preorder */
-    .preorder-status {
-
-        position: absolute;
-        top: 40px;
-        left: 40px;
-
-        .text {
-            text-transform: uppercase;
-            position: relative;
-            padding-left: 24px;
-            font-size: 1.7rem;
+        .right {
+            .image {
+                width: 100%;
+                height: 100svh;
+            }
         }
 
-        .text::before {
-            content: '';
-            position: absolute;
-            left: 0px;
-            width: 12px;
-            height: 12px;
-            background: var(--red);
-            border-radius: 50%;
-            transition: all 0.2s;
-            -webkit-animation: preorder-flash 0.8s infinite;
-                    animation: preorder-flash 0.8s infinite;
-        }
 
-    }
 
-    /* Title */
-    h2.hero-slide--title {
-        font-weight: 400;
-        font-size: 26px;
-        margin-bottom: 18px;
-    }
-
-    /* Sub-Title */
-    h3.hero-slide--subtitle {
-        font-weight: 100;
-        color: var(--grey-light);
-        font-size: 18px;
-    }
-        
-
-    /* View More */
-    .view-more {
-        position: absolute;
-        bottom: 40px;
-        right: 40px;
-        cursor: pointer;
-        z-index: 4;
-        font-size: 2.2rem;
-    }
-
-    /* Counter */
-    .slider-index {
-        position: absolute;
-        top: 40px;
-        right: 40px;
-        font-family: var(--type-writer);
-        font-size: 10px;
     }
 
 }

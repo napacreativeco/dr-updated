@@ -40,7 +40,7 @@
           {% render 'product-card', prod: prod %}
         {% endfor %}
       {% else %}
-        {% for prod in collections.merch.products limit: 1 %}
+        {% for prod in collections.merch.products limit: 4 %}
           {% render 'product-card', prod: prod %}
         {% endfor %}
       {% endif %}
@@ -48,8 +48,6 @@
 
   {% endif %}
 </div>
-
-<script>console.log({{ section.settings.merchandise_collection_rows }})</script>
 
 {% schema %}
   {

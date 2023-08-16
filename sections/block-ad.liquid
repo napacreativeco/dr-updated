@@ -1,0 +1,34 @@
+this is the block ad
+
+{% schema %}
+    {
+      "name": "Block Ad",
+      "tag": "section",
+      "class": "block-ad-section section",
+      "settings": [
+        {
+          "type": "text",
+          "id": "section_subtitle",
+          "label": "Subtitle"
+        },
+        {
+          "type": "textarea",
+          "id": "section_title",
+          "label": "Title"
+        },
+        {
+            "type": "url",
+            "id": "button_link",
+            "label": "Button link"
+        },
+        {
+            "type": "image_picker",
+            "id": "section_image",
+            "label": "Image"
+        }
+      ],
+      "presets": [{
+        "name": "Block Ad"
+      }]
+    }
+  {% endschema %}

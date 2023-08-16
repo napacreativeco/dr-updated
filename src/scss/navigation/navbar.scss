@@ -11,30 +11,28 @@
     z-index: 9;
     background: var(--white);
     transition: all 0.3s;
+    border-bottom: var(--border-blk);
 
     .navbar--row {
         display: grid;
         grid-template-columns: 3fr 6fr 3fr;
         align-items: center;
-        padding: 14px 2% 2px 2%;
+        padding: 3px 10px;
         position: relative;
     }
 
     // Left Logo
     #logo {
-
         padding: 4px 0;
 
         img {
             width: 100%;
             max-width: 40px;
         }
-
     }
 
     // Links
     .links {
-
         flex-grow: 1;
         height: 100%;
 
@@ -45,7 +43,7 @@
         nav > ul {
             display: flex;
             flex-direction: row;
-            justify-content: space-around;
+            justify-content: center;
             align-items: center;
             height: 100%;
 
@@ -53,7 +51,21 @@
                 height: 100%;
                 display: flex;
                 align-items: center;
-                padding: 4px 14px;
+                padding: 3px 8px;
+                cursor: pointer;
+                
+                a {
+                    font-size: var(--20px);
+                    display: flex;
+                    flex-direction: row;
+                    gap: 6px;
+                }
+
+                .more {
+                    color: var(--red);
+                    display: inline;
+                }
+
             }
 
             li:hover {
@@ -63,22 +75,15 @@
                 .more {
                     transition: var(--quick-transition);
                     transform: rotate(90deg);
+                    color: var(--white);
                 }
             }
 
-            a {
-                font-size: 1.9rem;
-                display: flex;
-                flex-direction: row;
-                gap: 6px;
-            }
+
 
         }
 
-        .more {
-            color: var(--red);
-            display: inline;
-        }
+  
 
     }
 
@@ -87,9 +92,9 @@
         display: flex;
         justify-content: flex-end;
         align-items: center;
-        gap: 40px;
+        gap: 10px;
         cursor: pointer;
-        font-size: 1.9rem;
+        font-size: var(--20px);
     }
 
     .cart:hover {
@@ -129,8 +134,11 @@
         color: var(--white);
         z-index: 9;
         border-bottom: 1px solid var(--white);
+
         li {
             border-left: 1px solid var(--white);
+            padding: 3px 8px;
+            cursor: pointer;
         }
 
         li:last-of-type {
@@ -143,9 +151,6 @@
         }
     }
 
-    .submenu a:hover {
-        text-decoration: underline;
-    }
 }
 
 .navbar-mobile { display: none; }

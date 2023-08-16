@@ -1,88 +1,17 @@
-section.latest-products {
-
+.latest-products-section {
     padding-top: 40px; 
 
-    /* Header */
-    header.latest-products--header {
-
-        padding: 60px var(--side-padding) 40px var(--side-padding);
-
-        .latest-products--header-wrapper {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-
-            h2.title {
-                display: inline-block;
-                font-size: 34px;
-                text-transform: uppercase;
-                padding-bottom: 4px;
-                border-bottom: 2px solid var(--black);
-            }
-
-        }
-
-    }
-
-    /* Products */
     .latest-products--wrapper {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-gap: 12px;
         padding: 0 var(--side-padding);
         width: 100%;
         
-
-        .featured-product {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            background: var(--grey-light);
-            border-radius: 3px;
-            overflow: hidden;
-
-            .image {
-                overflow: hidden;
-                img {
-                    width: 100%;
-                    max-width: 250px;
-                    height: auto;
-                    transition: all 0.34s ease-in-out;
-                }
-
-                svg {
-                    width: 100%;
-                    height: 100%;
-                    border: 1px solid var(--black);
-                }
-
-
-            }
-
-            .image:hover img {
-                opacity: 0.6;
-            }
-
-            .info {
-                display: flex;
-                justify-content: center;
-                flex-direction: column;
-                gap: 10px;
-                height: 100%;
-                background: var(--bright-white);
-                padding: 24px 18px;
-                width: 100%;
-            }
-
-            .title h5 {
-                font-size: 1.8rem;
-            }
-
-            .artist h6 {
-                font-size: 1.4rem;
-                color: var(--grey);
-            }
-
+        ul.product-list {
+            list-style: none;
+            margin: 0px;
+            padding: 0px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-gap: 10px;
         }
 
     }
@@ -93,24 +22,11 @@ section.latest-products {
 
     section.latest-products {
 
-        /* Header */
-        header.latest-products--header {
-            padding: 60px 20px 20px 20px;
-            .featured-products--header-wrapper {}
-            h2.title {}
-            a.view-more {}
-
-        }
-
-        /* Products */
         .latest-products--wrapper {
-            padding: 0px var(--side-padding) 20px var(--side-padding);
-            grid-template-columns: 1fr;
-            .featured-product {
-                display: grid;
-                grid-template-columns: 2fr 3fr;
+
+            ul.product-list {
+                grid-template-columns: 1fr 1fr;
             }
-            .info {}
         }
     }
 }
