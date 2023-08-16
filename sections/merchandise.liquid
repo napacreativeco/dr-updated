@@ -27,7 +27,7 @@
     {% elsif section.settings.use_default_collection == true %}
       <ul class="product-list default-collection">
         {% for prod in collections.merch.products %}
-          {{ prod.title }}
+          {% render 'product-card', prod: prod %}
         {% endfor %}
       </ul>
     {% endif %}
