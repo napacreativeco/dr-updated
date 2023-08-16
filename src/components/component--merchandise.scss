@@ -1,47 +1,20 @@
 section.merchandise-section {
-
     padding-top: 40px; 
 
     /* Body */
     .merchandise--wrapper {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-gap: 12px;
         padding: 0 var(--side-padding);
         width: 100%;
 
-        .product-card {
-
-            .info {
-                gap: 6px;
-                padding: 20px;
-            }
-
-            .left {
-                gap: 6px;
-            }
-
-            .artist h3 {
-                text-transform: uppercase;
-                padding-bottom: 0px;
-                font-size: 1.6rem;
-                color: var(--grey);
-            }
-
-            .title h4 {
-                text-transform: uppercase;
-                font-size: 1.6rem;
-            }
-
-            .price {
-                font-size: 1.6rem;
-            }
-
-            a:hover {
-                text-decoration: underline;
-            }
-
+        ul.product-list {
+            list-style: none;
+            margin: 0px;
+            padding: 0px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-gap: 10px;
         }
+
     }
 }
 

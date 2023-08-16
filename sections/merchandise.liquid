@@ -1,40 +1,53 @@
 {{ 'component--merchandise.css' | asset_url | stylesheet_tag }}
 
+{% render 'section-header', data: section.settings %}
 
+<div class="merchandise--wrapper">
+  {% if section.settings.use_default_collection == false %}
 
-  <header class="section--header">
-    <div class="section--header-wrapper">
-      <h2 class="title" data-aos="fade-down">
-        {{ section.settings.section_title }}
-      </h2>
-      <a  class="view-more" 
-          data-aos="fade-in"
-          data-aos-delay="800"
-          href="/collections/releases">
-        {{ 'View more' | escape }}</a>
-    </div>
-  </header>
+    {% comment %}
+    Selected Collection
+    {% endcomment %}
+    <ul class="product-list selected-collection">
 
-  <div class="merchandise--wrapper">
-    
-  
-    {% if section.settings.use_default_collection == false %}
-      <ul class="product-list selected-collection">
-        {% for prod in collections[section.settings.merchandise_collection].products %}
+      {% if section.settings.merchandise_collection_rows == 'Two' %}
+        {% for prod in collections[section.settings.merchandise_collection].products limit: 8 %}
           {% render 'product-card', prod: prod %}
         {% endfor %}
-      </ul>
-    {% elsif section.settings.use_default_collection == true %}
-      <ul class="product-list default-collection">
-        {% for prod in collections.merch.products %}
+      {% elsif section.settings.merchandise_collection_rows == 'Three' %}
+        {% for prod in collections[section.settings.merchandise_collection].products limit: 12 %}
           {% render 'product-card', prod: prod %}
         {% endfor %}
-      </ul>
-    {% endif %}
-  </div>
-  </ul>
+      {% else %}
+        {% for prod in collections[section.settings.merchandise_collection].products limit: 4 %}
+          {% render 'product-card', prod: prod %}
+        {% endfor %}
+      {% endif %}
+    </ul>
 
+  {% elsif section.settings.use_default_collection == true %}
 
+    {% comment %}
+    Default Collection
+    {% endcomment %}
+    <ul class="product-list default-collection">
+      {% if section.settings.merchandise_collection_rows == 'Two' %}
+        {% for prod in collections.merch.products limit: 8 %}
+          {% render 'product-card', prod: prod %}
+        {% endfor %}
+      {% elsif section.settings.merchandise_collection_rows == 'Three' %}
+        {% for prod in collections.merch.products limit: 12 %}
+          {% render 'product-card', prod: prod %}
+        {% endfor %}
+      {% else %}
+        {% for prod in collections.merch.products limit: 1 %}
+          {% render 'product-card', prod: prod %}
+        {% endfor %}
+      {% endif %}
+    </ul>
+
+  {% endif %}
+</div>
 
 {% schema %}
   {
@@ -56,6 +69,26 @@
         "type": "collection",
         "id": "merchandise_collection",
         "label": "Choose a collection"
+      },
+      {
+        "type": "select",
+        "id": "merchandise_collection_rows",
+        "label": "Number of rows to display",
+        "options": [
+          {
+            "value": "one",
+            "label": "One (4 products)"
+          },
+          {
+            "value": "two",
+            "label": "Two (8 products)"
+          },
+          {
+            "value": "three",
+            "label": "Three (12 products)"
+          }
+        ],
+        "default": "one"
       }
     ],
     "presets": [{

@@ -3,7 +3,7 @@ section.section {
     /* Header */
     header.section--header {
 
-        padding: 60px var(--side-padding) 40px var(--side-padding);
+        padding: 60px var(--side-padding) 30px var(--side-padding);
 
         .section--header-wrapper {
             display: flex;
@@ -14,15 +14,16 @@ section.section {
 
         h2.title {
             display: inline-block;
-            font-size: 4rem;
-            letter-spacing: -0.2rem;
+            font-size: var(--32px);
+            letter-spacing: -7%;
+            line-height: 0.1;
             text-transform: uppercase;
-            padding-bottom: 4px;
-            border-bottom: 2px solid var(--black);
+            padding-bottom: 18px;
+            border-bottom: var(--border-blk);
         }
 
         a.view-more {
-            font-size: var(--view-more-size);
+            font-size: var(--18px);
             text-transform: uppercase;
         }
         a.view-more:hover {

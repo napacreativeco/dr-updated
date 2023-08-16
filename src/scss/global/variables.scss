@@ -14,17 +14,33 @@
     --border-blk: 2px solid var(--black);
     --border-wht: 2px solid var(--white);
     --border-gry: 2px solid var(--grey-light);
+
+    --border-blk-thin: 1px solid var(--black);
     
     /* Spacing */
-    --side-padding: 5%;
+    --side-padding: 3%;
     --input-padding: 6px 12px;
     --top-padding: 100px;
 
     /* Type */
     --section-title: 4.8rem;
     --view-more-size: 2rem;
-    --sans-serif: 'Inter', sans-serif;
+   // --sans-serif: 'Inter', sans-serif;
+   --sans-serif: Arial, sans-serif;
     --type-writer: 'DM Mono', monospace;
+
+    /* Font Units */
+    --36px: 2.571rem;
+    --32px: 2.286rem;
+    --30px: 2.143rem;
+    --28px: 2rem;
+    --24px: 1.714rem;
+    --22px: 1.571rem;
+    --18px: 1.286rem;
+    --16px: 1.143rem;
+    --14px: 1rem;
+    --12px: 0.857rem;
+    --10px: 0.714rem;
 
     /* Navigation */
     --nav-font--desktop: 14px;

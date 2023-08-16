@@ -3,12 +3,14 @@
     .image {
         overflow: hidden;
         cursor: pointer;
+        border: var(--border-blk-thin);
 
         img {
             width: 100%;
             height: 100%;
             aspect-ratio: 1/1;
             transition: all 0.2s ease-in-out;
+            display: block;
         }
 
         svg {
@@ -25,6 +27,7 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        gap: 10px;
         width: 100%;
     }
 
@@ -32,22 +35,31 @@
         display: flex;
         justify-content: center;
         flex-direction: column;
+        gap: 4px;
+        padding-top: 4px;
+
+        .artist h3 {
+            text-transform: uppercase;
+            font-size: var(--22px);
+            color: var(--black);
+            font-family: var(--sans-serif);
+            letter-spacing: -2%;
+        }
+    
+        .title h4 {
+            text-transform: uppercase;
+            font-size: var(--18px);
+            font-family: var(--type-writer);
+            color: var(--grey);
+        }
     }
 
-    .artist h3 {
-        text-transform: uppercase;
-        padding-bottom: 0px;
-        // font-size: 1.6rem;
-        color: var(--grey);
-    }
 
-    .title h4 {
-        text-transform: uppercase;
-        // font-size: 1.6rem;
-    }
 
     .price {
-        // font-size: 1.6rem;
+        padding-top: 4px;
+        font-size: var(--18px);
+        color: var(--grey);
     }
 
     a:hover {
