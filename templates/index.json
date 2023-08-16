@@ -50,8 +50,9 @@
       "type": "merchandise",
       "settings": {
         "section_title": "Merchandise",
-        "choose_a_collection": true,
-        "merchandise_collection": "music"
+        "use_default_collection": false,
+        "merchandise_collection": "music",
+        "merchandise_collection_rows": "two"
       }
     }
   },
