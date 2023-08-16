@@ -50,8 +50,8 @@
       "type": "latest-products",
       "settings": {
         "section_title": "Latest",
-        "use_default_collection": false,
-        "latest_collection": "",
+        "use_default_collection": true,
+        "latest_collection": "merch",
         "latest_collection_rows": "three"
       }
     },
