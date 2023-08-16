@@ -64,12 +64,14 @@
         "merchandise_collection_rows": "two"
       }
     },
-    "7538783d-8493-416c-b5c3-b2fd5534ca68": {
+    "6e99a931-ff94-4fd9-961e-f84fb4cbc784": {
       "type": "block-ad",
       "settings": {
-        "section_subtitle": "",
-        "section_title": "",
-        "button_link": ""
+        "section_subtitle": "Collaborations",
+        "section_title": "Dais Records teams up with clothing brand Pleasures for limited release",
+        "button_link": "shopify:\/\/collections\/collaboration",
+        "section_image": "shopify:\/\/shop_images\/hero.png",
+        "text_placement": "left"
       }
     }
   },
@@ -77,6 +79,6 @@
     "hero-slideshow",
     "47457f88-b3ab-49ed-b6f1-444987656578",
     "f68497a9-3f4f-435b-8c50-90b86a210988",
-    "7538783d-8493-416c-b5c3-b2fd5534ca68"
+    "6e99a931-ff94-4fd9-961e-f84fb4cbc784"
   ]
 }
