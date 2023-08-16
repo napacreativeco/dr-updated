@@ -1,53 +1,54 @@
-<div class="latest-products section">
+{{ 'component--latest-products.css' | asset_url | stylesheet_tag }}
 
-  {% comment %} Header {% endcomment %}
-  <header class="section--header">
-    <div class="section--header-wrapper">
-      <h2 class="title" data-aos="fade-down">
-        {{ section.settings.section_title }}
-      </h2>
-      <a class="view-more" data-aos="fade-in" data-aos-delay="800" href="/collections/featured">
-        View more
-      </a>
-    </div>
-  </header>
+{% render 'section-header', data: section.settings %}
 
-  {% comment %} Products {% endcomment %}
-  <div class="latest-products--wrapper">
-      {% for item in section.settings.latest_collection %}
-        <div class="featured-product">
+<div class="merchandise--wrapper">
+  {% if section.settings.use_default_collection == false %}
 
-        {% comment %} Image {% endcomment %}
-          <div class="image">
-            <a href="{{ item.url }}" title="{{ item.title }}">
-              {% if item.featured_image != blank %}
-                <img src="{{ item.featured_image | image_url: width: 500 }}" alt="{{ item.title }}" loading="lazy" />
-              {% else %}
-                {{ 'image' | placeholder_svg_tag }}
-              {% endif %}
-            </a>
-          </div>
+    {% comment %}
+    Selected Collection
+    {% endcomment %}
+    <ul class="product-list selected-collection">
 
-          {% comment %} Info {% endcomment %}
-          <div class="info">
-            <div class="title">
-              <a href="{{ item.url }}" title="{{ item.title }}">
-                <h5>{{ item.title }}</h5>
-              </a>
-            </div>
-            <div class="artist type-writer">
-              <a href="{{ item.url }}" title="{{ item.title }}">
-                <h6>{{ item.vendor }}</h6>
-              </a>
-            </div>
-          </div>
+      {% if section.settings.latest_collection_rows == 'two' %}
+        {% for prod in collections[section.settings.latest_collection].products limit: 8 %}
+          {% render 'product-card', prod: prod %}
+        {% endfor %}
+      {% elsif section.settings.latest_collection_rows == 'three' %}
+        {% for prod in collections[section.settings.latest_collection].products limit: 12 %}
+          {% render 'product-card', prod: prod %}
+        {% endfor %}
+      {% else %}
+        {% for prod in collections[section.settings.latest_collection].products limit: 4 %}
+          {% render 'product-card', prod: prod %}
+        {% endfor %}
+      {% endif %}
+    </ul>
 
-        </div>
+  {% elsif section.settings.use_default_collection == true %}
 
-      {% endfor %}
-  </div>
+    {% comment %}
+    Default Collection
+    {% endcomment %}
+    <ul class="product-list default-collection">
+      {% if section.settings.latest_collection_rows == 'two' %}
+        {% for prod in collections.products limit: 8 %}
+          {% render 'product-card', prod: prod %}
+        {% endfor %}
+      {% elsif section.settings.latest_collection_rows == 'three' %}
+        {% for prod in collections.products limit: 12 %}
+          {% render 'product-card', prod: prod %}
+        {% endfor %}
+      {% else %}
+        {% for prod in collections.products limit: 1 %}
+          {% render 'product-card', prod: prod %}
+        {% endfor %}
+      {% endif %}
+    </ul>
 
+  {% endif %}
 </div>
+
 
 {% schema %}
   {
@@ -62,13 +63,33 @@
       },
       {
         "type": "checkbox",
-        "id": "choose_a_collection",
+        "id": "use_default_collection",
         "label": "Display default collection instead"
       },
       {
         "type": "collection",
         "id": "latest_collection",
         "label": "Choose a collection"
+      },
+      {
+        "type": "select",
+        "id": "latest_collection_rows",
+        "label": "Number of rows to display",
+        "options": [
+          {
+            "value": "two",
+            "label": "One (8 products)"
+          },
+          {
+            "value": "three",
+            "label": "Two (12 products)"
+          },
+          {
+            "value": "four",
+            "label": "Three (16 products)"
+          }
+        ],
+        "default": "two"
       }
     ],
     "presets": [{

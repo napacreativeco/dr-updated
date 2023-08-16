@@ -10,11 +10,11 @@
     {% endcomment %}
     <ul class="product-list selected-collection">
 
-      {% if section.settings.merchandise_collection_rows == 'Two' %}
+      {% if section.settings.merchandise_collection_rows == 'two' %}
         {% for prod in collections[section.settings.merchandise_collection].products limit: 8 %}
           {% render 'product-card', prod: prod %}
         {% endfor %}
-      {% elsif section.settings.merchandise_collection_rows == 'Three' %}
+      {% elsif section.settings.merchandise_collection_rows == 'three' %}
         {% for prod in collections[section.settings.merchandise_collection].products limit: 12 %}
           {% render 'product-card', prod: prod %}
         {% endfor %}
@@ -31,11 +31,11 @@
     Default Collection
     {% endcomment %}
     <ul class="product-list default-collection">
-      {% if section.settings.merchandise_collection_rows == 'Two' %}
+      {% if section.settings.merchandise_collection_rows == 'two' %}
         {% for prod in collections.merch.products limit: 8 %}
           {% render 'product-card', prod: prod %}
         {% endfor %}
-      {% elsif section.settings.merchandise_collection_rows == 'Three' %}
+      {% elsif section.settings.merchandise_collection_rows == 'three' %}
         {% for prod in collections.merch.products limit: 12 %}
           {% render 'product-card', prod: prod %}
         {% endfor %}
@@ -48,6 +48,8 @@
 
   {% endif %}
 </div>
+
+<script>console.log({{ section.settings.merchandise_collection_rows }})</script>
 
 {% schema %}
   {
