@@ -1,6 +1,6 @@
 {{ 'component--merchandise.css' | asset_url | stylesheet_tag }}
 
-<div class="merchandise section">
+
 
   <header class="section--header">
     <div class="section--header-wrapper">
@@ -16,24 +16,31 @@
   </header>
 
   <div class="merchandise--wrapper">
-
-    {% if section.settings.choose_a_collection == false %}
-      {% for merch in section.settings.merchandise_collection %}
-
-        {% render 'product-card', prod: merch %}
-
-      {% endfor %}
+    
+  
+    {% if section.settings.use_default_collection == false %}
+      <ul class="product-list selected-collection">
+        {% for prod in collections[section.settings.merchandise_collection].products %}
+          {% render 'product-card', prod: prod %}
+        {% endfor %}
+      </ul>
+    {% elsif section.settings.use_default_collection == true %}
+      <ul class="product-list default-collection">
+        {% for prod in collections.merch.products %}
+          {{ prod.title }}
+        {% endfor %}
+      </ul>
     {% endif %}
-
   </div>
-</div>
+  </ul>
+
 
 
 {% schema %}
   {
     "name": "Merchandise",
     "tag": "section",
-    "class": "merchandise-section",
+    "class": "merchandise-section section",
     "settings": [
       {
         "type": "text",
@@ -42,7 +49,7 @@
       },
       {
         "type": "checkbox",
-        "id": "choose_a_collection",
+        "id": "use_default_collection",
         "label": "Display default collection instead"
       },
       {

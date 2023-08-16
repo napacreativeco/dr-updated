@@ -1,0 +1,57 @@
+.product-card {
+
+    .image {
+        overflow: hidden;
+        cursor: pointer;
+
+        img {
+            width: 100%;
+            height: 100%;
+            aspect-ratio: 1/1;
+            transition: all 0.2s ease-in-out;
+        }
+
+        svg {
+            width: 100%;
+            height: 100%;
+            border: 1px solid var(--black);
+        }
+    }
+    .image:hover img {
+        opacity: 0.8;
+    }
+
+    .info {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .left {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .artist h3 {
+        text-transform: uppercase;
+        padding-bottom: 0px;
+        // font-size: 1.6rem;
+        color: var(--grey);
+    }
+
+    .title h4 {
+        text-transform: uppercase;
+        // font-size: 1.6rem;
+    }
+
+    .price {
+        // font-size: 1.6rem;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+}

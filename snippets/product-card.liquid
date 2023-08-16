@@ -1,44 +1,46 @@
-<div class="product-item">
+{{ 'card--product-card.css' | asset_url | stylesheet_tag }}
 
-{% comment %} 
-  Image
-{% endcomment %}
-<div class="image" onclick="window.location='{{ prod.url }}';">
-  {% if prod.featured_image %}
-    <img src="{{ prod.featured_image | image_url: width: 900 }}" alt="{{ prod.title }}" loading="lazy" />
-  {% else %}
-    {{ 'image' | placeholder_svg_tag }}
-  {% endif %}
-</div>
+<div class="product-card">
 
-{% comment %} 
-  Info
-{% endcomment %}
-<div class="info">
-
-  {% comment %} Left {% endcomment %}
-  <div class="left">
-    <div class="title type-writer">
-      <a href="{{ prod.url }}" title="{{ prod.vendor }} - {{ prod.title }}">
-        <h4>{{ prod.title }}</h4>
-      </a>
+    {% comment %} 
+    Image
+    {% endcomment %}
+    <div class="image" onclick="window.location='{{ prod.url }}';">
+        {% if prod.featured_image %}
+            <img src="{{ prod.featured_image | image_url: width: 900 }}" alt="{{ prod.title }}" loading="lazy" />
+        {% else %}
+            {{ 'image' | placeholder_svg_tag }}
+        {% endif %}
     </div>
-    <div class="artist">
-      <a href="{{ prod.url }}" title="{{ prod.vendor }} - {{ prod.title }}">
-        <h3>{{ prod.vendor }}</h3>
-      </a>
-    </div>
-  </div>
 
-  {% comment %} Right {% endcomment %}
-  <div class="right">
-    <div class="price type-writer">
-      <a href="{{ prod.url }}" title="{{ prod.vendor }} - {{ prod.title }}">
-        {{ prod.price | money_without_trailing_zeros }}
-      </a>
-    </div>
-  </div>
+    {% comment %} 
+    Info
+    {% endcomment %}
+    <div class="info">
 
-</div>
+        {% comment %} Left {% endcomment %}
+        <div class="left">
+            <div class="title type-writer">
+            <a href="{{ prod.url }}" title="{{ prod.vendor }} - {{ prod.title }}">
+                <h4>{{ prod.title }}</h4>
+            </a>
+            </div>
+            <div class="artist">
+            <a href="{{ prod.url }}" title="{{ prod.vendor }} - {{ prod.title }}">
+                <h3>{{ prod.vendor }}</h3>
+            </a>
+            </div>
+        </div>
+
+        {% comment %} Right {% endcomment %}
+        <div class="right">
+            <div class="price type-writer">
+            <a href="{{ prod.url }}" title="{{ prod.vendor }} - {{ prod.title }}">
+                {{ prod.price | money_without_trailing_zeros }}
+            </a>
+            </div>
+        </div>
+
+    </div>
 
 </div>
