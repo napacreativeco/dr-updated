@@ -201,33 +201,35 @@
     "blocks": [
       {
         "name": "Product",
-        "type": "text",
+        "type": "product",
         "settings": [
-          {
-            "type": "select",
-            "id": "slide_type",
-            "label": "Slide Type",
-            "options": [
-              {
-                "value": "slide__product",
-                "label": "Product"
-              },
-              {
-                "value": "slide__announcement",
-                "label": "Announcement"
-              },
-              {
-                "value": "slide__blank",
-                "label": "Image Only"
-              }
-            ],
-            "default": "slide__product"
-          },
           {
             "type": "product_list",
             "id": "product",
             "label": "Product",
             "limit": 1
+          }
+        ]
+      },
+      {
+        "name": "Announcement",
+        "type": "announcement",
+        "settings": [
+          {
+            "type": "text",
+            "id": "announcement_slide_text",
+            "label": "Text"
+          }
+        ]
+      },
+      {
+        "name": "Image",
+        "type": "image",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image_slide_image",
+            "label": "Image"
           }
         ]
       }
