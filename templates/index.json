@@ -23,7 +23,7 @@
           "type": "text",
           "settings": {
             "product": [
-
+              "high-vis-blending"
             ]
           }
         },
@@ -31,7 +31,7 @@
           "type": "text",
           "settings": {
             "product": [
-
+              "gathering-swans"
             ]
           }
         }
