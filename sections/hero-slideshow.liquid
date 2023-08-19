@@ -159,6 +159,11 @@
         <div class="swiper-slide slide__announcement" data-type="announcement">
 
           {% if block.settings.announcement_slide_layout == 'text_right' %}
+            {% style %}
+              /* Pagination */
+              .swiper-pagination-container[data-slide-type="announcement"] { left: 50vw; }
+              .swiper-navigation-container[data-slide-type="announcement"] { right: 0; }
+            {% endstyle %}
             <div class="slide-image" style="background-image: url('{{ collection_image | image_url }}'); background-size: cover; background-position: center center;">
             </div>
             <div class="slide-content">
@@ -172,6 +177,11 @@
               </div>
             </div>
           {% elsif block.settings.announcement_slide_layout == 'text_left' %}
+            {% style %}
+              /* Pagination */
+              .swiper-pagination-container[data-slide-type="announcement"] { left: 50vw; }
+              .swiper-navigation-container[data-slide-type="announcement"] { right: 0; }
+            {% endstyle %}
             <div class="slide-content">
               <div class="announcement-subtitle">
                 <span>{{ block.settings.announcement_subtitle | default: 'collborations' }}</span>
@@ -277,7 +287,8 @@
           {
             "type": "select",
             "id": "announcement_slide_layout",
-            "label": "Vertical alignment",
+            "label": "Layout",
+            "info": "Save changes to view changes to this option",
             "options": [
               {
                 "value": "text_left",
