@@ -3,58 +3,40 @@
     "hero-slideshow": {
       "type": "hero-slideshow",
       "blocks": {
-        "38e29e2b-94b6-4290-9d97-1396256bdefb": {
-          "type": "text",
+        "bd23971f-e6be-4501-8fb6-1bcb089c1c54": {
+          "type": "product",
           "settings": {
-            "slide_type": "slide__product",
             "product": [
               "bitter-reflection"
             ]
           }
         },
-        "f15d368f-f6d5-4b3c-a336-7081ed9bd943": {
-          "type": "text",
+        "62f9da04-db40-4ce1-9ef1-dcc5552e98e8": {
+          "type": "product",
           "settings": {
-            "slide_type": "slide__product",
             "product": [
               "modern-mirror"
             ]
           }
         },
-        "826a25a3-b987-49b3-8435-cd6fa2416b0a": {
-          "type": "text",
+        "78f58883-44d0-4fbf-9561-343cbb428d7c": {
+          "type": "announcement",
           "settings": {
-            "slide_type": "slide__product",
-            "product": [
-              "high-vis-blending"
-            ]
+            "announcement_slide_text": "test announcement text"
           }
         },
-        "e60c5aeb-044d-4b86-b48b-33d1a8506915": {
-          "type": "text",
+        "da492805-610a-4de6-9a23-31e5f7fced45": {
+          "type": "image",
           "settings": {
-            "slide_type": "slide__product",
-            "product": [
-              "gathering-swans"
-            ]
-          }
-        },
-        "7ea47f00-adda-4729-a0f1-8a65aa910af8": {
-          "type": "text",
-          "settings": {
-            "slide_type": "slide__announcement",
-            "product": [
-
-            ]
+            "image_slide_image": "shopify:\/\/shop_images\/high-vis.jpg"
           }
         }
       },
       "block_order": [
-        "38e29e2b-94b6-4290-9d97-1396256bdefb",
-        "f15d368f-f6d5-4b3c-a336-7081ed9bd943",
-        "826a25a3-b987-49b3-8435-cd6fa2416b0a",
-        "e60c5aeb-044d-4b86-b48b-33d1a8506915",
-        "7ea47f00-adda-4729-a0f1-8a65aa910af8"
+        "bd23971f-e6be-4501-8fb6-1bcb089c1c54",
+        "62f9da04-db40-4ce1-9ef1-dcc5552e98e8",
+        "78f58883-44d0-4fbf-9561-343cbb428d7c",
+        "da492805-610a-4de6-9a23-31e5f7fced45"
       ],
       "settings": {
         "show_hero": true
