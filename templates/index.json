@@ -6,6 +6,7 @@
         "38e29e2b-94b6-4290-9d97-1396256bdefb": {
           "type": "text",
           "settings": {
+            "slide_type": "slide__product",
             "product": [
               "bitter-reflection"
             ]
@@ -14,6 +15,7 @@
         "f15d368f-f6d5-4b3c-a336-7081ed9bd943": {
           "type": "text",
           "settings": {
+            "slide_type": "slide__product",
             "product": [
               "modern-mirror"
             ]
@@ -22,6 +24,7 @@
         "826a25a3-b987-49b3-8435-cd6fa2416b0a": {
           "type": "text",
           "settings": {
+            "slide_type": "slide__product",
             "product": [
               "high-vis-blending"
             ]
@@ -30,8 +33,18 @@
         "e60c5aeb-044d-4b86-b48b-33d1a8506915": {
           "type": "text",
           "settings": {
+            "slide_type": "slide__product",
             "product": [
               "gathering-swans"
+            ]
+          }
+        },
+        "7ea47f00-adda-4729-a0f1-8a65aa910af8": {
+          "type": "text",
+          "settings": {
+            "slide_type": "slide__announcement",
+            "product": [
+
             ]
           }
         }
@@ -40,7 +53,8 @@
         "38e29e2b-94b6-4290-9d97-1396256bdefb",
         "f15d368f-f6d5-4b3c-a336-7081ed9bd943",
         "826a25a3-b987-49b3-8435-cd6fa2416b0a",
-        "e60c5aeb-044d-4b86-b48b-33d1a8506915"
+        "e60c5aeb-044d-4b86-b48b-33d1a8506915",
+        "7ea47f00-adda-4729-a0f1-8a65aa910af8"
       ],
       "settings": {
         "show_hero": true
