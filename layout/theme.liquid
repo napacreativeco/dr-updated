@@ -315,13 +315,15 @@
           },
           grabCursor: false,
           on: {
-            init: function(e) {
-              $('.slider-index > .total').text(e.slides.length);
+            afterInit: function(e) {
+              // $('.slider-index > .total').text(e.slides.length);
+              var val = $('.swiper-slide-active').attr('data-type');
+              $('.swiper-pagination-container').attr('data-slide-type', val);
+              $('.swiper-navigation-container').attr('data-slide-type', val);
             },
             slideChange: function(e) {
-              $('.slider-index > .current').text((swiper.realIndex + 1));
-              $('.slider-index > .total').text(e.slides.length);
-            
+              //$('.slider-index > .current').text((swiper.realIndex + 1));
+              //$('.slider-index > .total').text(e.slides.length);
             },
             touchStart: function(e) { 
               console.log('change');
@@ -333,9 +335,9 @@
               $('.swiper-navigation-container').css('transform', 'translateY(0px)');
             },
             slideChangeTransitionStart: function(e) { 
-              console.log('change');
-              $('.swiper-pagination-container').css('transform', 'translateY(100px)');
-              $('.swiper-navigation-container').css('transform', 'translateY(100px)');
+              var val = $('.swiper-slide-active').attr('data-type');
+              $('.swiper-pagination-container').css('transform', 'translateY(100px)').attr('data-slide-type', val);
+              $('.swiper-navigation-container').css('transform', 'translateY(100px)').attr('data-slide-type', val);
             },
             slideChangeTransitionEnd: function(e) {
               $('.swiper-pagination-container').css('transform', 'translateY(0px)');

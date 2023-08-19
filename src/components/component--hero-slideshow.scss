@@ -5,207 +5,66 @@
         width: 100%;
         height: 100%;
         position: relative;
-        display: grid;
-        grid-template-columns: 22vw 1fr;
-        align-items: stretch;
         border-bottom: var(--border-blk);
-        
-        .left {
-            border-right: var(--border-blk);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #F2F2F2;
-
-            .left-wrapper {
-                padding: 0 30px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 100%;
-
-                .hero-product {
-                    display: flex;
-                    flex-direction: column;
-                    gap: 10px;
-                }
-                
-                .product-image {
-                    max-width: 240px;
-
-                    img {
-                        height: auto;
-                        max-width: 100%;
-                    }
-                }
-                
-                // .product-image-1 {
-                //     display: block;
-                // }
-                // .product-image-2 {
-                //     display: none;
-                // }
-
-                .product-vendor {
-                    font-size: var(--30px);
-
-                    a:hover {
-                        text-decoration: underline;
-                    }
-                }
-
-                .product-title {
-                    font-size: var(--18px);
-                    font-family: var(--type-writer);
-                    color: var(--grey);
-
-                    a:hover {
-                        text-decoration: underline;
-                    }
-                }
-
-                .product-variants {
-                    font-size: var(--18px);
-                    font-family: var(--type-writer);
-                    text-transform: uppercase;
-                    color: var(--grey);
-
-                    ul {
-                        list-style: none;
-                        margin: 0;
-                        padding: 0;
-                        display: flex;
-                        flex-direction: row;
-                        align-items: flex-start;
-                        justify-content: flex-start;
-                        gap: 4px;
-
-                        a:hover {
-                            text-decoration: underline;
-                        }
-                    }
-                }
-
-                .actions {
-                    padding-top: 14px;
-                    gap: 10px;
-
-                    a.button {
-                        display: inline-block;
-                        text-transform: uppercase;
-                        font-size: var(--22px);
-                        background: #D9D9D9;
-                        padding: 10px 20px;
-                    }
-
-                    a.button:hover {
-                        background: var(--black);
-                        color: var(--white);
-                    }
-                }
-
-            }
-
-        }
-
-        .right {
-            .image {
-                width: 100%;
-                height: 100svh;
-            }
-        }
 
     }
 
-    /* Pagination */
-    .swiper-pagination-container {
-        position: absolute;
-        z-index: 3;
-        bottom: 0;
-        left: 22vw;
-        background: var(--white);
-        color: var(--black);
-        border-top: var(--border-blk);
-        border-right: var(--border-blk);
-        border-bottom: var(--border-blk);
-        height: 40px;
+    /* Pagination Globals */
+    .swiper-pagination {
+        position: relative;
         display: flex;
         align-items: center;
-        justify-content: center;
-        padding: 0 20px;
-        transition: all 0.23s ease-in-out;
+    }
 
-        .swiper-pagination {
-            position: relative;
-            display: flex;
-            align-items: center;
-        }
+    .swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction {
+        bottom: 0;
+        left: 0;
+    }
 
-        .swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction {
-            bottom: 0;
-            left: 0;
-        }
+    .swiper-pagination-bullet {
+        background: transparent;
+        border: 2px solid var(--black) !important;
+        border-radius: 0px !important;
+        opacity: 1 !important;
+        padding: 4px !important;
+        width: 12px;
+        height: 12px;
+    }
 
-        .swiper-pagination-bullet {
-            background: transparent;
-            border: 2px solid var(--black) !important;
-            border-radius: 0px !important;
-            opacity: 1 !important;
-            padding: 4px !important;
-            width: 12px;
-            height: 12px;
-        }
-
-        .swiper-pagination-bullet-active {
-            background: var(--black) !important;
-            border: 2px solid var(--black) !important;
-        }
-
+    .swiper-pagination-bullet-active {
+        background: var(--black) !important;
+        border: 2px solid var(--black) !important;
     }
 
     /* Navigation */
-    .swiper-navigation-container {
-        position: absolute;
-        z-index: 3;
-        bottom: 0;
+    .swiper-button-prev {
+        position: relative;
+        // display: block;
+        border-right: var(--border-blk);
+    }
+    .swiper-button-next {
+        position: relative;
+        // display: block;
+    }
+
+    .swiper-button-next, .swiper-button-prev {
+        position: relative;
+        top: 0;
+        left: 0;
         right: 0;
-        background: var(--white);
-        color: var(--black);
-        border: var(--border-blk);
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        transition: all 0.23s ease-in-out;
-
-        .swiper-button-prev {
-            position: relative;
-            // display: block;
-            border-right: var(--border-blk);
+        margin-top: 0px;
+        z-index: 10;
+        cursor: pointer;
+        width: 40px;
+        height: 40px;
+        svg {
+            width: 16px;
         }
-        .swiper-button-next {
-            position: relative;
-            // display: block;
-        }
+    }
 
-        .swiper-button-next, .swiper-button-prev {
-            position: relative;
-            top: 0;
-            left: 0;
-            right: 0;
-            margin-top: 0px;
-            z-index: 10;
-            cursor: pointer;
-            width: 40px;
-            height: 40px;
-            svg {
-                width: 16px;
-            }
-        }
-
-        .swiper-button-prev::after,
-        .swiper-button-next::after {
-            display: none;
-        }
-
+    .swiper-button-prev::after,
+    .swiper-button-next::after {
+        display: none;
     }
 
 }
