@@ -20,6 +20,7 @@ nav.breadcrumbs {
 
         a {
             font-size: var(--fontsize);
+            text-transform: capitalize;
         }
 
         a[aria-current="page"] {

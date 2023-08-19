@@ -1,70 +1,38 @@
 {{ 'component--current-artists.css' | asset_url | stylesheet_tag }}
 
-<section class="current-artists section" data-aos="fade-down" data-aos-delay="200">
+{% render 'section-header', data: section.settings %}
 
-  <header class="section--header">
-    <div class="section--header-wrapper">
-      <h2 class="title">{{ section.settings.section_title }}</h2>
-      <a class="view-more" href="/pages/{{ section.settings.link_destination }}">View more</a>
-    </div>
-  </header>
+<div class="current-artists--wrapper">
+  <ul class="current-artists--list">
+    {% for product in collections.all.products %}
 
-  <div class="current-artists--wrapper">
-    <ul class="current-artists--list">
-      {% for product in collections.all.products %}
+      {% case product.type %}
+        {% when 'vinyl' %}
 
-        {% case product.type %}
-          {% when 'vinyl' %}
+              {% for coll in product.collections %}
 
-          <li class="artist">
-            <div class="artist-wrapper">
-              {% for collection in collections %}
-                {% if collection.title == product.vendor %}
+                {% if coll.title == product.vendor %}
 
-                  {% case collection.metafields.custom.alumni_status %}
-                    {% when blank or false %}
+                  {% if coll.metafields.custom.alumni_status == blank or coll.metafields.custom.alumni_status == false %}
 
-                      <div class="image" style="background: url('{{ collection.image | image_url: width: 900 }}'); background-size: cover; background-position: center center;">
-                        &nbsp;
-                        
-                        <div class="artist-data">
-                          <span>Products {{ '(' | escape }}{{ collection.products_count }}{{ ')' | escape }}</span>
-                          <span>Images {{ '(' | escape }}{{ collection.metafields.dais.artist_gallery.value.count }}{{ ')' | escape }}</span>
-                        </div>
-                        <div class="view-more">
-                          <a href="{{ collection.url }}" title="{{ collection.title }}">
-                            {% render 'icon--view-more' %}
-                          </a>
-                        </div>
-                      </div>
+                    {% render 'artist-card', data: coll %}
 
-                      <div class="artist">
-                        <a href="{{ collection.url }}" title="{{ collection.title }}">
-                          {{ collection.title }}
-                        </a>
-                      </div>
-                  {% endcase %}
+                  {% endif %}
 
                 {% endif %}
               {% endfor %}
-            </div>
 
-          </li>
+      {% endcase %}
+    {% endfor %}
+  </ul>
 
-        {% endcase %}
-      {% endfor %}
-    </ul>
-
-  </div>
-
-
-</section>
+</div>
 
 {% schema %}
   {
     "name": "Current Artists",
     "tag": "section",
-    "class": "current-artists",
+    "class": "current-artists-section section",
     "settings": [
       {
         "type": "text",
@@ -77,11 +45,11 @@
       }
     ],
     "presets": [{
-      "name": "Current Artists"
-    }],
-    "enabled_on": {
-      "templates": ["*"]
-    }
+      "name": "Current Artists",
+      "settings": {
+          "section_title": "Current Artists"
+        }
+    }]
   }
 {% endschema %}
 

@@ -1,11 +1,11 @@
 {{ 'component--hero-slideshow.css' | asset_url | stylesheet_tag }}
 
 <div id="hero-swiper" class="hero-swiper swiper">
-  <div class="swiper-wrapper" style="min-height: 100vh; display: flex; align-items: center;">
+  <div class="swiper-wrapper">
+    {% for block in section.blocks %}
 
-    
-      {% for block in section.blocks %}
-        <div class="swiper-slide">
+      {% if block.settings.slide_type == 'slide__product' %}
+        <div class="swiper-slide slide__product">
 
           {% comment %}
           Left
@@ -22,59 +22,111 @@
                 {% endfor %}
 
                 <div class="hero-product">
+
                   <div class="product-image">
-                    {% for image in prod.images %}
-                      {{ image | image_url: width: 300 | image_tag }}
+                    {% for image in prod.images limit: 2 %}
+                        {% if forloop.index0 == 0 %}
+                          {% assign first = image %}
+                        {% endif %}
+                        {% if forloop.index0 == 1 %}
+                          {% assign second = image %}
+                        {% endif %}
+
+                        {% assign length = forloop.length %}
                     {% endfor %}
+
+                    <a href="{{ prod.url }}" title="{{ prod.title }} by {{ prod.vendor }}">
+                      <img
+                        src="{{ first | image_url: width: 600 }}"
+                        class="hero-product-image product-image-{{ forloop.index }}" 
+                        data-first="{{ first | image_url: width: 600 }}"
+                        {% if length == 1 %}
+                          data-second="{{ first | image_url: width: 600 }}"
+                        {% else %}
+                          data-second="{{ second | image_url: width: 600 }}"
+                        {% endif %}
+                        alt="{{ prod.title }} by {{ prod.vendor }}"
+                      />
+                    </a>
+                    
                   </div>
-  
+
                   <div class="product-vendor">
-                    <h3>{{ prod.vendor }}</h3>
+                    {% for collection in prod.collections %}
+                      {% if collection.title == prod.vendor %}
+                        <a href="{{ collection.url }}" title="{{ prod.vendor }}">
+                            <h3>{{ prod.vendor }}</h3>
+                        </a>
+                      {% endif %}
+                    {% endfor %}               
                   </div>
-  
+
                   <div class="product-title">
-                    <h2>{{ prod.title }}</h2>
+                    <a href="{{ prod.url }}" title="{{ prod.title }}{{ ' by ' }}{{ prod.vendor }}">
+                      <h2>{{ prod.title }}</h2>
+                    </a>
                   </div>
-  
+
                   <div class="product-variants">
                     <ul class="list">
                         {% assign vinyl = '' %}
                         {% assign cd = '' %}
                         {% assign digi = '' %}
                         {% for vari in prod.variants %}
-                            {% if vari.title contains "Vinyl" %}
+                            {% if vari.title contains "Vinyl" or vari.title contains "LP" or vari.title contains "ltd" %}
                               {% assign vinyl = vari.title | replace: vari.title, 'Vinyl ' | split: ' ' %}
                           
                             {% elsif vari.title contains "Compact Disc" or vari.title contains "CD" %}
                               {% assign cd = vari.title | replace: vari.title, 'CD' | split: ' ' %}
-  
+
                             {% elsif vari.title contains "Digital" or vari.title contains "Digi" %}
                               {% assign digi = vari.title | replace: vari.title, 'Digital' | split: ' ' %}
-  
+
                             {% endif %}
                         {% endfor %}
-  
+
                         {% for v in vinyl limit: 1 %}
-                          <li class="item vinyl">{{ v | append: ',' }}</li>
+                          <li class="item vinyl">
+                            <a href="{{ '/collections/all/vinyl' | url_escape }}" title="{{ shop.name }}{{ ' Vinyl Products' }}">   
+                              {{ v | append: ',' }}
+                            </a>
+                          </li>
                         {% endfor %}
                         {% for c in cd limit: 1 %}
                           {% if digi != blank %}
-                            <li class="item cd">{{ c | append: ',' }}</li>
+                            <li class="item cd">
+                              <a href="/collections/all/compact-disc" title="{{ shop.name }}{{ ' Compact Disc Products' }}">  
+                                {{ c | append: ',' }}
+                              </a>
+                            </li>
                           {% else %}
-                          <li class="item cd">{{ c }}</li>
+                            <li class="item cd">
+                              <a href="/collections/all/compact-disc" title="{{ shop.name }}{{ ' Compact Disc Products' }}">
+                                {{ c }}
+                              </a>
+                            </li>
                           {% endif %}
                         {% endfor %}
                         {% for d in digi limit: 1 %}
-                          <li class="item digital">{{ d }}</li>
+                          <li class="item digital">
+                            <a href="/collections/all/digital" title="{{ shop.name }}{{ ' Digital Products' }}">
+                              {{ d }}
+                            </a>
+                          </li>
                         {% endfor %}
                     </ul>
                   </div>
 
                   <div class="actions">
-                    <a href="{{ prod.url }}" title="{{ prod.title }}">
-                      {{ 'Pre-order' | escape }}
+                    <a class="button" href="{{ prod.url }}" title="{{ prod.title }}{{ ' by ' }}{{ prod.vendor }}">
+                      {% if prod.metafields.product.preorder_status == true %}
+                        {{ 'Pre-order' | escape }}
+                      {% else %}
+                        {{ 'View Product' | escape }}
+                      {% endif %}
                     </a>
                   </div>
+
                 </div>
 
               {% endfor %}
@@ -86,15 +138,51 @@
           {% endcomment %}
           <div class="right">
             <div class="image" style="background-image: url('{{ collection_image | image_url }}'); background-size: cover; background-position: center center;">
-
             </div>
           </div>
 
         </div>
-      {% endfor %}
+      {% elsif block.settings.slide_type == 'slide__announcement' %}
+        <div class="swiper-slide">
+          announcement slide
+        </div>
+      {% elsif block.settings.slide_type == 'slide__blank' %}
+        <div class="swiper-slide">
+          blank slide
+        </div>
+      {% endif %}
 
+    {% endfor %}
   </div>
+
+
+  <div class="swiper-pagination-container">
+    <div class="swiper-pagination"></div>
+  </div>
+
+  <div class="swiper-navigation-container">
+    <div class="swiper-button-prev">
+      {% render 'svg--left-arrow' %}
+    </div>
+    <div class="swiper-button-next">
+      {% render 'svg--right-arrow' %}
+    </div>
+  </div>
+
 </div>
+
+<script>
+  $('.hero-product-image').on('mouseenter', function() {
+    if ( $(this).attr('data-second') ) { 
+      $(this).attr('src', $(this).attr('data-second'));
+    }
+  });
+  $('.hero-product-image').on('mouseleave', function() {
+    if ( $(this).attr('data-second') ) {
+      $(this).attr('src', $(this).attr('data-first'));
+    }
+  });
+</script>
 
 
 {% schema %}
@@ -115,6 +203,26 @@
         "name": "Product",
         "type": "text",
         "settings": [
+          {
+            "type": "select",
+            "id": "slide_type",
+            "label": "Slide Type",
+            "options": [
+              {
+                "value": "slide__product",
+                "label": "Product"
+              },
+              {
+                "value": "slide__announcement",
+                "label": "Announcement"
+              },
+              {
+                "value": "slide__blank",
+                "label": "Image Only"
+              }
+            ],
+            "default": "slide__product"
+          },
           {
             "type": "product_list",
             "id": "product",

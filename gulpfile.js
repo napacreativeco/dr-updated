@@ -43,9 +43,7 @@ exports.buildScripts = buildScripts;
 function buildComponents() {
   return gulp.src('./src/components/*.scss')
     .pipe(sass().on('error', sass.logError))
-    .pipe(autoprefixer({
-      overrideBrowserslist: ["last 2 versions"]
-    }))
+    .pipe(autoprefixer())
     .pipe(cleanCSS({debug: true}, (details) => {
       console.log(`${details.name}: ${details.stats.originalSize}`);
       console.log(`${details.name}: ${details.stats.minifiedSize}`);

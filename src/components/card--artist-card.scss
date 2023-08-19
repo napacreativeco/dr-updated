@@ -1,0 +1,60 @@
+li.artist-card {
+    border: var(--border-blk-thin);
+
+    .image {
+        overflow: hidden;
+        aspect-ratio: 1/1;
+        // width: 350px;
+        width: calc(100vw / 5);
+        margin-bottom: 0px;
+        transition: opacity 0.5 ease-out;
+        transition-delay: 200ms;
+        position: relative;
+        border-bottom: var(--border-blk-thin);
+
+        .view-more {
+            position: absolute;
+            bottom: 0px;
+            right: 0px;
+            opacity: 0;
+            transform: translate(-50%, -50%);
+            background: var(--white);
+            border-radius: 3px;
+            padding: 4px 8px;
+            font-size: 1.8rem;
+            transition: all 0.24s ease-in-out;
+            font-family: var(--type-writer);
+        }
+
+        .view-more:hover {
+            background: var(--grey-light)
+        }
+    }
+
+    .image:hover {
+        .artist-data {
+            opacity: 1;
+        }
+        .view-more {
+            bottom: 12px;
+            opacity: 1;
+        }
+    }
+
+    .artist {
+        padding: 10px;
+        a {
+            font-size: var(--20px);
+        }
+    }
+
+    .image:hover {
+        opacity: 0.85;
+        cursor: grab;
+    }
+
+    .image:active {
+        cursor: grabbing;
+    }
+
+}

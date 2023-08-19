@@ -1,20 +1,37 @@
-.footer {
+footer {
+    background-color: var(--white);
+    color: var(--black);
+    border-top: var(--border-blk);
+}
 
-    background: var(--grey-light);
-    
-    .footer--wrapper {
+
+.footer-wrap {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    border-bottom: var(--border-blk);
+
+    .footer-block {
+        padding: 10px 30px;
+    }
+
+    .left {
         display: grid;
-        grid-template-columns: 4fr 2fr;
-        padding: 60px 5% 80px 5%;
+        grid-template-columns: 1fr 2fr 2fr;
 
-        .left {
-            
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
+        .logo-column {
+            border-right: var(--border-blk);
+            display: flex;
+            align-items: center;
+        }
 
-            .logo img {
-                width: 100%;
-                max-width: 34px;
+        .link-block {
+            position: relative;
+            border-right: var(--border-blk);
+
+            .block-title {
+                text-transform: uppercase;
+                display: block;
+                margin: 0 0 20px 0;
             }
 
             ul {
@@ -23,99 +40,61 @@
                 padding: 0;
                 display: flex;
                 flex-direction: column;
-                gap: 8px;
+                gap: 6px;
 
                 a {
-                    color: var(--grey);
-                    font-size: 1.5rem;
                     text-transform: uppercase;
                 }
-
-                a:hover {
-                    text-decoration: underline;
-                }
-
             }
+        }
+    }
 
+    .right {
+        position: relative;
+
+        form {
+            margin-top: 30px;
+            margin-bottom: 20px;
         }
 
-        .right {
+        input[type="email"] {
+            background: transparent;
+            border-top: 0;
+            border-left: 0;
+            border-right: 0;
+            border-bottom: var(--border-blk-thin);
+            width: 80%;
+            font-family: var(--type-writer);
+            text-transform: uppercase;
+        }
 
-            .wrapper {
-                display: flex;
-                flex-direction: column;
-                gap: 40px;
-            }
+        input[type="email"]::placeholder {
+            color: #828282;
+        }
 
-            .top {
-                display: flex;
-                flex-direction: row;
-                justify-content: space-between;
-                width: 100%;
-            }    
+        input[type="submit"] {
+            text-transform: uppercase;
+            background: transparent;
+            border: 0;
+            outline: 0;
+            padding: 0;
+            display: block;
+            margin: 14px 0 0 0;
+        }
 
-            .title {
-                font-size: 2rem;
-            }
-
-            .offer {
-                font-family: var(--type-writer);
-                font-size: 1.3rem;
-                text-align: right;
-            }
-
-            form#contact_form {
-                display: grid;
-                grid-template-columns: 10fr 2fr;
-            }
-
-            .email,
-            .submit {
-                display: inline;
-            }
-
-            .email {
-                position: relative;
-            }
-
-            label[for="email"] {
-                position: absolute;
-                top: 50%;
-                left: 12px;
-                transform: translateY(-50%);
-                font-family: var(--type-writer);
-                font-size: 14px;
-                pointer-events: none;
-            }
-
-            input[type="email"] {
-                padding: var(--input-padding);
-                border-radius: 4px;
-                background: #fff;
-                border: 1px solid #dfe1e5;
-                width: 100%;
-            }
-
-            input[type="submit"] {
-                padding: var(--input-padding);
-                border-radius: 4px;
-                background: #fff;
-                border: 1px solid #dfe1e5;
-            }
-            
+        .attribution {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            font-size: var(--10px);
         }
 
     }
-
-    .attribution {
-        text-align: center;
-        font-size: 1rem;
-        padding: 10px 0 40px 10px;
-    }
-
-
-
 }
+
+
+
+
 
 @media screen and (max-width: 767px) {
  

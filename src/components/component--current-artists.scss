@@ -1,25 +1,4 @@
-section.current-artists {
-
-    /* Header */
-    header.current-artists--header {
-        padding: 60px var(--side-padding) 40px var(--side-padding);
-
-        .current-artists--header-wrapper {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-
-            h2.title {
-                display: inline-block;
-                font-size: var(--section-title);
-                text-transform: uppercase;
-                padding-bottom: 4px;
-                border-bottom: 2px solid var(--black);
-            }
-
-        }
-
-    }
+.current-artists-section {
 
     /* Artists */
     .current-artists--wrapper {
@@ -57,83 +36,6 @@ section.current-artists {
             cursor: grabbing;
         }
 
-        li {
-
-            .image {
-                overflow: hidden;
-                aspect-ratio: 1/1;
-                // width: 350px;
-                width: calc(100vw / 5);
-                margin-bottom: 10px;
-                transition: opacity 0.5 ease-out;
-                transition-delay: 200ms;
-                position: relative;
-
-                .artist-data {
-                    font-family: var(--type-writer);
-                    text-transform: uppercase;
-                    font-size: 1.2rem;
-                    text-align: right;
-                    display: flex;
-                    flex-direction: column;
-                    gap: 6px;
-                    padding: 10px;
-                    opacity: 0;
-                    pointer-events: none;
-
-                    span {
-                        display: block;
-                    }
-                }
-
-                .view-more {
-                    position: absolute;
-                    bottom: 0px;
-                    right: 0px;
-                    opacity: 0;
-                    transform: translate(-50%, -50%);
-                    background: var(--white);
-                    border-radius: 3px;
-                    padding: 4px 8px;
-                    font-size: 1.8rem;
-                    transition: all 0.24s ease-in-out;
-                    font-family: var(--type-writer);
-                }
-
-                .view-more:hover {
-                    background: var(--grey-light)
-                }
-            }
-
-            .image:hover {
-                .artist-data {
-                    opacity: 1;
-                }
-                .view-more {
-                    bottom: 12px;
-                    opacity: 1;
-                }
-            }
-
-            .artist {
-                a {
-                    font-size: 2rem;
-                }
-            }
-
-            .image:hover {
-                opacity: 0.85;
-                cursor: grab;
-            }
-
-            .image:active {
-                cursor: grabbing;
-            }
-
-        }
-
-
-
     }
 
     
@@ -141,7 +43,7 @@ section.current-artists {
 
 @media screen and (max-width: 767px) {
     
-    section.current-artists {
+    .current-artists-section {
         .current-artists--wrapper {
             li {
                 .image {
