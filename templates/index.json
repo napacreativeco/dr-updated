@@ -22,13 +22,17 @@
         "78f58883-44d0-4fbf-9561-343cbb428d7c": {
           "type": "announcement",
           "settings": {
-            "announcement_slide_text": "test announcement text"
+            "announcement_slide_subtitle": "",
+            "announcement_slide_content": "",
+            "announcement_slide_url": "",
+            "announcement_slide_layout": "text_right"
           }
         },
         "da492805-610a-4de6-9a23-31e5f7fced45": {
           "type": "image",
           "settings": {
-            "image_slide_image": "shopify:\/\/shop_images\/high-vis.jpg"
+            "image_slide_image": "shopify:\/\/shop_images\/high-vis.jpg",
+            "image_slide_url": ""
           }
         }
       },
