@@ -34,13 +34,23 @@
             "image_slide_image": "shopify:\/\/shop_images\/high-vis.jpg",
             "image_slide_url": ""
           }
+        },
+        "2ef68269-744c-45b3-9e7f-782409cf7f6a": {
+          "type": "announcement",
+          "settings": {
+            "announcement_slide_subtitle": "announcement",
+            "announcement_slide_content": "Text on the right example",
+            "announcement_slide_url": "",
+            "announcement_slide_layout": "text_right"
+          }
         }
       },
       "block_order": [
         "bd23971f-e6be-4501-8fb6-1bcb089c1c54",
         "62f9da04-db40-4ce1-9ef1-dcc5552e98e8",
         "78f58883-44d0-4fbf-9561-343cbb428d7c",
-        "da492805-610a-4de6-9a23-31e5f7fced45"
+        "da492805-610a-4de6-9a23-31e5f7fced45",
+        "2ef68269-744c-45b3-9e7f-782409cf7f6a"
       ],
       "settings": {
         "show_hero": true
