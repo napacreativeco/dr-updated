@@ -159,12 +159,13 @@
         <div class="swiper-slide slide__announcement" data-type="announcement">
 
           {% if block.settings.announcement_slide_layout == 'text_right' %}
-            {% style %}
+
+            <style>
               /* Pagination */
-              .swiper-pagination-container[data-slide-type="announcement"] { left: 50vw; }
-              .swiper-navigation-container[data-slide-type="announcement"] { right: 0; }
-            {% endstyle %}
-            <div class="slide-image" style="background-image: url('{{ collection_image | image_url }}'); background-size: cover; background-position: center center;">
+              .swiper-pagination-container[data-slide-type="announcement"] { left: 0; }
+              .swiper-navigation-container[data-slide-type="announcement"] { right: 50vw; }
+            </style>
+            <div class="slide-image" style="background-image: url('{{ block.settings.announcement_image | image_url }}'); background-size: cover; background-position: center center;">
             </div>
             <div class="slide-content">
               <div class="announcement-subtitle">
@@ -176,12 +177,14 @@
                 </a>
               </div>
             </div>
+
           {% elsif block.settings.announcement_slide_layout == 'text_left' %}
-            {% style %}
+
+            <style>
               /* Pagination */
               .swiper-pagination-container[data-slide-type="announcement"] { left: 50vw; }
               .swiper-navigation-container[data-slide-type="announcement"] { right: 0; }
-            {% endstyle %}
+            </style>
             <div class="slide-content">
               <div class="announcement-subtitle">
                 <span>{{ block.settings.announcement_subtitle | default: 'collborations' }}</span>
@@ -192,15 +195,16 @@
                 </a>
               </div>
             </div>    
-            <div class="slide-image" style="background-image: url('{{ collection_image | image_url }}'); background-size: cover; background-position: center center;">
+            <div class="slide-image" style="background-image: url('{{ block.settings.announcement_image | image_url }}'); background-size: cover; background-position: center center;">
             </div>
+
           {% endif %}
 
         </div>
 
       {% elsif block.type == 'image' %}
         <div class="swiper-slide slide__image" data-type="image">
-          <div class="slide-image" style="background-image: url('{{ collection_image | image_url }}'); background-size: cover; background-position: center center;">
+          <div class="slide-image" style="background-image: url('{{ block.settings.image_slide_image | image_url }}'); background-size: cover; background-position: center center;">
           </div>
         </div>
 
@@ -284,6 +288,11 @@
             "id": "announcement_slide_url",
             "label": "URL"
           }, 
+          {
+            "type": "image_picker",
+            "id": "announcement_image",
+            "label": "Image"
+          },
           {
             "type": "select",
             "id": "announcement_slide_layout",

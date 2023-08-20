@@ -12,12 +12,34 @@
         }
 
         .slide-content {
-            background: var(--black);
+            background-color: var(--black);
             color: var(--white);
             display: flex;
             flex-direction: column;
-            align-items: center;
             justify-content: center;
+            align-items: center;
+            gap: 20px;
+            text-align: center;
+    
+            .announcement-subtitle {
+                span {
+                    text-transform: uppercase;
+                    width: 70%;
+                    max-width: 500px;
+                }
+            } 
+    
+            .announcement-content {
+                h2 {
+                    font-size: var(--52px);
+                    font-weight: normal;
+                    margin: 0 auto;
+                    line-height: 123%;
+                    width: 100%;
+                    max-width: 500px;
+                }
+            }
+
         }
 
     }
