@@ -25,6 +25,7 @@
             "announcement_slide_subtitle": "collaborations",
             "announcement_slide_content": "Dais Records teams up with clothing brand Pleasures for limited release",
             "announcement_slide_url": "shopify:\/\/collections\/collaboration",
+            "announcement_image": "shopify:\/\/shop_images\/hero.png",
             "announcement_slide_layout": "text_left"
           }
         },
@@ -38,9 +39,10 @@
         "2ef68269-744c-45b3-9e7f-782409cf7f6a": {
           "type": "announcement",
           "settings": {
-            "announcement_slide_subtitle": "announcement",
-            "announcement_slide_content": "Dais Records teams up with clothing brand Pleasures for limited release",
+            "announcement_slide_subtitle": "tour dates",
+            "announcement_slide_content": "Adult. Announces upcoming European Tour Dates",
             "announcement_slide_url": "",
+            "announcement_image": "shopify:\/\/shop_images\/adult-600-2.webp",
             "announcement_slide_layout": "text_right"
           }
         }
