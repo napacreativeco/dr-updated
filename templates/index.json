@@ -22,9 +22,9 @@
         "78f58883-44d0-4fbf-9561-343cbb428d7c": {
           "type": "announcement",
           "settings": {
-            "announcement_slide_subtitle": "announcement",
-            "announcement_slide_content": "Left Aligned Text",
-            "announcement_slide_url": "",
+            "announcement_slide_subtitle": "collaborations",
+            "announcement_slide_content": "Dais Records teams up with clothing brand Pleasures for limited release",
+            "announcement_slide_url": "shopify:\/\/collections\/collaboration",
             "announcement_slide_layout": "text_left"
           }
         },
@@ -39,7 +39,7 @@
           "type": "announcement",
           "settings": {
             "announcement_slide_subtitle": "announcement",
-            "announcement_slide_content": "Text on the right example",
+            "announcement_slide_content": "Dais Records teams up with clothing brand Pleasures for limited release",
             "announcement_slide_url": "",
             "announcement_slide_layout": "text_right"
           }
