@@ -33,7 +33,7 @@
           "type": "image",
           "settings": {
             "image_slide_image": "shopify:\/\/shop_images\/high-vis.jpg",
-            "image_slide_image_mobile": "shopify:\/\/shop_images\/high-vis.jpg",
+            "image_slide_image_mobile": "shopify:\/\/shop_images\/high-vis--mobile.png",
             "image_slide_url": ""
           }
         },
