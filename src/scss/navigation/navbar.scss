@@ -25,7 +25,7 @@
     #logo {
         padding: 4px 0;
 
-        img {
+        img, svg {
             width: 100%;
             max-width: 40px;
         }
@@ -55,6 +55,7 @@
                 cursor: pointer;
                 
                 a {
+                    color: var(--black);
                     font-size: var(--20px);
                     display: flex;
                     flex-direction: row;
@@ -78,12 +79,7 @@
                     color: var(--white);
                 }
             }
-
-
-
         }
-
-  
 
     }
 
@@ -104,7 +100,7 @@
     // Right Logo
     .logo--head {
         
-        img {
+        img, svg {
             width: 100%;
             max-width: 18px;
         }

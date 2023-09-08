@@ -44,36 +44,57 @@
 
     }
 
+    
     /* Pagination */
-    .swiper-pagination-container[data-slide-type="announcement"] {
-        position: absolute;
-        z-index: 3;
-        bottom: 0;
-        // left: 50vw;
-        background: var(--white);
-        color: var(--black);
-        border-top: var(--border-blk);
-        border-right: var(--border-blk);
-        border-bottom: var(--border-blk);
-        height: 40px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 0 20px;
-        transition: all 0.23s ease-in-out;
+    .swiper-pagination-container[data-layout="text_left"] {
+        left: 50vw;
+    }
+    .swiper-navigation-container[data-layout="text_left"] {
+        right: 0vw;
+    }
+
+    .swiper-pagination-container[data-layout="text_right"] {
+        left: 0vw;
+    }
+    .swiper-navigation-container[data-layout="text_right"] {
+        right: 50vw;
     }
     
-    /* Navigation */
-    .swiper-navigation-container[data-slide-type="announcement"] {
-        position: absolute;
-        z-index: 3;
-        bottom: 0;
-        // right: 0;
-        background: var(--white);
-        color: var(--black);
-        border: var(--border-blk);
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        transition: all 0.23s ease-in-out;
+
+}
+
+@media screen and (max-width: 767px) {
+    #hero-swiper {
+
+
+        .slide__announcement.swiper-slide {
+            display: grid;
+            grid-template-columns: 1fr;
+            height: 100svh;
+            
+            .slide-content {
+                height: 100%;
+            }
+            .slide-image {
+                height: 100%;
+            }
+        }
+
+        /* Pagination */
+        .swiper-pagination-container[data-layout="text_left"] {
+            display: none;
+        }
+        .swiper-navigation-container[data-layout="text_left"] {
+            right: 0vw;
+            left: 0vw;
+        }
+
+        .swiper-pagination-container[data-layout="text_right"] {
+            display: none;
+        }
+        .swiper-navigation-container[data-layout="text_right"] {
+            right: 0vw;
+            left: 0vw;
+        }  
     }
 }

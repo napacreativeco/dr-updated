@@ -56,7 +56,10 @@
 
   </head>
 
-  <body id="{{ page_title | handle }}" class="{% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}">
+  <body 
+    id="{{ page_title | handle }}" 
+    class="{% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}"
+    data-theme="{% if settings.color_theme == 'lite' %}lite{% elsif settings.color_theme == 'dark' %}dark{% endif %}">
     
     {% render 'navbar' %}
     {% render 'navbarmobile' %}
@@ -293,7 +296,7 @@
 
     {% comment %} SWIPER {% endcomment %}
     {% # theme-check-disable RemoteAsset %}
-      <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     {% # theme-check-enable RemoteAsset %}
     <script>
       (function($) {
@@ -303,7 +306,6 @@
           autoplay: {
             delay: 5000,
           },
-
           loop: true,
           pagination: {
             el: '.swiper-pagination',
@@ -316,14 +318,10 @@
           grabCursor: false,
           on: {
             afterInit: function(e) {
-              // $('.slider-index > .total').text(e.slides.length);
               var val = $('.swiper-slide-active').attr('data-type');
-              $('.swiper-pagination-container').attr('data-slide-type', val);
-              $('.swiper-navigation-container').attr('data-slide-type', val);
-            },
-            slideChange: function(e) {
-              //$('.slider-index > .current').text((swiper.realIndex + 1));
-              //$('.slider-index > .total').text(e.slides.length);
+              var layout = $('.swiper-slide-active').attr('data-layout');
+              $('.swiper-pagination-container').attr('data-slide-type', val).attr('data-layout', layout);
+              $('.swiper-navigation-container').attr('data-slide-type', val).attr('data-layout', layout);
             },
             touchStart: function(e) { 
               console.log('change');
@@ -336,8 +334,9 @@
             },
             slideChangeTransitionStart: function(e) { 
               var val = $('.swiper-slide-active').attr('data-type');
-              $('.swiper-pagination-container').css('transform', 'translateY(100px)').attr('data-slide-type', val);
-              $('.swiper-navigation-container').css('transform', 'translateY(100px)').attr('data-slide-type', val);
+              var layout = $('.swiper-slide-active').attr('data-layout');
+              $('.swiper-pagination-container').css('transform', 'translateY(100px)').attr('data-slide-type', val).attr('data-layout', layout);
+              $('.swiper-navigation-container').css('transform', 'translateY(100px)').attr('data-slide-type', val).attr('data-layout', layout);
             },
             slideChangeTransitionEnd: function(e) {
               $('.swiper-pagination-container').css('transform', 'translateY(0px)');
@@ -367,11 +366,15 @@
           }
         });
 
-        const galleryswiper = new Swiper('.gallery-swiper', {
+        const galleryswiper = new Swiper('.product-gallery-swiper', {
           direction: 'horizontal',
           loop: true,
+          navigation: {
+            nextEl: '.product-gallery-next',
+            prevEl: '.product-gallery-prev',
+          },
           pagination: {
-            el: '.gallery-pagination',
+            el: '.product-gallery-pagination-container',
             clickable: true
           },
         });
@@ -394,25 +397,24 @@
 
     {% comment %} Show / Hide Navigation {% endcomment %}
     <script>
-      var lastScrollTop;
-      var navbar = document.getElementById('navbar');
-      var scrollPos = 0;
+      //var lastScrollTop;
+      //var navbar = document.getElementById('navbar');
+      //var scrollPos = 0;
   
-      window.addEventListener('scroll', function(){
-        var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      //window.addEventListener('scroll', function(){
+      //  var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-        if ((document.body.getBoundingClientRect()).top > scrollPos) {
-          // up
-          navbar.style.top = '0px';
-        } else {
-          // down
-          navbar.style.top = '-80px';
-        }
+      //  if ((document.body.getBoundingClientRect()).top > scrollPos) {
+      // up
+      //    navbar.style.top = '0px';
+      //  } else {
+      // down
+      //    navbar.style.top = '-80px';
+      //  }
 
-        scrollPos = (document.body.getBoundingClientRect()).top;
-      });
+      //  scrollPos = (document.body.getBoundingClientRect()).top;
+      // });
     </script>
-
 
     {% comment %} AJAX CART {% endcomment %}
     {{ 'liquid-ajax-cart.js' | asset_url | script_tag }}
@@ -432,7 +434,6 @@
   
       subscribeToCartSectionsUpdate( sections => {
         console.log('Sections are updated: ', sections);
-  
       });
     </script>
   
@@ -465,19 +466,18 @@
     </script>
 
     <script type="module">
-      import {bandcamp} from '../node_modules/bandcamp-scraper/lib/index';
+      //import {bandcamp} from '../node_modules/bandcamp-scraper/lib/index';
 
-      $(document).ready(function() {
-        const artistUrl = 'http://musique.coeurdepirate.com'
-        bandcamp.getArtistInfo(artistUrl, function (error, artistInfo) {
-          if (error) {
-            console.log(error)
-          } else {
-            console.log(artistInfo)
-          }
-        })
-      })
-
+      //$(document).ready(function() {
+      //  const artistUrl = 'http://musique.coeurdepirate.com'
+      //  bandcamp.getArtistInfo(artistUrl, function (error, artistInfo) {
+      //    if (error) {
+      //      console.log(error)
+      //    } else {
+      //      console.log(artistInfo)
+      //    }
+      //  })
+      // })
     </script>
 
   </body>

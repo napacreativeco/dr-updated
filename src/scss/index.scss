@@ -1,9 +1,11 @@
 @import '404.scss';
 
+
 /* Global */
-@import 'global/reset.scss';
-@import 'global/app.scss';
 @import 'global/variables.scss';
+@import 'global/reset.scss';
+@import 'global/swiper.scss';
+@import 'global/app.scss';
 @import 'global/typography.scss';
 @import 'global/footer.scss';
 @import 'global/breadcrumbs.scss';

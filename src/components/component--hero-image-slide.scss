@@ -15,34 +15,11 @@
 
     /* Pagination */
     .swiper-pagination-container[data-slide-type="image"] {
-        position: absolute;
-        z-index: 3;
-        bottom: 0;
         left: 0vw;
-        background: var(--white);
-        color: var(--black);
-        border-top: var(--border-blk);
-        border-right: var(--border-blk);
-        border-bottom: var(--border-blk);
-        height: 40px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 0 20px;
-        transition: all 0.23s ease-in-out;
+        right: auto;
     }
-    
-    /* Navigation */
     .swiper-navigation-container[data-slide-type="image"] {
-        position: absolute;
-        z-index: 3;
-        bottom: 0;
-        right: 0;
-        background: var(--white);
-        color: var(--black);
-        border: var(--border-blk);
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        transition: all 0.23s ease-in-out;
+        right: 0vw;
     }
+
 }

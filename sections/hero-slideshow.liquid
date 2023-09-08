@@ -1,27 +1,30 @@
 {{ 'component--hero-slideshow.css' | asset_url | stylesheet_tag }}
+{{ 'component--hero-product-slide.css' | asset_url | stylesheet_tag }}
+{{ 'component--hero-announcement-slide.css' | asset_url | stylesheet_tag }}
+{{ 'component--hero-image-slide.css' | asset_url | stylesheet_tag }}
 
-{% for block in section.blocks %}
+{% comment %}
+  {% for block in section.blocks %}
+    
+    {% if block.type == 'product' %}
+      {{ 'component--hero-product-slide.css' | asset_url | stylesheet_tag }}
+    {% elsif block.type == 'announcement' %}
+      {{ 'component--hero-announcement-slide.css' | asset_url | stylesheet_tag }}
+    {% elsif block.type == 'image' %}
+      {{ 'component--hero-image-slide.css' | asset_url | stylesheet_tag }}
+    {% endif %}
 
-  {% if block.type == 'product' %}
-    {{ 'component--hero-product-slide.css' | asset_url | stylesheet_tag }}
-  {% elsif block.type == 'announcement' %}
-    {{ 'component--hero-announcement-slide.css' | asset_url | stylesheet_tag }}
-  {% elsif block.type == 'image' %}
-    {{ 'component--hero-image-slide.css' | asset_url | stylesheet_tag }}
-  {% endif %}
-
-{% endfor %}
+  {% endfor %}
+{% endcomment %}
 
 <div id="hero-swiper" class="hero-swiper swiper">
   <div class="swiper-wrapper">
     {% for block in section.blocks %}
 
       {% if block.type == 'product' %}
-        <div class="swiper-slide slide__product" data-type="product">
+        <div class="swiper-slide slide__product" data-layout="product" data-type="product">
 
-          {% comment %}
-          Left
-          {% endcomment %}
+          {% comment %} Left {% endcomment %}
           <div class="left">
             <div class="left-wrapper">
               {% assign collection_image = '' %}
@@ -145,9 +148,7 @@
             </div>
           </div>
 
-          {% comment %}
-          Right
-          {% endcomment %}
+          {% comment %} Right {% endcomment %}
           <div class="right">
             <div class="image" style="background-image: url('{{ collection_image | image_url }}'); background-size: cover; background-position: center center;">
             </div>
@@ -155,56 +156,41 @@
 
         </div>
 
-      {% elsif block.type == 'announcement' %}
-        <div class="swiper-slide slide__announcement" data-type="announcement">
-
-          {% if block.settings.announcement_slide_layout == 'text_right' %}
-
-            <style>
-              /* Pagination */
-              .swiper-pagination-container[data-slide-type="announcement"] { left: 0; }
-              .swiper-navigation-container[data-slide-type="announcement"] { right: 50vw; }
-            </style>
-            <div class="slide-image" style="background-image: url('{{ block.settings.announcement_image | image_url }}'); background-size: cover; background-position: center center;">
+      {% elsif block.type == 'announcement' and block.settings.announcement_slide_layout == 'text_right' %}
+        <div class="swiper-slide slide__announcement" data-type="announcement" data-layout="{{ block.settings.announcement_slide_layout }}">
+          <div class="slide-image" style="background-image: url('{{ block.settings.announcement_image | image_url }}'); background-size: cover; background-position: center center;">
+          </div>
+          <div class="slide-content">
+            <div class="announcement-subtitle">
+              <span>{{ block.settings.announcement_subtitle | default: 'collborations' }}</span>
             </div>
-            <div class="slide-content">
-              <div class="announcement-subtitle">
-                <span>{{ block.settings.announcement_subtitle | default: 'collborations' }}</span>
-              </div>
-              <div class="announcement-content">
-                <a href="{{ block.settings.announcement_slide_url }}" title="{{ block.settings.announcement_subtitle | default: 'collborations' }}">
-                  <h2>{{ block.settings.announcement_subtitle | default: 'collborations' }}</h2>
-                </a>
-              </div>
+            <div class="announcement-content">
+              <a href="{{ block.settings.announcement_slide_url }}" title="{{ block.settings.announcement_subtitle | default: 'collborations' }}">
+                <h2>{{ block.settings.announcement_slide_content | default: 'collborations' }}</h2>
+              </a>
             </div>
+          </div>
+        </div>
 
-          {% elsif block.settings.announcement_slide_layout == 'text_left' %}
-
-            <style>
-              /* Pagination */
-              .swiper-pagination-container[data-slide-type="announcement"] { left: 50vw; }
-              .swiper-navigation-container[data-slide-type="announcement"] { right: 0; }
-            </style>
-            <div class="slide-content">
-              <div class="announcement-subtitle">
-                <span>{{ block.settings.announcement_subtitle | default: 'collborations' }}</span>
-              </div>
-              <div class="announcement-content">
-                <a href="{{ block.settings.announcement_slide_url }}" title="{{ block.settings.announcement_subtitle | default: 'collborations' }}">
-                  <h2>{{ block.settings.announcement_subtitle | default: 'collborations' }}</h2>
-                </a>
-              </div>
-            </div>    
-            <div class="slide-image" style="background-image: url('{{ block.settings.announcement_image | image_url }}'); background-size: cover; background-position: center center;">
+      {% elsif block.type == 'announcement' and block.settings.announcement_slide_layout == 'text_left' %}
+        <div class="swiper-slide slide__announcement" data-type="announcement" data-layout="{{ block.settings.announcement_slide_layout }}">
+          <div class="slide-content">
+            <div class="announcement-subtitle">
+              <span>{{ block.settings.announcement_subtitle | default: 'collborations' }}</span>
             </div>
-
-          {% endif %}
-
+            <div class="announcement-content">
+              <a href="{{ block.settings.announcement_slide_url }}" title="{{ block.settings.announcement_subtitle | default: 'collborations' }}">
+                <h2>{{ block.settings.announcement_slide_content | default: 'collborations' }}</h2>
+              </a>
+            </div>
+          </div>    
+          <div class="slide-image" style="background-image: url('{{ block.settings.announcement_image | image_url }}'); background-size: cover; background-position: center center;">
+          </div>
         </div>
 
       {% elsif block.type == 'image' %}
         <div class="swiper-slide slide__image" data-type="image">
-          <div class="slide-image" style="background-image: url('{{ block.settings.image_slide_image | image_url }}'); background-size: cover; background-position: center center;">
+          <div class="slide-image" data-type="image" data-layout="image" style="background-image: url('{{ block.settings.image_slide_image | image_url }}'); background-size: cover; background-position: center center;">
           </div>
         </div>
 
@@ -319,7 +305,12 @@
           {
             "type": "image_picker",
             "id": "image_slide_image",
-            "label": "Image"
+            "label": "Image (Landscape)"
+          },
+          {
+            "type": "image_picker",
+            "id": "image_slide_image_mobile",
+            "label": "Image (Portrait)"
           },
           {
             "type": "url",

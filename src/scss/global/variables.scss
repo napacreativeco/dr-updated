@@ -1,4 +1,4 @@
-:root {
+body[data-theme="lite"] {
     /* Colors */
     --bright-white: #ffffff;
     --white: #F9F9F9;
@@ -16,6 +16,30 @@
     --border-gry: 2px solid var(--grey-light);
 
     --border-blk-thin: 1px solid var(--black);
+}
+
+body[data-theme="dark"] {
+    /* Colors */
+    --bright-white: #000000;
+    --white: #111111;
+    --white-dim: #222222;
+    --grey: #8f8f8f;
+    --grey-dark: #444444;
+    --grey-light: #202020;
+    --grey-mid: #dfe1e5;
+    --red: #7D1128;
+    --black: #ffffff;
+
+    /* Borders */
+    --border-blk: 2px solid var(--black);
+    --border-wht: 2px solid var(--white);
+    --border-gry: 2px solid var(--grey-light);
+
+    --border-blk-thin: 1px solid var(--black);
+}
+
+:root {
+
     
     /* Spacing */
     --side-padding: 3%;
@@ -31,6 +55,9 @@
 
     /* Font Units */
     --52px: 3.25rem;
+    --45px: 2.813rem;
+    --40px: 2.5rem;
+    --38px: 2.375rem;
     --36px: 2.571rem;
     --32px: 2.286rem;
     --30px: 2.143rem;
@@ -59,3 +86,4 @@
         --side-padding: 10px;
     }
 }
+

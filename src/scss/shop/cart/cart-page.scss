@@ -1,6 +1,26 @@
 .cart-page {
 
     header {
+        width: 100%;
+        padding-top: 40px;
+
+        h2.title {
+            display: inline-block;
+            font-size: var(--32px);
+            letter-spacing: -7%;
+            line-height: 0.1;
+            text-transform: uppercase;
+            padding-bottom: 18px;
+            border-bottom: var(--border-blk);
+        }
+        .section--header-wrapper {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: flex-end;
+            width: 100%;
+        }
+
         a.view-more {
             font-size: 2rem;
             text-decoration: underline;
