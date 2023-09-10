@@ -1,0 +1,120 @@
+.sync-licensing {
+
+    .sync-hero {
+        padding-top: 60px;
+
+        .hero-wrap {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            height: 100svh;
+
+            .left {}
+
+            .right {
+                background: var(--black);
+                color: var(--white);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 40px;
+
+                article {
+                    h3 {
+                        font-size: var(--20px);
+                        text-transform: uppercase;
+                        text-align: center;
+                        display: block;
+                        margin: 0 0 40px 0;
+                        font-weight: 300;
+                    }
+
+                    h4 {
+                        font-size: var(--52px);
+                        text-align: center;
+                        line-height: 1.4;
+                        font-weight: 300;
+                    }
+                }
+            }
+        }
+    }
+
+    .sync-licensing-wrapper {
+        padding: 40px var(--side-padding);
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        grid-gap: 100px;
+        
+        .left {
+
+            h1 {
+                font-size: var(--22px);
+            }
+            p {
+                font-size: var(--18px);
+                line-height: 1.6;
+            }
+            a {
+                font-size: var(--18px);
+                font-family: var(--type-writer);
+            }
+
+        }
+
+        .right {
+            .articles {
+                ul {
+                    list-style: none;
+                    margin: 0;
+                    padding: 0;
+        
+                    li.item {
+                        border-bottom: var(--border-blk);
+                        padding: 20px 0;
+        
+                        .article-wrap {
+                            display: grid;
+                            grid-template-columns: 2fr 1fr 1fr;
+                            align-items: center;
+                            grid-gap: 20px;
+                            width: 100%;
+
+                            .title {
+                                h2 {
+                                    font-size: var(--20px);
+                                    line-height: 1.6;
+                                }
+                            }
+
+                            .excerpt {
+                                font-family: var(--type-writer);
+                                font-size: var(--16px);
+                                line-height: 1.6;
+                            }
+
+                            .tags { 
+                                font-family: var(--type-writer);
+                                text-transform: uppercase;
+
+                                ul {
+                                    display: flex;
+                                    justify-content: flex-end;
+                                    width: 100%;
+
+                                    li.tag {
+                                        text-align: right;
+                                        font-size: var(--16px);
+                                    }
+                                }
+
+                            }
+                        }
+                    }
+        
+                }
+            }
+        }
+    }
+
+
+}

@@ -1,0 +1,22 @@
+featured product
+
+{% schema %}
+    {
+      "name": "Featured Product",
+      "tag": "section",
+      "class": "featured-product-section section",
+      "settings": [
+        {
+          "type": "product",
+          "id": "featured_product",
+          "label": "Featured Product"
+        }
+      ],
+      "presets": [{
+        "name": "Featured Product"
+      }],
+      "enabled_on": {
+        "templates": ["page"]
+      }
+    }
+{% endschema %}
