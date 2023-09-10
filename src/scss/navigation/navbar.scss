@@ -73,6 +73,10 @@
                 background: var(--black);
                 color: var(--white);
 
+                a {
+                    color: var(--white);
+                }
+
                 .more {
                     transition: var(--quick-transition);
                     transform: rotate(90deg);

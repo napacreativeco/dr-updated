@@ -430,34 +430,7 @@
 
                 }
 
-                .share-block {
-                    padding: 30px 0px;
 
-                    .share-block-wrapper {
-                        display: flex;
-                        flex-direction: row;
-                        justify-content: flex-start;
-                        align-items: center;
-                        gap: 20px;
-                        text-transform: uppercase;
-
-                        ul {
-                            display: flex;
-                            flex-direction: row;
-                            align-items: center;
-                            gap: 50px;
-                            list-style: none;
-                            margin: 0;
-                            padding: 0;
-
-                            li {
-                                border: var(--border-blk);
-                                padding: 10px;
-                                text-align: center;
-                            }
-                        }
-                    }
-                }
 
             }
         }
@@ -466,52 +439,61 @@
 
 }
 
+/*
+----------------------------------------------------------------
+*/
 @media screen and (max-width: 767px) {
     
     .single-product.music {
+        padding-top: 72px;
 
-        // Header
-        header {
-    
-            .band-name {
-                margin-bottom: 20px;
-    
-                h2 {
-                    font-size: 11vw;
-                    letter-spacing: -4px;
-                }
-            }
-    
-            .data {
+        /* 1 */
+        .product-section-one {
+            .product-section-wrapper {
                 display: flex;
                 flex-direction: column;
-                justify-content: flex-start;
-                align-items: flex-start;
-                gap: 4px;
-                color: var(--grey);
-                font-family: var(--type-writer);
-                text-transform: uppercase;
-                font-size: 1.2rem;
-                
-                h1 {
-                    font-size: 2rem;
-                    text-transform: uppercase;
-                    color: var(--black);
+                gap: 30px;
+
+                .left {
+                    width: 100%;
+
+                    .product-gallery-swiper {
+                        height: 100%;
+                    }
+                }
+
+                .right {
+                    width: 100%;
+                    padding: 0 var(--side-padding);
                 }
             }
-    
         }
 
-        .section-one {
-            padding: 0;
-        }
-    
-        .bandcamp {
-            margin: 0px 0 80px 0;
-        }
-    
-        .tracklisting {
-            margin: 40px 0 0 0;
+        /* 2 */
+        .product-section-two {
+            margin-top: 30px;
+
+            .product-section-wrapper {
+                display: flex;
+                flex-direction: column-reverse;
+                gap: 30px;
+
+                .left {
+                    padding: 0 var(--side-padding);
+
+                    .media {
+                        .media-wrapper {
+                            grid-template-columns: 1fr;
+                            grid-gap: 20px;
+                        }
+                    }
+
+                }
+
+                .right {
+                    padding: 0 var(--side-padding);
+                }
+            }
         }
     }
 }

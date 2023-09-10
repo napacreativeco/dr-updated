@@ -36,9 +36,11 @@ section.section {
 @media screen and (max-width: 768px) {
 
     section.section {
+        // margin: 0;
 
         /* Header */
         header.section--header {
+            padding: 30px var(--side-padding) 30px var(--side-padding);
     
             h2.title {
                 font-size: 2.4rem;

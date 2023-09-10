@@ -20,8 +20,9 @@
 
 @media screen and (max-width: 768px) {
 
-    section.latest-products {
-
+    .latest-products-section {
+        margin: 0 0 60px 0;
+        
         .latest-products--wrapper {
 
             ul.product-list {

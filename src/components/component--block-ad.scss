@@ -33,3 +33,14 @@
         }
     }
 }
+
+@media screen and (max-width: 767px) {
+    .block-ad-section {
+        margin-top: 60px;
+    }
+    .block-ad-wrap {
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: 50vh 50vh;
+    }
+}

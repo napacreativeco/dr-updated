@@ -54,7 +54,7 @@ footer {
 
         form {
             margin-top: 30px;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
         }
 
         input[type="email"] {
@@ -86,7 +86,8 @@ footer {
             position: absolute;
             bottom: 10px;
             right: 10px;
-            font-size: var(--10px);
+            font-size: var(--12px);
+            letter-spacing: 0px;
         }
 
     }
@@ -98,12 +99,23 @@ footer {
 
 @media screen and (max-width: 767px) {
  
-    .footer {
-        .footer--wrapper {
-            display: flex;
-            flex-direction: column;
-            gap: 40px;
-            padding: 60px 5% 20px 5%;
+    .footer-wrap {
+        display: grid;
+        grid-template-columns: 100%;
+        border-bottom: 0;
+
+        .left {
+            border-bottom: var(--border-blk);
+            border-right: 0;
+
+            .link-block:last-of-type {
+                border-right: 0;
+            }
+        }
+
+        .right {
+            padding-bottom: 20px;
         }
     }
+
 }
