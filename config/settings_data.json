@@ -7,6 +7,12 @@
         "type": "cart-drawer",
         "settings": {
         }
+      },
+      "featured-product": {
+        "type": "featured-product",
+        "settings": {
+          "featured_product": "modern-mirror"
+        }
       }
     },
     "content_for_index": [
