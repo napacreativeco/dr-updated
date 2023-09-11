@@ -66,80 +66,82 @@
                     
                   </div>
 
-                  <div class="product-vendor">
-                    {% for collection in prod.collections %}
-                      {% if collection.title == prod.vendor %}
-                        <a href="{{ collection.url }}" title="{{ prod.vendor }}">
-                            <h3>{{ prod.vendor }}</h3>
-                        </a>
-                      {% endif %}
-                    {% endfor %}               
-                  </div>
-
-                  <div class="product-title">
-                    <a href="{{ prod.url }}" title="{{ prod.title }}{{ ' by ' }}{{ prod.vendor }}">
-                      <h2>{{ prod.title }}</h2>
-                    </a>
-                  </div>
-
-                  <div class="product-variants">
-                    <ul class="list">
-                        {% assign vinyl = '' %}
-                        {% assign cd = '' %}
-                        {% assign digi = '' %}
-                        {% for vari in prod.variants %}
-                            {% if vari.title contains "Vinyl" or vari.title contains "LP" or vari.title contains "ltd" %}
-                              {% assign vinyl = vari.title | replace: vari.title, 'Vinyl ' | split: ' ' %}
-                          
-                            {% elsif vari.title contains "Compact Disc" or vari.title contains "CD" %}
-                              {% assign cd = vari.title | replace: vari.title, 'CD' | split: ' ' %}
-
-                            {% elsif vari.title contains "Digital" or vari.title contains "Digi" %}
-                              {% assign digi = vari.title | replace: vari.title, 'Digital' | split: ' ' %}
-
+                  <div class="data">
+                    <div class="product-vendor">
+                      {% for collection in prod.collections %}
+                        {% if collection.title == prod.vendor %}
+                          <a href="{{ collection.url }}" title="{{ prod.vendor }}">
+                              <h3>{{ prod.vendor }}</h3>
+                          </a>
+                        {% endif %}
+                      {% endfor %}               
+                    </div>
+  
+                    <div class="product-title">
+                      <a href="{{ prod.url }}" title="{{ prod.title }}{{ ' by ' }}{{ prod.vendor }}">
+                        <h2>{{ prod.title }}</h2>
+                      </a>
+                    </div>
+  
+                    <div class="product-variants">
+                      <ul class="list">
+                          {% assign vinyl = '' %}
+                          {% assign cd = '' %}
+                          {% assign digi = '' %}
+                          {% for vari in prod.variants %}
+                              {% if vari.title contains "Vinyl" or vari.title contains "LP" or vari.title contains "ltd" %}
+                                {% assign vinyl = vari.title | replace: vari.title, 'Vinyl ' | split: ' ' %}
+                            
+                              {% elsif vari.title contains "Compact Disc" or vari.title contains "CD" %}
+                                {% assign cd = vari.title | replace: vari.title, 'CD' | split: ' ' %}
+  
+                              {% elsif vari.title contains "Digital" or vari.title contains "Digi" %}
+                                {% assign digi = vari.title | replace: vari.title, 'Digital' | split: ' ' %}
+  
+                              {% endif %}
+                          {% endfor %}
+  
+                          {% for v in vinyl limit: 1 %}
+                            <li class="item vinyl">
+                              <a href="{{ '/collections/all/vinyl' | url_escape }}" title="{{ shop.name }}{{ ' Vinyl Products' }}">   
+                                {{ v | append: ',' }}
+                              </a>
+                            </li>
+                          {% endfor %}
+                          {% for c in cd limit: 1 %}
+                            {% if digi != blank %}
+                              <li class="item cd">
+                                <a href="/collections/all/compact-disc" title="{{ shop.name }}{{ ' Compact Disc Products' }}">  
+                                  {{ c | append: ',' }}
+                                </a>
+                              </li>
+                            {% else %}
+                              <li class="item cd">
+                                <a href="/collections/all/compact-disc" title="{{ shop.name }}{{ ' Compact Disc Products' }}">
+                                  {{ c }}
+                                </a>
+                              </li>
                             {% endif %}
-                        {% endfor %}
-
-                        {% for v in vinyl limit: 1 %}
-                          <li class="item vinyl">
-                            <a href="{{ '/collections/all/vinyl' | url_escape }}" title="{{ shop.name }}{{ ' Vinyl Products' }}">   
-                              {{ v | append: ',' }}
-                            </a>
-                          </li>
-                        {% endfor %}
-                        {% for c in cd limit: 1 %}
-                          {% if digi != blank %}
-                            <li class="item cd">
-                              <a href="/collections/all/compact-disc" title="{{ shop.name }}{{ ' Compact Disc Products' }}">  
-                                {{ c | append: ',' }}
+                          {% endfor %}
+                          {% for d in digi limit: 1 %}
+                            <li class="item digital">
+                              <a href="/collections/all/digital" title="{{ shop.name }}{{ ' Digital Products' }}">
+                                {{ d }}
                               </a>
                             </li>
-                          {% else %}
-                            <li class="item cd">
-                              <a href="/collections/all/compact-disc" title="{{ shop.name }}{{ ' Compact Disc Products' }}">
-                                {{ c }}
-                              </a>
-                            </li>
-                          {% endif %}
-                        {% endfor %}
-                        {% for d in digi limit: 1 %}
-                          <li class="item digital">
-                            <a href="/collections/all/digital" title="{{ shop.name }}{{ ' Digital Products' }}">
-                              {{ d }}
-                            </a>
-                          </li>
-                        {% endfor %}
-                    </ul>
-                  </div>
-
-                  <div class="actions">
-                    <a class="button" href="{{ prod.url }}" title="{{ prod.title }}{{ ' by ' }}{{ prod.vendor }}">
-                      {% if prod.metafields.product.preorder_status == true %}
-                        {{ 'Pre-order' | escape }}
-                      {% else %}
-                        {{ 'View Product' | escape }}
-                      {% endif %}
-                    </a>
+                          {% endfor %}
+                      </ul>
+                    </div>
+  
+                    <div class="actions">
+                      <a class="button" href="{{ prod.url }}" title="{{ prod.title }}{{ ' by ' }}{{ prod.vendor }}">
+                        {% if prod.metafields.product.preorder_status == true %}
+                          {{ 'Pre-order' | escape }}
+                        {% else %}
+                          {{ 'View Product' | escape }}
+                        {% endif %}
+                      </a>
+                    </div>
                   </div>
 
                 </div>

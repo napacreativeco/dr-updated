@@ -1,20 +1,13 @@
-{% comment %}
+{{ 'snippet--collection-sorting.css' | asset_url | stylesheet_tag }}
 
-  Collection sorting
 
-{% endcomment %}
+<div class="product-sorting">
 
-<details class="product-sorting sorting">
 
-  <summary>
-    <div class="summary-wrapper">
-
-      {% comment %} Title {% endcomment %}
-      <div class="title">
-        <h2>Filters</h2>
-      </div>
-    
-      {% comment %} Active Filters {% endcomment %}
+  <div class="sorting-title">
+    {% comment %} Filters {% endcomment %}
+    <div class="filter-title">
+      <span>{{ 'Filters' | escape }}</span>
       <div class="active-filters">
         <ul>
 
@@ -43,33 +36,23 @@
         </ul>
       </div>
     </div>
-  </summary>
 
-  <div class="wrapper">
-
-    {% comment %} Filter Blocks {% endcomment %}
-    <div class="center">
-      <div class="center-wrapper">
-        {% render 'sorting-radios' %}
-        {% render 'product-filter-blocks' %}
-      </div>
+    {% comment %} Search {% endcomment %}
+    <div class="search-title">
+      {{ 'Search' | escape }} {% render 'icon--search' %}
     </div>
-
-    {% comment %} Search & Artists {% endcomment %}
-    <div class="right">     
-      <div class="search">
-        <h3>Search</h3>
-        {% render 'searchbar' %}
-      </div>
-      <div class="separator"></div>
-      <div class="artists">
-        <h3>Artists</h3>
-        {% render 'artist-select' %}
-      </div>
-    </div>
-
   </div>
-</details>
+
+  <div class="sorting-wrapper">
+    {% render 'sorting-radios' %}
+    {% render 'product-filter-blocks' %}
+    {% render 'artist-select' %}
+  </div>
+
+  <div class="search-wrapper">
+    {% render 'searchbar' %}
+  </div>
+</div>
 
 
 

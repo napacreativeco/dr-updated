@@ -1,9 +1,13 @@
+{{ 'collection--default.css' | asset_url | stylesheet_tag }}
+
 <div class="default-collection">
   <div class="default-collection-wrapper page-wrapper">
 
     <header>
       <div class="header-wrapper">
+
         {% render 'breadcrumbs' %}
+
         {% if current_tags %}
           <ul>
             {% for tags in current_tags %}
@@ -21,7 +25,9 @@
     {% paginate collection.products by 10 %}
 
       {% if collection.handle != 'dais-records' and collection.handle != 'collaboration' %}
+
         {% render 'product-sorting' %}
+        
       {% endif %}
 
 

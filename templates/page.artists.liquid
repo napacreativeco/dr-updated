@@ -1,0 +1,21 @@
+{% comment %}
+*
+* Artists Archive
+*
+{% endcomment %}
+{{ 'page--artists-archive.css' | asset_url | stylesheet_tag }}
+
+<div class="artists-page">
+    <div class="artists-wrapper">
+        <div class="left current">
+            <div class="section-title">
+                <h1>{{ 'Current Artists' | escape }}</h1>
+            </div>
+        </div>
+        <div class="right alumni">
+            <div class="section-title">
+                <h2>{{ 'Alumni' | escape }}</h2>
+            </div>
+        </div>
+    </div>
+</div>

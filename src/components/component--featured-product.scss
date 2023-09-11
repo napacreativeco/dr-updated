@@ -1,0 +1,11 @@
+.featured-product-section {
+    .featured-product-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+
+        .product-info {
+            background: var(--black);
+            color: var(--white);
+        }
+    }
+}

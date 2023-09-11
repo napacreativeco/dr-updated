@@ -1,0 +1,1 @@
+.artists-page .artists-wrapper{display:grid;grid-template-columns:60% auto;grid-gap:60px}.artists-page .artists-wrapper .section-title{border-bottom:var(--border-blk)}.artists-page .artists-wrapper .section-title h1,.artists-page .artists-wrapper .section-title h2{font-size:var(--34px)}

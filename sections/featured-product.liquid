@@ -1,4 +1,24 @@
-featured product
+{{ 'component--featured-product.css' | asset_url | stylesheet_tag }}
+
+<div class="featured-product-wrapper">
+  {% for collect in section.settings.featured_product.collections %}
+    {% case collect.title %}
+      {% when section.settings.featured_product.vendor %}
+  
+        <div class="product-info">
+          <div class="wrap">
+            <h5>{{ collect.title }}</h5>
+          </div>
+        </div>
+  
+        {% for c in collect.metafields.dais.artist_gallery.value limit: 1 %}
+          <div id="featured-product-image" style="background: url('{{ c | image_url }}'); background-size: cover; width: 100%; height: 200px;"></div>
+        {% endfor %}
+  
+    {% endcase %}
+  {% endfor %}
+</div>
+
 
 {% schema %}
     {

@@ -1,4 +1,6 @@
 <form action="/search" method="get" class="search-form right" role="search">
-    <input name="q" type="search" id="search-field" placeholder="Search store..." value="{{ search.terms | escape }}" />
-    <input type="submit" id="search-submit" value="Search" />
+    <input name="q" type="search" id="search-field" placeholder="Search The Shop" value="{{ search.terms | escape }}" />
+    <button type="submit" id="search-submit">
+        {% render 'icon--search' %}
+    </button>
 </form>

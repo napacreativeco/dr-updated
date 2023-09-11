@@ -34,28 +34,27 @@
 
         if ( $(this).hasClass('opened') ) {
 
-            gsap.to( '.navbar-mobile--dropdown', {
-                height: '0px',
-                duration: 0.6,
+            gsap.to( '.navbar-mobile--overlay', {
+                display: 'none',
                 ease: 'easeOutExpo',
             });
-    
-            
-            $(this).text('Menu').removeClass('opened');
 
         } else {
 
-            gsap.to( '.navbar-mobile--dropdown', {
-                height: '100%',
-                duration: 0.6,
+            gsap.to( '.navbar-mobile--overlay', {
+                display: 'block',
                 ease: 'easeOutExpo',
             });
 
-           
-            $(this).text('Close').addClass('opened');
-
         }
 
+    });
+
+    $('.close-overlay').on('click', function() {
+        gsap.to( '.navbar-mobile--overlay', {
+            display: 'none',
+            ease: 'easeOutExpo',
+        });
     });
 
     // //////////////////////////////

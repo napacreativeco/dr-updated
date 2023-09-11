@@ -8,7 +8,6 @@
 @import 'global/app.scss';
 @import 'global/typography.scss';
 @import 'global/footer.scss';
-@import 'global/breadcrumbs.scss';
 @import 'global/sections.scss';
 @import 'global/animations.scss';
 
@@ -39,9 +38,7 @@
 @import 'shop/cart/cart-page.scss';
 
 /* Shop > Collections */
-@import 'shop/collections/collection-default.scss';
 @import 'shop/collections/collection-music.scss';
 @import 'shop/collections/product-card.scss';
 @import 'shop/collections/radio-buttons.scss';
-@import 'shop/collections/sorting.scss';
 @import 'shop/collections/no-products.scss';
