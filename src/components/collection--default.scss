@@ -1,83 +1,58 @@
 .default-collection {
 
-    header {
-        margin: 0 0 20px 0;
+    .default-collection-wrapper {
+        padding: 100px 12px 30px 12px;
 
-        h1 {
-            font-size: var(--36px);
-            letter-spacing: -0.4vw;
+        header {
+            margin: 0 0 20px 0;
+
+            h1 {
+                font-size: var(--42px);
+                letter-spacing: -1px;
+            }
+    
+            ul {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                flex-direction: row;
+                gap: 1rem;
+            }
         }
 
-        ul {
+        .breadcrumbs {
+            margin: 0 0 12px 0;
+        }
+
+        ul.products {
+            margin: 20px 0 0 0;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 14px;
             list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: row;
-            gap: 1rem;
+    
+            li {
+                .image {
+                    position: relative;
+    
+                    .preorder-status {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        background: var(--black);
+                        color: var(--white);
+                        font-family: var(--type-writer);
+                        text-transform: uppercase;
+                        padding: 6px;
+                        border-right: var(--border-wht-thin);
+                        border-bottom: var(--border-wht-thin);
+                    }
+                }
+            }
         }
+    
     }
-
-    // .collection-description {
-    //     padding: 20px 0;
-
-    //     p {
-    //         font-size: 1.8rem;
-    //         line-height: 1.7;
-    //     }
-    // }
-
-    // .product-section {
-    //     padding: 40px 0;
-        
-    //     ul.products {
-    //         display: grid;
-    //         grid-template-columns: repeat(4, 1fr);
-    //         grid-gap: 40px 14px;
-    //         list-style: none;
-
-    //         .image {
-    //             position: relative;
-                
-    //             img {
-    //                 display: block;
-    //             }
-
-    //             .preorder-status {
-    //                 position: absolute;
-    //                 top: 12px;
-    //                 right: 12px;
-    //                 background: var(--black);
-    //                 color: var(--white);
-    //                 padding: 6px;
-    //                 border: var(--border-wht);
-    //                 text-transform: uppercase;
-    //             }
-    //         }
-
-    //         .data {
-    //             display: grid;
-    //             grid-template-columns: 3fr 1fr;
-    //             font-size: var(--18px);
-
-    //             .artist {
-    //                 text-transform: uppercase;
-    //                 display: block;
-    //                 margin: 0 0 6px 0;
-    //             }
-    //             .title {
-    //                 text-transform: uppercase;
-    //                 color: var(--grey);
-    //             }
-
-    //             .price {
-    //                 color: var(--grey);
-    //                 text-align: right;
-    //             }
-    //         }
-    //     }
-
-    // }
 
 }
 
@@ -90,19 +65,17 @@
     .default-collection {
         padding: 0;
 
-        header {
-            margin: 0 0 20px 0;
-        }
-        
-        .product-section {
-
-            padding: 20px 0;
-
-            ul.products {
-                display: flex;
-                flex-direction: column;
-                gap: 40px;
+        .default-collection-wrapper {
+            header {
+                margin: 0 0 20px 0;
             }
+            
+            ul.products {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 14px;
+            }
+            
         }
+
     }
 }

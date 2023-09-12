@@ -1,7 +1,7 @@
 {% comment %} 
 Artist Select Element 
 {% endcomment %}
-<select class="artist-select">
+<fieldset class="artist-radios">
     {% for product in collections.all.products %}
 
         {% case product.type %}
@@ -9,24 +9,24 @@ Artist Select Element
 
                 {% for collection in collections %}
                     {% if collection.title == product.vendor %}
-                        <option value="{{ collection.title }}">{{ collection.title }}</option>
+                        <label value="{{ collection.title }}">
+                            <input class="artist-radio" data-artist="{{ collection.title }}" type="radio" value="{{ collection.title }}">
+                            {{ collection.title }}
+                        </label>
                     {% endif %}
                 {% endfor %}
 
 
         {% endcase %}
     {% endfor %}
-</select>
-
+</fieldset>
         
 <script>
 (function($) {
     $(document).ready(function() {
-        $(".artist-select").change(function(){
-            var val =  $(".artist-select > option:selected").attr('value');
-
+        $(".artist-radio").click(function(){
+            var val =  $(this).attr('data-artist');
             window.location="?filter.p.vendor=" + val;
-
         });
     });
 })(jQuery);

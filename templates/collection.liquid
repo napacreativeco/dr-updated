@@ -1,8 +1,9 @@
 {{ 'collection--default.css' | asset_url | stylesheet_tag }}
 
 <div class="default-collection">
-  <div class="default-collection-wrapper page-wrapper">
+  <div class="default-collection-wrapper">
 
+    {% comment %} Header {% endcomment %}
     <header>
       <div class="header-wrapper">
 
@@ -20,16 +21,6 @@
           <h1>{{ collection.title }}</h1>
         {% endif %}
       </div>
-    </header>
-  
-    {% paginate collection.products by 10 %}
-
-      {% if collection.handle != 'dais-records' and collection.handle != 'collaboration' %}
-
-        {% render 'product-sorting' %}
-        
-      {% endif %}
-
 
       {% comment %} Description {% endcomment %}
       {% if collection.description.size > 0 %}
@@ -37,73 +28,77 @@
           <p>{{ collection.description }}</p>
         </div>
       {% endif %}
+    </header>
+  
+    {% comment %} Sorting {% endcomment %}
+    {% if collection.handle != 'dais-records' and collection.handle != 'collaboration' %}
+      {% render 'product-sorting' %}
+    {% endif %}
 
-      {% comment %} Products {% endcomment %}
-      <section class="product-section">
-        {% if collection.products.length > 0 %}
-          <ul class="products">
-            
-            {% for product in collection.products %}
-              <li class="item product-card">
-                <div class="product-card-wrapper">
-    
-                  {% comment %} Image {% endcomment %}
-                  <div class="image" onclick="window.location='{{ product.url }}';">
-                    {% if product.featured_image != blank %}
-                      <div class="view-more" data-image="{{ product.featured_image | image_url: width: 1000 }}">   
-                        {% render 'icon--arrow-right' %}
-                      </div>
-                      {% assign today_date = 'now' | date: '%s' %}
-                      {% assign preorder_date = product.metafields.music.release_date | date: '%s' %}
-                      {% if preorder_date < today_date %}
-                        <div class="preorder-status">
-                          <span>{{ 'Preorder' | escape }}</span>
-                        </div>
-                      {% endif %}
-                      <img src="{{ product.featured_image | image_url: width: 800 }}" alt="{{ product.title }}" loading="lazy" />
-                    {% else %}
-                      {{ 'image' | placeholder_svg_tag }}
-                    {% endif %}
-                  </div>
-                  
-                  {% comment %} Data {% endcomment %}
-                  <div class="data">
-                    <div class="l">
-                      <div class="artist">
-                        <h3>
-                          {% if product.vendor != 'Dais Records' %}
-                            <a href="{{ collection.url }}" title="{{ product.title }} by {{ product.vendor }}">
-                              {{ product.vendor }}
-                            </a>
-                          {% endif %}
-                        </h3>
-                      </div>
-                      <div class="title">
-                        <h2>
-                          <a class="type-writer" href="{{ product.url }}" title="{{ product.title }} by {{ product.vendor }}">
-                            {{ product.title }}
-                          </a>
-                        </h2>
-                      </div>
-                    </div>
-                    <div class="r">
-                      <div class="price type-writer">
-                        {{ product.price | money_without_trailing_zeros }}
-                      </div>
-                    </div>
-                  </div>
-
-                </div>
-              </li>
-            {% endfor %}
+    {% comment %} Products {% endcomment %}
+    {% paginate collection.products by 10 %}
       
-          </ul>
-        {% else %}
-
-          {% render 'no-products-available' %}
+      {% if collection.products.length > 0 %}
+        <ul class="products">
           
-        {% endif %}
-      </section>
+          {% for product in collection.products %}
+            <li class="item product-card">
+              <div class="product-card-wrapper">
+  
+                <div class="image" onclick="window.location='{{ product.url }}';">
+                  {% if product.featured_image != blank %}
+                    <div class="view-more" data-image="{{ product.featured_image | image_url: width: 1000 }}">   
+                      {% render 'icon--arrow-right' %}
+                    </div>
+                    {% assign today_date = 'now' | date: '%s' %}
+                    {% assign preorder_date = product.metafields.music.release_date | date: '%s' %}
+                    {% if preorder_date < today_date %}
+                      <div class="preorder-status">
+                        <span>{{ 'Preorder' | escape }}</span>
+                      </div>
+                    {% endif %}
+                    <img src="{{ product.featured_image | image_url: width: 800 }}" alt="{{ product.title }}" loading="lazy" />
+                  {% else %}
+                    {{ 'image' | placeholder_svg_tag }}
+                  {% endif %}
+                </div>
+                
+                <div class="data">
+                  <div class="l">
+                    <div class="artist">
+                      <h3>
+                        {% if product.vendor != 'Dais Records' %}
+                          <a href="{{ collection.url }}" title="{{ product.title }} by {{ product.vendor }}">
+                            {{ product.vendor }}
+                          </a>
+                        {% endif %}
+                      </h3>
+                    </div>
+                    <div class="title">
+                      <h2>
+                        <a class="type-writer" href="{{ product.url }}" title="{{ product.title }} by {{ product.vendor }}">
+                          {{ product.title }}
+                        </a>
+                      </h2>
+                    </div>
+                  </div>
+                  <div class="r">
+                    <div class="price type-writer">
+                      {{ product.price | money_without_trailing_zeros }}
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </li>
+          {% endfor %}
+    
+        </ul>
+      {% else %}
+
+        {% render 'no-products-available' %}
+        
+      {% endif %}
 
 
       {% comment %} Pagination {% endcomment %}

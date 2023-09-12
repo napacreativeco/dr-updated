@@ -111,5 +111,58 @@
     //     end: '100vh'
     // });
 
+    // //////////////////////////////
+    // COLLECTION - SHOW FILTERS   //
+    // //////////////////////////////
+    $('.filter-trigger').on('click', function() {
+        if ( $('.sorting-wrapper').hasClass('opened') ) {
+            $('.sorting-wrapper').removeClass('opened');
+
+            gsap.to('.sorting-wrapper', {
+                height: '0px',
+            });
+            gsap.to('.filter-trigger > svg', {
+                rotateY: '0deg',
+                duration: 0.3
+            });
+        } else {
+            $('.sorting-wrapper').addClass('opened');
+
+            gsap.to('.sorting-wrapper', {
+                height: 'auto',
+            });
+            gsap.to('.filter-trigger > svg', {
+                rotateY: '180deg',
+                duration: 0.3
+            });
+        }
+    });
+
+    // //////////////////////////////
+    // COLLECTION - SHOW SEARCH    //
+    // //////////////////////////////
+    $('.search-trigger').on('click', function() {
+        if ( $('.search-wrapper').hasClass('opened') ) {
+            $('.search-wrapper').removeClass('opened');
+
+            gsap.to('.search-wrapper', {
+                height: '0px',
+            });
+            gsap.to('.search-title > svg', {
+                rotateY: '0deg',
+                duration: 0.3
+            });
+        } else {
+            $('.search-wrapper').addClass('opened');
+
+            gsap.to('.search-wrapper', {
+                height: 'auto',
+            });
+            gsap.to('.search-title > svg', {
+                rotateY: '180deg',
+                duration: 0.3
+            });
+        }
+    });
 
 })(jQuery);
