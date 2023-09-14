@@ -3,6 +3,7 @@
     .default-collection-wrapper {
         padding: 100px 12px 30px 12px;
 
+        /* Header */
         header {
             margin: 0 0 20px 0;
 
@@ -21,15 +22,17 @@
             }
         }
 
+        /* Breadcrumbs */
         .breadcrumbs {
             margin: 0 0 12px 0;
         }
 
+        /* Products */
         ul.products {
             margin: 20px 0 0 0;
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            grid-gap: 14px;
+            grid-gap: 40px 14px;
             list-style: none;
     
             li {
@@ -47,6 +50,26 @@
                         padding: 6px;
                         border-right: var(--border-wht-thin);
                         border-bottom: var(--border-wht-thin);
+                    }
+                }
+
+                .data {
+                    a {
+                        font-size: var(--18px);  
+                        text-transform: uppercase;    
+                    }
+                    
+                    .artist {
+                        text-transform: uppercase;
+                    }
+
+                    .title {
+                        color: var(--grey);
+                    }
+
+                    .price {
+                        color: var(--grey);
+                        
                     }
                 }
             }
@@ -72,7 +95,7 @@
             
             ul.products {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 14px;
+                gap: 40px 14px;
             }
             
         }

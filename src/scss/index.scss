@@ -49,7 +49,6 @@ body[data-theme="dark"] {
     /* Type */
     --section-title: 4.8rem;
     --view-more-size: 2rem;
-   // --sans-serif: 'Inter', sans-serif;
    --sans-serif: Arial, sans-serif;
     --type-writer: 'DM Mono', monospace;
 
@@ -133,6 +132,5 @@ body[data-theme="dark"] {
 
 /* Shop > Collections */
 @import 'shop/collections/collection-music.scss';
-@import 'shop/collections/product-card.scss';
 @import 'shop/collections/radio-buttons.scss';
 @import 'shop/collections/no-products.scss';

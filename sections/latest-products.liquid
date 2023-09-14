@@ -1,4 +1,5 @@
 {{ 'component--latest-products.css' | asset_url | stylesheet_tag }}
+{{ 'card--product-card-collection.css' | asset_url | stylesheet_tag }}
 
 {% render 'section-header', data: section.settings %}
 
@@ -9,18 +10,17 @@
     Selected Collection
     {% endcomment %}
     <ul class="product-list selected-collection">
-
       {% if section.settings.latest_collection_rows == 'three' %}
         {% for prod in collections[section.settings.latest_collection].products limit: 12 %}
-          {% render 'product-card', prod: prod %}
+          {% render 'product-card--collection', prod: prod %}
         {% endfor %}
       {% elsif section.settings.latest_collection_rows == 'four' %}
         {% for prod in collections[section.settings.latest_collection].products limit: 16 %}
-          {% render 'product-card', prod: prod %}
+          {% render 'product-card--collection', prod: prod %}
         {% endfor %}
       {% else %}
         {% for prod in collections[section.settings.latest_collection].products limit: 8 %}
-          {% render 'product-card', prod: prod %}
+          {% render 'product-card--collection', prod: prod %}
         {% endfor %}
       {% endif %}
     </ul>
@@ -33,15 +33,15 @@
     <ul class="product-list default-collection">
       {% if section.settings.latest_collection_rows == 'three' %}
         {% for prod in collections.all.products limit: 12 %}
-          {% render 'product-card', prod: prod %}
+          {% render 'product-card--collection', prod: prod %}
         {% endfor %}
       {% elsif section.settings.latest_collection_rows == 'four' %}
         {% for prod in collections.all.products limit: 16 %}
-          {% render 'product-card', prod: prod %}
+          {% render 'product-card--collection', prod: prod %}
         {% endfor %}
       {% else %}
         {% for prod in collections.all.products limit: 8 %}
-          {% render 'product-card', prod: prod %}
+          {% render 'product-card--collection', prod: prod %}
         {% endfor %}
       {% endif %}
     </ul>

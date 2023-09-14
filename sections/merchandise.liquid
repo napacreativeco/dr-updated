@@ -1,4 +1,5 @@
 {{ 'component--merchandise.css' | asset_url | stylesheet_tag }}
+{{ 'card--product-card-collection.css' | asset_url | stylesheet_tag }}
 
 {% render 'section-header', data: section.settings %}
 
@@ -12,15 +13,15 @@
 
       {% if section.settings.merchandise_collection_rows == 'two' %}
         {% for prod in collections[section.settings.merchandise_collection].products limit: 8 %}
-          {% render 'product-card', prod: prod %}
+          {% render 'product-card--collection', prod: prod %}
         {% endfor %}
       {% elsif section.settings.merchandise_collection_rows == 'three' %}
         {% for prod in collections[section.settings.merchandise_collection].products limit: 12 %}
-          {% render 'product-card', prod: prod %}
+          {% render 'product-card--collection', prod: prod %}
         {% endfor %}
       {% else %}
         {% for prod in collections[section.settings.merchandise_collection].products limit: 4 %}
-          {% render 'product-card', prod: prod %}
+          {% render 'product-card--collection', prod: prod %}
         {% endfor %}
       {% endif %}
     </ul>
@@ -33,15 +34,15 @@
     <ul class="product-list default-collection">
       {% if section.settings.merchandise_collection_rows == 'two' %}
         {% for prod in collections.merch.products limit: 8 %}
-          {% render 'product-card', prod: prod %}
+          {% render 'product-card--collection', prod: prod %}
         {% endfor %}
       {% elsif section.settings.merchandise_collection_rows == 'three' %}
         {% for prod in collections.merch.products limit: 12 %}
-          {% render 'product-card', prod: prod %}
+          {% render 'product-card--collection', prod: prod %}
         {% endfor %}
       {% else %}
         {% for prod in collections.merch.products limit: 4 %}
-          {% render 'product-card', prod: prod %}
+          {% render 'product-card--collection', prod: prod %}
         {% endfor %}
       {% endif %}
     </ul>

@@ -35,6 +35,11 @@
                     }
                     
         
+                    .data {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 6px;
+                    }
                     .product-vendor {
                         font-size: var(--30px);
         

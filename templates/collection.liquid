@@ -1,4 +1,5 @@
 {{ 'collection--default.css' | asset_url | stylesheet_tag }}
+{{ 'card--product-card.css' | asset_url | stylesheet_tag }}
 
 <div class="default-collection">
   <div class="default-collection-wrapper">
@@ -18,7 +19,13 @@
             {% endfor %}
           </ul>
         {% else %}
-          <h1>{{ collection.title }}</h1>
+          <h1>
+            {% if collection.handle == 'all' %}
+              {{ 'All Products' | escape }}
+            {% else %}
+              {{ collection.title }}
+            {% endif %}
+          </h1>
         {% endif %}
       </div>
 
@@ -36,7 +43,7 @@
     {% endif %}
 
     {% comment %} Products {% endcomment %}
-    {% paginate collection.products by 10 %}
+    {% paginate collection.products by 2 %}
       
       {% if collection.products.length > 0 %}
         <ul class="products">
@@ -64,7 +71,7 @@
                 </div>
                 
                 <div class="data">
-                  <div class="l">
+                  
                     <div class="artist">
                       <h3>
                         {% if product.vendor != 'Dais Records' %}
@@ -74,6 +81,7 @@
                         {% endif %}
                       </h3>
                     </div>
+
                     <div class="title">
                       <h2>
                         <a class="type-writer" href="{{ product.url }}" title="{{ product.title }} by {{ product.vendor }}">
@@ -81,12 +89,11 @@
                         </a>
                       </h2>
                     </div>
-                  </div>
-                  <div class="r">
+
                     <div class="price type-writer">
                       {{ product.price | money_without_trailing_zeros }}
                     </div>
-                  </div>
+                 
                 </div>
 
               </div>
@@ -102,9 +109,7 @@
 
 
       {% comment %} Pagination {% endcomment %}
-      {% if paginate.pages > 1 %}
-        {{ paginate | default_pagination }}
-      {% endif %}
+      {% render 'pagination--collection' paginate: paginate %}      
 
     {% endpaginate %}
 

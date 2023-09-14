@@ -1,4 +1,4 @@
-<li class="product-card">
+<li class="product-card collection-card">
     <div class="product-card-wrapper">
         <div class="image" onclick="window.location='{{ prod.url }}';">
             {% if prod.featured_image %}
@@ -17,24 +17,26 @@
         </div>
 
         <div class="data">
+            <div class="left">
+                <div class="artist">
+                    <a href="{{ prod.url }}" title="{{ prod.vendor }} - {{ prod.title }}">
+                        <h3>{{ prod.vendor }}</h3>
+                    </a>
+                </div>
+                <div class="title type-writer">
+                    <a href="{{ prod.url }}" title="{{ prod.vendor }} - {{ prod.title }}">
+                        <h4>{{ prod.title }}</h4>
+                    </a>
+                </div>
+            </div>
+            <div class="right">
+                <div class="price type-writer">
+                    <a href="{{ prod.url }}" title="{{ prod.vendor }} - {{ prod.title }}">
+                        {{ prod.price | money_without_trailing_zeros }}
+                    </a>
+                </div>
+            </div>
 
-            <div class="artist">
-                <a href="{{ prod.url }}" title="{{ prod.vendor }} - {{ prod.title }}">
-                    <h3>{{ prod.vendor }}</h3>
-                </a>
-            </div>
-            <div class="title type-writer">
-                <a href="{{ prod.url }}" title="{{ prod.vendor }} - {{ prod.title }}">
-                    <h4>{{ prod.title }}</h4>
-                </a>
-            </div>
-
-            <div class="price type-writer">
-                <a href="{{ prod.url }}" title="{{ prod.vendor }} - {{ prod.title }}">
-                    {{ prod.price | money_without_trailing_zeros }}
-                </a>
-            </div>
-        
         </div>
     </div>
 </li>

@@ -1,69 +1,75 @@
 .product-card {
+    .product-card-wrapper {
 
-    .image {
-        overflow: hidden;
-        cursor: pointer;
-        border: var(--border-blk-thin);
-
-        img {
-            width: 100%;
-            height: 100%;
-            aspect-ratio: 1/1;
-            transition: all 0.2s ease-in-out;
-            display: block;
-        }
-
-        svg {
-            width: 100%;
-            height: 100%;
-            border: 1px solid var(--black);
-        }
-    }
-    .image:hover img {
-        opacity: 0.96;
-    }
-
-    .info {
         display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        gap: 10px;
-        width: 100%;
-    }
-
-    .left {
-        display: flex;
-        justify-content: center;
         flex-direction: column;
-        gap: 4px;
-        padding-top: 4px;
+        gap: 10px;
 
-        .artist h3 {
-            text-transform: uppercase;
-            font-size: var(--22px);
-            color: var(--black);
-            font-family: var(--sans-serif);
-            letter-spacing: -2%;
+        .image {
+            cursor: pointer;
+            transition: var(--image-opacity-transition);
+            position: relative;
+            border: var(--border-blk-thin);
+
+            img {
+                max-width: 100%;
+                display: block;
+            }
+
+            .view-more {
+                position: absolute;
+                bottom: 10px;
+                right: 10px;
+                background: var(--white);
+                padding: 6px;
+                border-radius: 4px;
+                opacity: 0;
+            }
         }
-    
-        .title h4 {
-            text-transform: uppercase;
-            font-size: var(--18px);
-            font-family: var(--type-writer);
-            color: var(--grey);
+
+        .image:hover {
+            opacity: 0.8;
+
+            .view-more {
+                opacity: 1;
+            }
         }
+
+        .data {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+
+            a {
+                text-transform: uppercase;
+            }
+
+            .artist {
+                h3 {
+                    font-size: var(--16px);
+                    font-family: var(--sans-serif);
+                    color: var(--black);
+                }
+            }
+
+            .title {
+                h2 {
+                    font-size: var(--16px);
+                    font-family: var(--type-writer);
+                    color: var(--grey);
+                }
+            }
+
+            .price {
+                font-size: 1.4rem;
+                color: var(--grey);
+                font-family: var(--type-writer);
+            }
+
+            a:hover {
+                text-decoration: underline;
+            }
+        }
+
     }
-
-
-
-    .price {
-        padding-top: 4px;
-        font-size: var(--18px);
-        color: var(--grey);
-    }
-
-    a:hover {
-        text-decoration: underline;
-    }
-
 }

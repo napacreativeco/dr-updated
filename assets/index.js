@@ -121,20 +121,16 @@
             gsap.to('.sorting-wrapper', {
                 height: '0px',
             });
-            gsap.to('.filter-trigger > svg', {
-                rotateY: '0deg',
-                duration: 0.3
-            });
+            $('.filter-icon').show();
+            $('.close-filters').hide();
         } else {
             $('.sorting-wrapper').addClass('opened');
 
             gsap.to('.sorting-wrapper', {
                 height: 'auto',
             });
-            gsap.to('.filter-trigger > svg', {
-                rotateY: '180deg',
-                duration: 0.3
-            });
+            $('.filter-icon').hide();
+            $('.close-filters').show();
         }
     });
 
@@ -148,10 +144,8 @@
             gsap.to('.search-wrapper', {
                 height: '0px',
             });
-            gsap.to('.search-title > svg', {
-                rotateY: '0deg',
-                duration: 0.3
-            });
+            $('.close-search').hide();
+            $('.search-icon').show();
         } else {
             $('.search-wrapper').addClass('opened');
 
@@ -160,7 +154,11 @@
             });
             gsap.to('.search-title > svg', {
                 rotateY: '180deg',
-                duration: 0.3
+                duration: 0.3,
+                onComplete: function() {
+                    $('.close-search').show();
+                    $('.search-icon').hide();
+                }
             });
         }
     });
