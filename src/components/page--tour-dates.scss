@@ -3,9 +3,58 @@
 
     .tour-page-wrapper {
 
-        .tour-hero {
+        .tour-spotlight {
             background: var(--black);
             color: var(--white);
+
+            .spotlight-swiper {
+                position: relative;
+
+                .swiper-slide {
+                    padding: 80px 20px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 0px;
+
+                    .title {
+                        text-transform: uppercase;
+                    }
+
+                    .body {
+                        text-transform: uppercase;
+                        text-align: center;
+                        max-width: 300px;
+
+                        p {
+                            margin: 0 0 12px 0;
+
+                            a { text-decoration: underline; }
+                        }
+                    }
+                }
+
+                .tour-spotlight-next {
+                    position: absolute;
+                    bottom: 0;
+                    right: 0;
+                    margin-top: 0px;
+                    z-index: 10;
+                    cursor: pointer;
+                    width: 40px;
+                    height: 40px;
+                    background: var(--white);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-bottom: var(--border-blk);
+                    
+                    svg {
+                        width: 16px;
+                    }
+                }
+            }
         }
 
         .tour-dates-container {

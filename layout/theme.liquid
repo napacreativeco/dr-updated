@@ -379,6 +379,15 @@
             clickable: true
           },
         });
+
+
+        const tourswiper = new Swiper('.spotlight-swiper', {
+          direction: 'horizontal',
+          loop: true,
+          navigation: {
+            nextEl: '.tour-spotlight-next'
+          }
+        });
         
 
         const bandswiper = new Swiper('.bandcamp-swiper', {
