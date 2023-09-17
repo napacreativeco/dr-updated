@@ -23,10 +23,18 @@
               "title": "<p>Substance Festival<\/p><p>11.09 - 11.10<\/p>",
               "body": "<p>featuring cold gawd, auragraph, High-functioning flesh <a href=\"https:\/\/www.substancefestival.com\/\" target=\"_blank\" title=\"Substance Festival\">& more<\/a><\/p>"
             }
+          },
+          "ebde7d32-bc58-4cf6-923d-f4abb5816ed7": {
+            "type": "slide",
+            "settings": {
+              "title": "<p>ADULT. <\/p><p>Tour Dates<\/p>",
+              "body": "<p>October \/ November supporting My Life With The Thrill Kill Kult<\/p>"
+            }
           }
         },
         "block_order": [
-          "8afbea95-7b9d-4550-9207-db7165b76560"
+          "8afbea95-7b9d-4550-9207-db7165b76560",
+          "ebde7d32-bc58-4cf6-923d-f4abb5816ed7"
         ],
         "settings": {
           "title": ""
