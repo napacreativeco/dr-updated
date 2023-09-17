@@ -13,6 +13,25 @@
         "settings": {
           "featured_product": "modern-mirror"
         }
+      },
+      "tour-page--hero": {
+        "type": "tour-page--hero",
+        "blocks": {
+          "8afbea95-7b9d-4550-9207-db7165b76560": {
+            "type": "slide",
+            "settings": {
+              "title": "Substance Festival 11.09 - 11.10",
+              "body": "<p>Substance Festival<\/p><p>11.09 - 11.10<\/p><p><\/p><p>featuring cold gawd, auragraph, High-functioning flesh <a href=\"https:\/\/www.substancefestival.com\/\" target=\"_blank\" title=\"Substance Festival\">& more<\/a><\/p>",
+              "link": ""
+            }
+          }
+        },
+        "block_order": [
+          "8afbea95-7b9d-4550-9207-db7165b76560"
+        ],
+        "settings": {
+          "title": ""
+        }
       }
     },
     "content_for_index": [
