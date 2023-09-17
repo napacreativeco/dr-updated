@@ -1,0 +1,40 @@
+tour page
+
+{% schema %}
+    {
+      "name": "Tour Spolights",
+      "tag": "section",
+      "class": "tour-spotlight",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Tour Spotlight"
+        }
+      ],
+      "blocks": [
+         {
+           "name": "Slide",
+           "type": "slide",
+           "settings": [
+             {
+               "type": "image_picker",
+               "id": "image",
+               "label": "Image"
+             },
+             {
+                "type": "text",
+                "id": "title",
+                "label": "Title"
+            },
+            {
+                "type": "url",
+                "id": "link",
+                "label": "Link"
+            }
+           ]
+         }
+       ]
+    }
+{% endschema %}
+    
