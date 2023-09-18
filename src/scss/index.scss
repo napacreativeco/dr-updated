@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300&display=swap');
+
 body[data-theme="lite"] {
     /* Colors */
     --bright-white: #ffffff;
@@ -42,14 +46,15 @@ body[data-theme="dark"] {
 
 :root {
     /* Spacing */
-    --side-padding: 3%;
+    --side-padding: 12px;
     --input-padding: 6px 12px;
     --top-padding: 100px;
 
     /* Type */
     --section-title: 4.8rem;
     --view-more-size: 2rem;
-   --sans-serif: Arial, sans-serif;
+    // --sans-serif: Arial, sans-serif;
+    --sans-serif: 'Work Sans', sans-serif;
     --type-writer: 'DM Mono', monospace;
 
     /* Font Units */
@@ -91,6 +96,27 @@ body[data-theme="dark"] {
 }
 
 
+html {
+    background-color: var(--white-dim);
+}
+
+@keyframes preorder-flash {
+    0% { opacity: 0.8; }
+    50% { opacity: 1;}
+    100% { opacity: 0.8;}
+}
+
+@keyframes slideRight {
+    0% { opacity: 0; transform: translateX(100%);}
+    100% { opacity: 1; transform: translateX(0%); }
+}
+
+/* Icons */
+.icon--view-more {
+    width: 20px;
+    height: 20px;
+}
+
 
 @import '404.scss';
 
@@ -98,7 +124,6 @@ body[data-theme="dark"] {
 /* Global */
 @import 'global/reset.scss';
 @import 'global/swiper.scss';
-@import 'global/app.scss';
 @import 'global/typography.scss';
 @import 'global/footer.scss';
 @import 'global/sections.scss';
@@ -121,9 +146,6 @@ body[data-theme="dark"] {
 @import 'blog/news-post.scss';
 
 /* Shop > Single Products */
-@import 'shop/single-product/single-product.scss';
-@import 'shop/single-product/single-product--music.scss';
-@import 'shop/single-product/single-product--merch.scss';
 @import 'shop/single-product/bandcamp-swiper.scss';
 
 /* Shop > Cart */

@@ -1,214 +1,184 @@
-{% comment %}
-
-  Single Product Page
-
-{% endcomment %}
-
 {% assign add_to_cart = 'Add to cart' %}
 {% assign sold_out = 'Sold Out' %}
 {% assign unavailable = 'Unavailable' %}
+{% assign pre_order = 'Preorder' %}
 
-<div class="single-product default">
-  <div class="wrapper">
+{{ 'product--default.css' | asset_url | stylesheet_tag }}
+
+<div class="single-product music">
+  <div class="single-product-wrapper">
 
     <meta itemprop="url" content="{{ shop.url }}{{ product.url }}" />
     <meta itemprop="image" content="{{ product | img_url: 'grande' }}" />
     
     <form action="/cart/add" method="post" enctype="multipart/form-data">
 
+      {% comment %} Cart Messages {% endcomment %}
+      <div data-ajax-cart-messages="form"></div>
 
+      <div class="product-section-one">
+        <div class="product-section-wrapper">
 
-      {% comment %} 
-      Product Main
-      {% endcomment %}
-      <section class="section-one" id="product-main">
-
-      {% render 'breadcrumbs' %}
-      
-        <div class="section-wrapper">
-
-          {% comment %} Left {% endcomment %}
           <div class="left">
-
-            <div class="gallery-swiper swiper">
+            <div class="product-gallery-swiper swiper">
               <div class="swiper-wrapper">
-              
+                {% assign today_date = 'now' | date: '%s' %}
+                {% assign preorder_date = product.metafields.music.release_date | date: '%s' %}
+                {% if preorder_date > today_date %}
+                  <div class="preorder-status">
+                    <span>{{ 'Preorder' | escape }}</span>
+                  </div>
+                {% endif %}
+                <script>console.log('{{ today_date | date }}');</script>
                 {% for image in product.media %}
                   <div class="swiper-slide">
-                    <div class="view-larger" data-image="{{ image | image_url: width: 1000 }}">
+                    <div class="view-larger" data-image="{{ image | image_url: width: 1000 }}">   
                       {% render 'icon--view-more' %}
                     </div>
                     <img src="{{ image | image_url: width: 950 }}" alt="{{ product.title }} by {{ product.vendor }}" />
-
                   </div>
                 {% endfor %}
               
               </div>
-              <div class="gallery-pagination"></div>
-            </div>
 
+              <div class="product-gallery-pagination-container">
+                <div class="swiper-pagination"></div>
+              </div>
+            
+              <div class="product-gallery-navigation-container">
+                <div class="product-gallery-prev">
+                  {% render 'svg--left-arrow' %}
+                </div>
+                <div class="product-gallery-next">
+                  {% render 'svg--right-arrow' %}
+                </div>
+              </div>
+
+            </div>
           </div>
 
-          {% comment %} Right {% endcomment %}
+          {% comment %} Data {% endcomment %}
           <div class="right">
+
             <div class="band-name">
               <h2>{{ product.vendor }}</h2>
             </div>
+
             <div class="product-title">
-              <h1>{{ product.title }}</h1>
+              <h1>{{ '"' | escape }}{{ product.title }}{{ '"' | escape }}</h1>
             </div>
-            <div class="product-type">
-              <span>{{ product.type }}</span>
+           
+            <div class="actions">
+              <div id="product-price" class="price price-field">
+                {% assign found_available_variant = false %}
+                {% assign variant = product.selected_or_first_available_variant %}
+                <span class="price-read">{{ product.variant.price | money_without_trailing_zeros }}</span>
+              </div>
+
+              
+              <div id="product-add">
+                {% if  preorder_date > today_date %}
+                  <div class="preorder-status">
+                    <span>{{ 'Ships ' | escape }}{{ product.metafields.music.release_date | date: '%m.%d.%y' }}</span>
+                  </div>
+                {% endif %}
+
+                {% assign variant = product.selected_or_first_available_variant %}
+                <input 
+                  type="submit" 
+                  name="add" 
+                  id="add" 
+                  value="{% if preorder_date > today_date %}{{ pre_order | escape }}{% else %}{{ add_to_cart | escape }}{% endif %}">
+              </div>
+            </div>
+
+
+            {% comment %} Purchase Options {% endcomment %}
+            <div id="purchase-options" class="section-three">
+              <div class="wrapper">
+
+                <h3>{{ 'Product Details' | escape }}</h3>
+
+                <div data-ajax-cart-messages="{{ item.key }}"></div>          
+
+                {% comment %} Variants {% endcomment %}
+                <div id="product-variants" class="variants {% if hide_default_title %} hidden{% endif %}">
+
+                  {% assign hide_default_title = false %}
+                  {% if product.variants.size == 1 and product.variants.first.title contains 'Default' %}
+                    {% assign hide_default_title = true %}
+                  {% endif %}     
+
+                  {% if product.variants.size > 1 %} 
+
+                    <script type="text/javascript" charset="utf-8">
+                      jQuery(function() { 
+                        var first_variant_price = jQuery("ul li input[type='radio']:checked").attr("data-price");
+                        var first_variant_compare_at_price = jQuery("ul li input[type='radio']:checked").attr("data-compare-at-price") || ''; 
+
+                        jQuery(".price-field span").html(first_variant_price);
+
+                        jQuery(".price-field del").html(first_variant_compare_at_price);
+
+                        jQuery("input[type='radio']").click(function() {
+
+                          var variant_price = jQuery(this).attr("data-price");
+                          jQuery(".price-field span").html(variant_price);
+                          
+                          var variant_compare_at_price = jQuery(this).attr("data-compare-at-price") || '';
+                          jQuery(".price-field del").html(variant_compare_at_price);
+
+                          jQuery('.price-read').html(variant_price);
+
+                        });
+
+                      });
+                    </script>
+
+                    <ul class="variants-list">
+                      {% assign found_available_variant = false %}
+                      {% for variant in product.variants %}
+                        <li class="switch-field">
+                            {% if variant.available %}
+                                <label for="{{ variant.id }}">
+                                  <input type="radio"{% if variant.compare_at_price > variant.price %} data-compare-at-price="{{ variant.compare_at_price | money_without_trailing_zeros }}"{% endif %} data-price="{{ variant.price | money_without_trailing_zeros }}" id="{{ variant.id }}" value="{{ variant.id }}" name="id"{% if found_available_variant == false %}{% assign found_available_variant = true %} checked="checked"{% endif %} />
+                                  <span class="variant-name">{{ variant.title }}</span>
+                                </label>
+                            {% else %}
+                                <label for="{{ variant.id }}" class="out-of-stock">
+                                  <input type="radio" class="out-of-stock" id="{{ variant.id }}" value="{{ variant.id }}" name="id" /> 
+                                  <span class="variant-name">{{ variant.title }}</span>
+                                </label>
+                            {% endif %}
+                          </li>
+                      {% endfor %}
+                    </ul>
+
+                  {% else %}
+                
+                      <input type="hidden" name="id" value="{{ product.variants.first.id }}" />
+                
+                  {% endif %}
+
+                </div>
+               
+              </div>
             </div>
 
             <div class="description">
               <p>{{ product.description | newline_to_br }}</p>
             </div>
+
+            {% render 'share-post' %}
+
           </div>
 
         </div>
-      </section>
+      </div>
 
-      {% comment %}
-      Cart Messages 
-      {% endcomment %}
-      <div data-ajax-cart-messages="form"></div>
+      {% render 'recommended-products' %}
 
-      {% comment %} 
-      Purchase Options
-      {% endcomment %}
-      <section id="purchase-options" class="section-three">
-        <div class="wrapper">
-
-          <div data-ajax-cart-messages="{{ item.key }}"></div>
-
-          {% comment %} HEADER {% endcomment %}
-          <div class="header">
-
-            <div class="title">
-              <h3>Ordering</h3>
-            </div>
-
-            <div class="price">
-              {% assign found_available_variant = false %}
-              {% assign variant = product.selected_or_first_available_variant %}
-              <span class="price-read">{{ variant.price | money_without_trailing_zeros }}</span>
-            </div>
-
-          </div>
-
-          {% comment %} Variants {% endcomment %}
-          <div class="actions">
-            <div id="product-variants" class="variants {% if hide_default_title %} hidden{% endif %}">
-
-              {% assign hide_default_title = false %}
-              {% if product.variants.size == 1 and product.variants.first.title contains 'Default' %}
-                {% assign hide_default_title = true %}
-              {% endif %}     
-
-              {% if product.variants.size > 1 %} 
-
-                <script type="text/javascript" charset="utf-8">
-                  jQuery(function() { 
-                    var first_variant_price = jQuery("ul li input[type='radio']:checked").attr("data-price");
-                    var first_variant_compare_at_price = jQuery("ul li input[type='radio']:checked").attr("data-compare-at-price") || ''; 
-
-                    jQuery(".price-field span").html(first_variant_price);
-
-                    jQuery(".price-field del").html(first_variant_compare_at_price);
-
-                    jQuery("input[type='radio']").click(function() {
-
-                      var variant_price = jQuery(this).attr("data-price");
-                      jQuery(".price-field span").html(variant_price);
-                      
-                      var variant_compare_at_price = jQuery(this).attr("data-compare-at-price") || '';
-                      jQuery(".price-field del").html(variant_compare_at_price);
-
-                      jQuery('.price-read').html(variant_price);
-
-                    });
-
-                  });
-                </script>
-
-                <ul class="variants-list">
-                  {% assign found_available_variant = false %}
-                  {% for variant in product.variants %}
-                    <li class="switch-field">
-                        {% if variant.available %}
-                            <label for="{{ variant.id }}">
-                              <input type="radio"{% if variant.compare_at_price > variant.price %} data-compare-at-price="{{ variant.compare_at_price | money_with_currency }}"{% endif %} data-price="{{ variant.price | money_with_currency }}" id="{{ variant.id }}" value="{{ variant.id }}" name="id"{% if found_available_variant == false  %}{% assign found_available_variant = true %} checked="checked"{% endif %} />
-                              <span class="variant-name">{{ variant.title }}</span>
-                            </label>
-                        {% else %}
-                            <label for="{{ variant.id }}" class="out-of-stock">
-                              <input type="radio" class="out-of-stock" id="{{ variant.id }}" value="{{ variant.id }}" name="id" /> 
-                              <span class="variant-name">{{ variant.title }}</span>
-                            </label>
-                        {% endif %}
-                      </li>
-                  {% endfor %}
-                </ul>
-
-              {% else %}
-            
-                  <input type="hidden" name="id" value="{{ product.variants.first.id }}" />
-            
-              {% endif %}
-
-            </div>
-          </div>
-
-          {% comment %} Add to cart {% endcomment %}
-          <div id="product-add">
-            {% assign variant = product.selected_or_first_available_variant %}
-            <input type="submit" name="add" id="add" value="{{ add_to_cart | escape }}">
-          </div>
-
-        </div>
-      </section>
-
-      {% comment %} 
-      Accordions
-      {% endcomment %}
-      <section id="product-accordions" class="section-two">
-
-        {% comment %} Shipping &amp; Returns {% endcomment %}
-        <details class="shipping-info accordion">
-          <summary>
-            <span>{{ 'Shipping & Return Policy' | escape }}</span>
-            <span class="indicator">&nbsp;</span>
-          </summary>
-          
-          <div class="details-body">
-            <p>shipping and return info here</p>
-          </div>
-        </details>
-
-        {% comment %} Care Instructions {% endcomment %}
-        <details class="care-instructions accordion">
-          <summary> 
-            <span>{{ 'Care Instructions' | escape }}</span>
-            <span class="indicator">&nbsp;</span>
-          </summary>
-          
-          <div class="details-body">
-            <p>care instructions here</p>
-          </div>
-        </details>
-
-      </section>
-      
     </form>
-
-      {% comment %} BACK TO SHOP {% endcomment %}
-      <section class="back-to-shop-section">
-          {% comment %} BACK TO SHOP {% endcomment %}
-          <a href="{{ shop.url }}" title="{{ 'Back to Shop' | escape }}" class="back-to-shop">
-            {{ 'Back to shop' | escape }}
-          </a>
-      </section>
 
   </div>
 </div>
@@ -280,11 +250,13 @@ Image Overlay Script
       } else {
         // Variant is sold out.
         jQuery('#backorder').addClass('hidden');
-        jQuery('#add').val({{ sold_out | json }}).addClass('disabled').prop('disabled', true);       
+        jQuery('#add').val({{ sold_out | json }}).addClass('disabled').prop('disabled', true);   
+        console.log('this is sold out')    
       }
       
       // Whether the variant is in stock or not, we can update the price and compare at price.
       if ( variant.compare_at_price > variant.price ) {
+
         jQuery('#product-price').html('<span class="product-price on-sale">'+ Shopify.formatMoney(variant.price, "{{ shop.money_format }}") +'</span>'+'&nbsp;<s class="product-compare-price">'+Shopify.formatMoney(variant.compare_at_price, "{{ shop.money_format }}")+ '</s>');
       } else {
         jQuery('#product-price').html('<span class="product-price">'+ Shopify.formatMoney(variant.price, "{{ shop.money_format }}") + '</span>' );

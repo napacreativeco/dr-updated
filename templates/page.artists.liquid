@@ -16,28 +16,28 @@
             <ul>
                 {% for product in collections.all.products %}
                     {% case product.type %}
-                    {% when 'vinyl' %}
+                        {% when 'vinyl' %}
             
                         {% for collection in collections %}
                             {% if collection.title == product.vendor %}
             
-                            {% if collection.metafields.custom.alumni_status == false or collection.metafields.custom.alumni_status == blank %}
-                                <li class="artist-card">
-                                    <div class="artist-card-wrapper">
+                                {% if collection.metafields.custom.alumni_status == false or collection.metafields.custom.alumni_status == blank %}
+                                    <li class="artist-card">
+                                        <div class="artist-card-wrapper">
 
-                                        <div onclick="window.location='{{ collection.url }}';" class="image" style="background: url('{{ collection.image | image_url: width: 900 }}'); background-size: cover; background-position: center center;">
+                                            <div onclick="window.location='{{ collection.url }}';" class="image" style="background: url('{{ collection.image | image_url: width: 900 }}'); background-size: cover; background-position: center center;">
+                                            </div>
+                    
+                                            <div class="data">
+                                                <h3>
+                                                    <a href="{{ collection.url }}" title="{{ collection.title }}">
+                                                        {{ collection.title }}
+                                                    </a>
+                                                </h3>
+                                            </div>
                                         </div>
-                
-                                        <div class="data">
-                                            <h3>
-                                                <a href="{{ collection.url }}" title="{{ collection.title }}">
-                                                    {{ collection.title }}
-                                                </a>
-                                            </h3>
-                                        </div>
-                                    </div>
-                                </li>
-                            {% endif%}
+                                    </li>
+                                {% endif %}
             
                             {% endif %}
                         {% endfor %}

@@ -2,9 +2,8 @@
 .pagination-section {
     width: 100%;
     display: block;
-    margin: 30px 0 10px 0;
+    margin: 30px 0 0px 0;
     border-top: var(--border-blk);
-    border-bottom: var(--border-blk);
 
     .pagination-wrapper {
         display: grid;
@@ -15,7 +14,7 @@
             text-transform: uppercase;
             color: var(--grey);
             font-family: var(--type-writer);
-            padding: 20px 0;
+            padding: 20px 0 20px 10px;
         }
 
         ul {

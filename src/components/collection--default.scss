@@ -1,15 +1,21 @@
 .default-collection {
 
     .default-collection-wrapper {
-        padding: 100px 12px 30px 12px;
+        padding: 100px 0 0 0;
 
         /* Header */
         header {
             margin: 0 0 20px 0;
+            padding: 0 var(--side-padding);
+
+            .breadcrumbs {
+                margin: 0 0 12px 0;
+            }
 
             h1 {
-                font-size: var(--42px);
-                letter-spacing: -1px;
+                font-size: 42px;
+                letter-spacing: -2px;
+                text-transform: uppercase;
             }
     
             ul {
@@ -22,14 +28,10 @@
             }
         }
 
-        /* Breadcrumbs */
-        .breadcrumbs {
-            margin: 0 0 12px 0;
-        }
-
         /* Products */
         ul.products {
             margin: 20px 0 0 0;
+            padding: 0 var(--side-padding);
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             grid-gap: 40px 14px;

@@ -43,61 +43,13 @@
     {% endif %}
 
     {% comment %} Products {% endcomment %}
-    {% paginate collection.products by 2 %}
+    {% paginate collection.products by 8 %}
       
       {% if collection.products.length > 0 %}
         <ul class="products">
           
           {% for product in collection.products %}
-            <li class="item product-card">
-              <div class="product-card-wrapper">
-  
-                <div class="image" onclick="window.location='{{ product.url }}';">
-                  {% if product.featured_image != blank %}
-                    <div class="view-more" data-image="{{ product.featured_image | image_url: width: 1000 }}">   
-                      {% render 'icon--arrow-right' %}
-                    </div>
-                    {% assign today_date = 'now' | date: '%s' %}
-                    {% assign preorder_date = product.metafields.music.release_date | date: '%s' %}
-                    {% if preorder_date < today_date %}
-                      <div class="preorder-status">
-                        <span>{{ 'Preorder' | escape }}</span>
-                      </div>
-                    {% endif %}
-                    <img src="{{ product.featured_image | image_url: width: 800 }}" alt="{{ product.title }}" loading="lazy" />
-                  {% else %}
-                    {{ 'image' | placeholder_svg_tag }}
-                  {% endif %}
-                </div>
-                
-                <div class="data">
-                  
-                    <div class="artist">
-                      <h3>
-                        {% if product.vendor != 'Dais Records' %}
-                          <a href="{{ collection.url }}" title="{{ product.title }} by {{ product.vendor }}">
-                            {{ product.vendor }}
-                          </a>
-                        {% endif %}
-                      </h3>
-                    </div>
-
-                    <div class="title">
-                      <h2>
-                        <a class="type-writer" href="{{ product.url }}" title="{{ product.title }} by {{ product.vendor }}">
-                          {{ product.title }}
-                        </a>
-                      </h2>
-                    </div>
-
-                    <div class="price type-writer">
-                      {{ product.price | money_without_trailing_zeros }}
-                    </div>
-                 
-                </div>
-
-              </div>
-            </li>
+            {% render 'product-card--collection' prod: product %}
           {% endfor %}
     
         </ul>
