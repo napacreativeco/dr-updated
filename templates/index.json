@@ -80,7 +80,7 @@
       "settings": {
         "section_title": "Merchandise",
         "use_default_collection": false,
-        "merchandise_collection": "music",
+        "merchandise_collection": "merch",
         "merchandise_collection_rows": "two"
       }
     },
