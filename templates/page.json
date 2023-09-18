@@ -2,7 +2,9 @@
   "wrapper": "div.page-template",
   "sections": {
     "main": {
-      "type": "default-page"
+      "type": "default-page",
+      "settings": {
+      }
     }
   },
   "order": [
