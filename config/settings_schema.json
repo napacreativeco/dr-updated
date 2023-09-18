@@ -1,31 +1,11 @@
 [
   {
-    "name": "Color Theme",
+    "name": "Contact Info",
     "settings": [
       {
-        "type": "radio",
-        "id": "color_theme",
-        "label": "Default Theme",
-        "options": [
-          {
-            "value": "lite",
-            "label": "Lite"
-          },
-          {
-            "value": "dark",
-            "label": "Dark"
-          }
-        ],
-        "default": "lite"
-      }
-    ]
-  },
-  {
-    "name": "Example setting",
-    "settings": [
-      {
-        "type": "header",
-        "content": "Example option"
+        "type": "richtext",
+        "id": "contact_info",
+        "label": "Contact Info"
       }
     ]
   }
