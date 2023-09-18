@@ -16,10 +16,11 @@
                     flex-direction: column;
                     justify-content: center;
                     align-items: center;
-                    gap: 0px;
+                    gap: 30px;
 
                     .title {
                         text-transform: uppercase;
+                        text-align: center;
                     }
 
                     .body {
@@ -28,8 +29,6 @@
                         max-width: 300px;
 
                         p {
-                            margin: 0 0 12px 0;
-
                             a { text-decoration: underline; }
                         }
                     }
@@ -58,51 +57,74 @@
         }
 
         .tour-dates-container {
-            padding: 20px var(--side-padding);
+            padding: 20px 12px;
 
             .tour-dates-wrapper {
-                display: grid;
-                grid-template-columns: 1fr 1fr 1fr;
 
                 ul {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr 1fr;
+                    grid-template-rows: 1fr auto;
+                    align-items: flex-start;
+                    grid-gap: 30px 10px;
+                    break-inside: avoid;
                     list-style: none;
                     margin: 0;
                     padding: 0;
                 }
 
-                .tour-block {
+                li.tour-block {
                     border: var(--border-blk);
 
                     .image {
-                        height: 300px;
+                        height: auto;
                         border-bottom: var(--border-blk);
+                        aspect-ratio: 4/3;
                     }
 
                     .artist {
-                        padding: 10px 30px;
+                        padding: 10px 20px;
 
                         h2 {
                             font-size: 20px;
                         }
                     }
+
+                    .artist:hover {
+                        text-decoration: underline;
+                    }
         
                     .info {
-                        padding: 10px 30px 30px 30px;
+                        padding: 10px 20px 30px 20px;
             
                         .title {
-                            padding: 0 0 10px 0;
+                            padding: 0 0 0px 0;
+                            margin: 0 0 14px 0;
+                            line-height: 1.4;
+                            text-transform: uppercase;
+                            border-bottom: var(--border-blk-thin);
                         }
-            
+
                         .dates {
-                            line-height: 1.6;
-                            font-size: 12px;
-                            letter-spacing: -1px;
+                            line-height: 1.1;
+                            font-size: 10px;
+                            letter-spacing: -0.5px;
                             font-family: var(--type-writer);
                             text-transform: uppercase;
+
+                            > div {
+                                display: flex;
+                                flex-direction: column;
+                                gap: 8px;
+                            }
+                            
                         }
 
                         .flier {
                             padding: 12px 0 0 0;
+                            text-transform: uppercase;
+                            text-decoration: underline;
+                            font-size: 12px;
                         }
                     }
 
@@ -114,4 +136,55 @@
 
     }
 
+}
+
+@media screen and (max-width: 767px) {
+    .tour-page {
+        padding: 60px 0 30px 0;
+    
+        .tour-page-wrapper {
+    
+            .tour-spotlight {
+    
+                .spotlight-swiper {
+    
+                    .swiper-slide {}
+                }
+            }
+
+            .tour-dates-container {
+                .tour-dates-wrapper {
+                    grid-template-columns: 1fr;
+
+                    .tour-block {
+                        border: var(--border-blk);
+    
+                        .image {
+                            height: 280px;
+                            border-bottom: var(--border-blk);
+                        }
+    
+                        .artist {
+                            padding: 20px 20px 10px 20px;
+    
+                            h2 {
+                                font-size: 20px;
+                            }
+                        }
+            
+                        .info {
+                            padding: 10px 20px 30px 20px;
+                
+                            .title {}
+                
+                            .dates {}
+    
+                            .flier {}
+                        }
+    
+                    }
+                }
+            }
+        }
+    }
 }

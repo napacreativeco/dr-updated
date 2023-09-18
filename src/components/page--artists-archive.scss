@@ -1,5 +1,5 @@
 .artists-page {
-    padding: 8% var(--side-padding) 40px var(--side-padding);
+    padding: 100px var(--side-padding) 40px var(--side-padding);
 
     .artists-wrapper {
         display: grid;
@@ -28,7 +28,9 @@
             border: var(--border-blk);
 
             .image {
-                height: 250px;
+                height: auto;
+                width: 100%;
+                aspect-ratio: 4/3;
                 border-bottom: var(--border-blk);
                 cursor: pointer;
             }
@@ -48,6 +50,14 @@
         .artist {
             h3 {
                 font-size: var(--22px);
+            }
+        }
+
+        .right {
+            ul {
+                li {
+                    white-space: nowrap;
+                }
             }
         }
     }

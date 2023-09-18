@@ -89,13 +89,17 @@
         padding: 0;
 
         .default-collection-wrapper {
+            padding: 100px 0 0 0;
+            
             header {
                 margin: 0 0 20px 0;
+                padding: 0 var(--side-padding);
             }
             
             ul.products {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 40px 14px;
+                padding: 0 var(--side-padding);
             }
             
         }

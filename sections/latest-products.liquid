@@ -1,7 +1,7 @@
 {{ 'component--latest-products.css' | asset_url | stylesheet_tag }}
 {{ 'card--product-card-collection.css' | asset_url | stylesheet_tag }}
 
-{% render 'section-header', data: section.settings %}
+{% render 'section-header', data: section.settings, destination: '/collections/all/' %}
 
 <div class="latest-products--wrapper">
   {% if section.settings.use_default_collection == false %}

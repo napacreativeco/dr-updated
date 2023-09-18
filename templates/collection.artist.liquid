@@ -58,7 +58,6 @@
           </div>
 
           <div class="meta-blocks">
-
             <div class="meta-block">
               <h4>{{ 'Booking' | escape }}</h4>
               {{ collection.metafields.custom.social_media_links.value.booking_info | metafield_tag }}
@@ -67,9 +66,7 @@
             <div class="meta-block">
               {% render 'social-media' %}
             </div>
-            
           </div>
-
 
         </div>
 
@@ -179,6 +176,31 @@
                 {% endif %}
 
               {% endpaginate %}
+            </div>
+
+            {% comment %} Tour Dates {% endcomment %}
+            <div class="tour-dates">
+              <div class="section-title">
+                <h3>{{ 'Tour Dates' | escape }}</h3>
+              </div>
+              <div class="dates-wrapper"> 
+                {% for item in collection.metafields.artist.tour_dates.value %}
+                    <div class="info">
+        
+                        <div class="title">
+                            <h3>{{ item.title }}</h3>
+                        </div>
+        
+                        <div class="dates">
+                            {{ item.dates | metafield_tag }}
+                        </div>
+        
+                        <div class="flier">
+                            <a href="{{ item.flier | image_url }}" title="Flier">Tour Flier</a>
+                        </div>
+                    </div>
+                {% endfor %}
+              </div>
             </div>
             
         </div>

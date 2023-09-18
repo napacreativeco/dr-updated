@@ -3,6 +3,8 @@
 {% assign unavailable = 'Unavailable' %}
 {% assign pre_order = 'Preorder' %}
 
+{{ 'product--music.css' | asset_url | stylesheet_tag }}
+
 <div class="single-product music">
   <div class="single-product-wrapper">
 
@@ -18,17 +20,17 @@
       <div class="product-section-one">
         <div class="product-section-wrapper">
 
-          {% comment %} Gallery {% endcomment %}
           <div class="left">
             <div class="product-gallery-swiper swiper">
               <div class="swiper-wrapper">
                 {% assign today_date = 'now' | date: '%s' %}
                 {% assign preorder_date = product.metafields.music.release_date | date: '%s' %}
-                {% if preorder_date < today_date %}
+                {% if preorder_date > today_date %}
                   <div class="preorder-status">
                     <span>{{ 'Preorder' | escape }}</span>
                   </div>
                 {% endif %}
+                <script>console.log('{{ today_date | date }}');</script>
                 {% for image in product.media %}
                   <div class="swiper-slide">
                     <div class="view-larger" data-image="{{ image | image_url: width: 1000 }}">   
@@ -76,7 +78,7 @@
 
               
               <div id="product-add">
-                {% if  preorder_date < today_date %}
+                {% if  preorder_date > today_date %}
                   <div class="preorder-status">
                     <span>{{ 'Ships ' | escape }}{{ product.metafields.music.release_date | date: '%m.%d.%y' }}</span>
                   </div>
@@ -87,7 +89,7 @@
                   type="submit" 
                   name="add" 
                   id="add" 
-                  value="{% if preorder_date < today_date %}{{ pre_order | escape }}{% else %}{{ add_to_cart | escape }}{% endif %}">
+                  value="{% if preorder_date > today_date %}{{ pre_order | escape }}{% else %}{{ add_to_cart | escape }}{% endif %}">
               </div>
             </div>
 
@@ -169,18 +171,20 @@
         </div>
       </div>
 
-      {% comment %} Lower {% endcomment %}
+      {% comment %}
+      ---------------------------------------------------------------
+      {% endcomment %}
       <div class="product-section-two">
         <div class="product-section-wrapper">
 
           <div class="left">
-            {% comment %} Description {% endcomment %}
+            
             <div class="description">
               <h3>{{ 'About' | escape }} {{ '"' | escape }}{{ product.title }}{{ '"' | escape }}</h3>
               <p>{{ product.description | newline_to_br }}</p>
             </div>
 
-            {% comment %} Media {% endcomment %}
+            
             <div class="media">
               <div class="title">
                 <h3>{{ 'Media' | escape }}</h3>

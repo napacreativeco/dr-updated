@@ -190,16 +190,17 @@
 @media screen and (max-width: 767px) {
     
     .product-sorting {
-        .sorting-wrapper {
-            label {
-                font-size: var(--22px);
-                text-transform: uppercase;
-                display: flex;
-                align-items: center;
-                justify-content: flex-start;
-                gap: 12px;
-            }
+        padding: 0 var(--side-padding);
+
+        label {
+            font-size: var(--22px);
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 12px;
         }
+        
     }
 
 }

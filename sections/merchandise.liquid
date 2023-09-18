@@ -1,7 +1,7 @@
 {{ 'component--merchandise.css' | asset_url | stylesheet_tag }}
 {{ 'card--product-card-collection.css' | asset_url | stylesheet_tag }}
 
-{% render 'section-header', data: section.settings %}
+{% render 'section-header', data: section.settings, destination: '/collections/merch' %}
 
 <div class="merchandise--wrapper">
   {% if section.settings.use_default_collection == false %}
@@ -33,17 +33,35 @@
     {% endcomment %}
     <ul class="product-list default-collection">
       {% if section.settings.merchandise_collection_rows == 'two' %}
+      
         {% for prod in collections.merch.products limit: 8 %}
-          {% render 'product-card--collection', prod: prod %}
+          {% for tag in prod.tags %}
+            {% if tag == 'merch' %}
+              {% render 'product-card--collection', prod: prod %}
+            {% endif %}
+          {% endfor %}
         {% endfor %}
+
       {% elsif section.settings.merchandise_collection_rows == 'three' %}
+
         {% for prod in collections.merch.products limit: 12 %}
-          {% render 'product-card--collection', prod: prod %}
+          {% for tag in prod.tags %}
+            {% if tag == 'merch' %}
+              {% render 'product-card--collection', prod: prod %}
+            {% endif %}
+          {% endfor %}
         {% endfor %}
+
       {% else %}
+
         {% for prod in collections.merch.products limit: 4 %}
-          {% render 'product-card--collection', prod: prod %}
+          {% for tag in prod.tags %}
+            {% if tag == 'merch' %}
+              {% render 'product-card--collection', prod: prod %}
+            {% endif %}
+          {% endfor %}
         {% endfor %}
+
       {% endif %}
     </ul>
 
