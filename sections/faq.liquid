@@ -11,14 +11,14 @@
 
 {% schema %}
     {
-      "name": "Frequently Asked Questions",
+      "name": "FAQ",
       "tag": "section",
       "class": "faq-section",
       "settings": [
         {
           "type": "text",
           "id": "title",
-          "label": "Slideshow"
+          "label": "FAQ"
         }
       ],
       "blocks": [
@@ -40,7 +40,20 @@
          }
        ],
        "presets": [
-        "title": "Frequently Asked Questions"
-       ]
+            {
+                "name": "FAQ",
+                "settings": {
+                    "title": "FAQ"
+                },
+                "blocks": [
+                    {
+                        "type": "accordion"
+                    },
+                    {
+                        "type": "accordion"
+                    }
+                ]
+            }
+        ]
     }
 {% endschema %}    
