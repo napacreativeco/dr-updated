@@ -1,9 +1,9 @@
 [
   {
-    "name": "Contact Info",
+    "name": "Theme Colors",
     "settings": [
       {
-        "type": "richtext",
+        "type": "colorpicker",
         "id": "contact_info",
         "label": "Contact Info"
       }
