@@ -1,0 +1,12 @@
+{
+    "wrapper": "div.info-template",
+    "sections": {
+      "main": {
+        "type": "default-page"
+      }
+    },
+    "order": [
+      "main"
+    ]
+}
+  

@@ -1,0 +1,46 @@
+{% for block in section.blocks %}
+    <details>
+        <summary>{{ block.settings.title }}</summary>
+
+        <div class="faq-body">
+            {{ block.settings.body }}
+        </div>
+    </details>
+    
+{% endfor %}
+
+{% schema %}
+    {
+      "name": "Frequently Asked Questions",
+      "tag": "section",
+      "class": "faq-section",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Slideshow"
+        }
+      ],
+      "blocks": [
+         {
+           "name": "FAQ",
+           "type": "accordion",
+           "settings": [
+             {
+               "type": "text",
+               "id": "title",
+               "label": "Title"
+             },
+             {
+               "type": "richtext",
+               "id": "body",
+               "label": "Body"
+             }
+           ]
+         }
+       ],
+       "presets": [
+        "title": "Frequently Asked Questions"
+       ]
+    }
+{% endschema %}    
