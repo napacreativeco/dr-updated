@@ -1,11 +1,19 @@
 [
   {
-    "name": "Theme Colors",
-    "settings": [
+    "name": "theme_info",
+    "theme_name": "Dais Records",
+    "theme_version": "1.0.0",
+    "theme_author": "Throne",
+    "theme_documentation_url": "",
+    "theme_support_url": "https://throne.work"
+  },
+  {
+  "name": "Contact Email",
+  "settings": [
       {
-        "type": "colorpicker",
-        "id": "contact_info",
-        "label": "Contact Info"
+        "type": "text",
+        "id": "contact_email",
+        "label": "Email"
       }
     ]
   }
