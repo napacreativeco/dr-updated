@@ -56,6 +56,9 @@
                 }
 
                 .data {
+                    display: grid;
+                    grid-template-columns: 1fr auto;
+                    
                     a {
                         font-size: var(--18px);  
                         text-transform: uppercase;    
@@ -99,6 +102,7 @@
             }
             
             ul.products {
+                margin: 8px 0 0 0;
                 grid-template-columns: repeat(2, 1fr);
                 gap: 40px 14px;
                 padding: 0 var(--side-padding);

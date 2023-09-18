@@ -57,17 +57,17 @@
         }
 
         .tour-dates-container {
-            padding: 20px 12px;
+            padding: 20px 0;
 
             .tour-dates-wrapper {
+                max-width: calc(100% - 24px);
+                margin: 0 auto;
 
                 ul {
-                    display: grid;
-                    grid-template-columns: 1fr 1fr 1fr;
-                    grid-template-rows: 1fr auto;
-                    align-items: flex-start;
-                    grid-gap: 30px 10px;
-                    break-inside: avoid;
+                    column-count: 3;
+                    column-gap: 10px;
+                    align-content: flex-start;
+                    width: 100%;
                     list-style: none;
                     margin: 0;
                     padding: 0;
@@ -75,6 +75,11 @@
 
                 li.tour-block {
                     border: var(--border-blk);
+                    display: flex;
+                    flex-direction: column;
+                    width: 100%;
+                    margin: 0 0 1em;
+                    break-inside: avoid;
 
                     .image {
                         height: auto;
@@ -155,6 +160,12 @@
             .tour-dates-container {
                 .tour-dates-wrapper {
                     grid-template-columns: 1fr;
+
+                    ul {
+                        column-count: 1;
+                        column-gap: 0px;
+                        align-content: flex-start;
+                    }
 
                     .tour-block {
                         border: var(--border-blk);
