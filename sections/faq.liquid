@@ -1,13 +1,14 @@
-{% for block in section.blocks %}
-    <details>
-        <summary>{{ block.settings.title }}</summary>
-
-        <div class="faq-body">
-            {{ block.settings.body }}
-        </div>
-    </details>
+<div class="faq-wrapper">
+    {% for block in section.blocks %}
+        <details class="faq-accordion">
+            <summary>{{ block.settings.title }}</summary>
     
-{% endfor %}
+            <div class="faq-body">
+                {{ block.settings.body }}
+            </div>
+        </details>
+    {% endfor %}
+</div>
 
 {% schema %}
     {
