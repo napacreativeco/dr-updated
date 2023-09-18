@@ -4,7 +4,7 @@
     "theme_name": "Dais Records",
     "theme_version": "1.0.0",
     "theme_author": "Throne",
-    "theme_documentation_url": "",
+    "theme_documentation_url": "https://throne.work",
     "theme_support_url": "https://throne.work"
   },
   {
@@ -16,5 +16,26 @@
         "label": "Email"
       }
     ]
-  }
+  },
+  {
+    "name": "Color Theme",
+    "settings": [
+      {
+        "type": "select",
+        "id": "color_theme",
+        "label": "Color Theme",
+        "options": [
+          {
+            "value": "lite",
+            "label": "Light"
+          },
+          {
+            "value": "dark",
+            "label": "Dark"
+          }
+        ],
+        "default": "lite"
+      }
+    ]
+  }  
 ]
