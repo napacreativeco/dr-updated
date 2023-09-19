@@ -99,7 +99,7 @@ body[data-theme="dark"] {
     --white-dim: #090909;
     --grey: #8f8f8f;
     --grey-dark: #444444;
-    --grey-light: #111111;
+    --grey-light: #454545;
     --grey-mid: #dfe1e5;
     --red: #7D1128;
     --black: #ffffff;
@@ -107,7 +107,7 @@ body[data-theme="dark"] {
     /* Borders */
     --border-blk: 2px solid var(--black);
     --border-wht: 2px solid var(--white);
-    --border-gry: 2px solid var(--grey-light);
+    --border-gry: 2px solid var(--grey);
 
     --border-blk-thin: 1px solid var(--black);
     --border-wht-thin: 1px solid var(--white);

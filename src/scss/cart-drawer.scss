@@ -7,7 +7,8 @@
     height: 100vh;
     width: 100%;
     max-width: 30vw;
-    background: var(--grey-light);
+    background: var(--white);
+    border-left: var(--border-blk);
     color: var(--black);
     z-index: 999;
     transition: 0.3s ease-in-out;

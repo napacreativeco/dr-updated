@@ -21,6 +21,21 @@
           
           <ul class="items-wrapper">
 
+            <li class="cart-item legend">
+              <div class="image">
+                {{ 'Product' | escape }}
+              </div>
+              <div class="title"></div>
+              <div class="quantity">
+                {{ 'Quantity' | escape }}
+              </div>
+              <div class="price">
+                {{ 'Price' | escape }}
+              </div>
+              <div class="delete">
+                {{ 'Remove' | escape }}
+              </div>
+            </li>
             {% for item in cart.items %}    
               
               {% assign collection_url = item.product.collections.last.url %}
@@ -74,9 +89,7 @@
                 
               </li>
         
-
             {% endfor %}
-            
           </ul>
           
           {% comment %} Cart Totals {% endcomment %}
@@ -106,12 +119,19 @@
             <input class="checkout-button" type="submit" name="checkout" value="Check out" /> 
           </div>
 
-          {% comment %} Paypal & Google buttons {% endcomment %}
+          <div class="continue-shopping">
+            <a href="/collections/all" title="Continue Shopping">
+              {{ 'Continue Shopping' }}
+            </a>
+          </div>
+
+          {% comment %} Paypal & Google buttons 
           <div class="additional-checkout-holder">
             {% if additional_checkout_buttons %}
               {{ content_for_additional_checkout_buttons }}
             {% endif %}
           </div>
+          {% endcomment %}
           
         </form>
       </div>
@@ -144,4 +164,6 @@
     {% endif %}
 
   </div>
+
+  {% render 'cart--sidebar' %}
 </div>
