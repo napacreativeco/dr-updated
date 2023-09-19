@@ -17,14 +17,19 @@
         /* Swiper */
         .single-artist-swiper {
             position: relative;
+            background-color: var(--black);
 
             .swiper-slide {
                 position: relative;
-                border-right: var(--border-blk);
+                // border-right: var(--border-blk);
                 border-bottom: var(--border-blk);
                 height: calc(100svh - 60px);
+                
+                .slide-box.mobile {
+                    display: none;
+                }
 
-                .slide-box {
+                .slide-box.desktop {
                     position: absolute;
                     top: 0;
                     left: 0;
@@ -99,7 +104,10 @@
                 right: 0;
                 background: var(--white);
                 color: var(--black);
-                border: var(--border-blk);
+                border-top: var(--border-blk);
+                border-left: var(--border-blk);
+                border-bottom: var(--border-blk);
+                border-right: 0;
                 display: grid;
                 grid-template-columns: 1fr 1fr;
                 transition: all 0.23s ease-in-out;
@@ -120,6 +128,7 @@
                     width: 40px;
                     height: 40px;
                     border-left: var(--border-blk);
+                    border-right: 0;
                     cursor: pointer;
                 }
 
@@ -310,12 +319,48 @@
     }
 }
 
-
+/*
+----------------------------------------------------------------
+*/
 @media screen and (max-width: 767px) {
     .single-artist {
         .single-artist--wrapper {
             padding: 60px 0 40px 0;
 
+            .slide-box.mobile {
+                display: block;
+                background: var(--black-no-change);
+                color: var(--white-no-change);
+                width: 100%;
+                
+                .box-wrap {
+                    padding: 60px;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 18px;
+                }
+
+                h1 {
+                    font-size: var(--42px);
+                    color: var(--white-no-change);
+                }
+
+                span {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    gap: 8px;
+                    font-family: var(--type-writer);
+                    color: var(--white-no-change);
+
+                    svg {
+                        width: 16px !important;
+                        fill: var(--white-no-change);
+                        stroke-width: 0px;
+                    }
+                }
+            }
+            
             /* Swiper */
             .single-artist-swiper {
                 position: relative;
@@ -326,33 +371,8 @@
                     border-bottom: var(--border-blk);
                     height: 60vh;
 
-                    .slide-box {
-                        width: 75%;
-
-                        .box-wrap {
-                            padding: 40px;
-                            display: flex;
-                            flex-direction: column;
-                            gap: 18px;
-                        }
-
-                        h1 {
-                            font-size: var(--42px);
-                        }
-
-                        span {
-                            display: flex;
-                            flex-direction: row;
-                            align-items: center;
-                            gap: 8px;
-                            font-family: var(--type-writer);
-
-                            svg {
-                                width: 16px !important;
-                                fill: white;
-                                stroke-width: 0px;
-                            }
-                        }
+                    .slide-box.desktop {
+                        display: none;
                     }
                 }
 
@@ -392,9 +412,6 @@
                     z-index: 3;
                     bottom: 0;
                     right: 0;
-                    background: var(--white);
-                    color: var(--black);
-                    border: var(--border-blk);
                     display: grid;
                     grid-template-columns: 1fr 1fr;
                     transition: all 0.23s ease-in-out;

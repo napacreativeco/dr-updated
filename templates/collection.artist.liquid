@@ -11,11 +11,17 @@
 
     {% comment %} Hero {% endcomment %}
     <div class="artist-hero">
+      <div class="slide-box mobile">
+        <div class="box-wrap">
+          <h1>{{ collection.title }}</h1>
+          <span>{% render 'icon--crosshair' %}{{ collection.metafields.artist.artist_location.value }}</span>
+        </div>  
+      </div> 
       <div class="single-artist-swiper swiper">
         <div class="swiper-wrapper">
           {% for img in collection.metafields.dais.artist_gallery.value %}
             <div class="swiper-slide" style="background: url('{{ img | image_url }}'); background-size: cover; background-position: center center;">
-              <div class="slide-box">
+              <div class="slide-box desktop">
                 <div class="box-wrap">
                   <h1>{{ collection.title }}</h1>
                   <span>{% render 'icon--crosshair' %}{{ collection.metafields.artist.artist_location.value }}</span>
