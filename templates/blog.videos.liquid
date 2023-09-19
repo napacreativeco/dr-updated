@@ -29,14 +29,6 @@
           {% endif %}
 
           <div class="post">
-
-            {% comment %}
-            Posted at
-            {% endcomment %}
-            <div class="posted-at">
-              <time pubdate datetime="{{ article.published_at | date: '%Y-%m-%d' }}">{{ article.published_at | date: '%b, %Y' }}</time>
-            </div>
-
             
             {% comment %}
             Image
