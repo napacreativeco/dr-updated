@@ -228,5 +228,13 @@
       },
     });
 
+    var amount = artistswiper.slides.length;
+    if (amount > 1) {
+
+    } else {
+      $('.single-artist-pagination-container').hide();
+      $('.single-artist-navigation-container').hide();
+    }
+    console.log(amount);
   })(jQuery);
 </script>
