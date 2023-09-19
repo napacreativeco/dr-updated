@@ -40,7 +40,23 @@
     ]
   },
   {
-    "name": "Attribution",
+    "name": "Cart",
+    "settings": [
+      {
+        "type": "text",
+        "id": "cart_continue_shopping_text",
+        "label": "'Continue Shopping' text",
+        "default": "Continue Shopping"
+      },
+      {
+        "type": "page",
+        "id": "cart_continue_shopping_link",
+        "label": "'Continue Shopping' destination"
+      }
+    ]
+  },
+  {
+    "name": "Site Attribution",
     "settings": [
       {
         "type": "text",

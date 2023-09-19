@@ -2,8 +2,8 @@
     /* Announcement Bar */
     #announcement-bar {
         position: relative;
-        background-color: {{ settings.announcement_background_color | default: 'var(--black)' }};
-        color: {{ settings.announcement_color | default: 'var(--white)' }};
+        background-color: {{ settings.announcement_background_color | default: 'var(--black-no-change)' }};
+        color: {{ settings.announcement_color | default: 'var(--white-no-change)' }};
         width: 100%;
     }
     #announcement-bar .announcement-wrapper {
@@ -15,7 +15,8 @@
         position: relative;
     }
     #announcement-bar .announcement-wrapper .close-announcement {
-        background-color: var(--black);
+        background-color: var(--black-no-change);
+        color: var(--white-no-change);
         position: absolute;
         right: 10px;
         cursor: pointer;
@@ -37,7 +38,8 @@
     }
 
     .close-marquee {
-        background-color: var(--black);
+        background-color: var(--black-no-change);
+        color: var(--white-no-change);
         position: absolute;
         right: 0;
         top: 0;

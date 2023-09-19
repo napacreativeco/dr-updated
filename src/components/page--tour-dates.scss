@@ -4,8 +4,9 @@
     .tour-page-wrapper {
 
         .tour-spotlight {
-            background: var(--black);
-            color: var(--white);
+            background: var(--black-no-change);
+            color: var(--white-no-change);
+            border-bottom: var(--border-blk);
 
             .spotlight-swiper {
                 position: relative;
@@ -43,7 +44,7 @@
                     cursor: pointer;
                     width: 40px;
                     height: 40px;
-                    background: var(--white);
+                    background: var(--white-no-change);
                     display: flex;
                     align-items: center;
                     justify-content: center;
@@ -51,6 +52,7 @@
                     
                     svg {
                         width: 16px;
+                        stroke: var(--black-no-change) !important;
                     }
                 }
             }
@@ -92,6 +94,7 @@
 
                         h2 {
                             font-size: 20px;
+                            color: var(--black);
                         }
                     }
 
@@ -108,6 +111,7 @@
                             line-height: 1.4;
                             text-transform: uppercase;
                             border-bottom: var(--border-blk-thin);
+                            color: var(--black);
                         }
 
                         .dates {
@@ -121,6 +125,7 @@
                                 display: flex;
                                 flex-direction: column;
                                 gap: 8px;
+                                color: var(--black);
                             }
                             
                         }
@@ -130,6 +135,7 @@
                             text-transform: uppercase;
                             text-decoration: underline;
                             font-size: 12px;
+                            color: var(--black);
                         }
                     }
 

@@ -1,5 +1,7 @@
+{{ 'page--cart.css' | asset_url | stylesheet_tag }}
+
 <div class="cart-page">
-  <div class="page-wrapper">
+  <div class="cart-wrapper">
 
     {% comment %} 
       Header
@@ -7,13 +9,8 @@
     <header class="section--header">
       <div class="section--header-wrapper">
         <h2 class="title" data-aos="fade-down">
-          {{ 'Cart' | escape }}
+          {{ 'Shopping Cart' | escape }}
         </h2>
-        <a  class="view-more" 
-            data-aos="fade-in"
-            data-aos-delay="800"
-            href="/collections/releases">
-          {{ 'View more' | escape }}</a>
       </div>
     </header>
 
@@ -22,7 +19,6 @@
       <div class="cart-holder">
         <form action="/cart" method="post">
           
-          {% comment %} Product Items {% endcomment %}
           <ul class="items-wrapper">
 
             {% for item in cart.items %}    
@@ -32,10 +28,6 @@
                 {% assign collection_url = '/collections/all' %}
               {% endif %}
               
-              {% if forloop.first %}
-                {% assign continue_shopping_url = collection_url %}
-              {% endif %}
-
               <li class="cart-item">
 
                 <div class="image">
@@ -44,35 +36,26 @@
                   </a>
                 </div>
 
-                <div class="vendor">
-                  <h3>{{ item.vendor }}</h3>
-                </div>
-
                 <div class="title">
-                  <h2>
-                    <a href="{{ collection_url }}{{ item.url }}">
-                      {{ item.title }}
-                    </a>
-                  </h2>
-                </div>
-
-                <div class="variants">
-                    {% comment %}
-                    Line Item Properties
-                    {% endcomment %}
-                    {% assign properties_amount = item.properties | size %}
-                    {% if properties_amount > 0 %}
-                      {% for p in item.properties %}
-                        {% unless p.last == blank %}
-                          {{ p.first }}:
-                          {% if p.last contains '/uploads/' %}
-                            <a href="{{ p.last }}">{{ p.last | split: '/' | last }}</a>
-                          {% else %}
-                            {{ p.last }}
-                          {% endif %}
-                        {% endunless %}
+                  {% if item.vendor != blank %}
+                    <div class="vendor">
+                      <h3>{{ item.vendor }}</h3>
+                    </div>
+                  {% endif %}
+                  <div class="product">
+                    <h2>
+                      <a href="{{ collection_url }}{{ item.url }}">
+                        {{ item.product.title }}
+                      </a>
+                    </h2>
+                  </div>
+                  <div class="variants">
+                    <ul>
+                      {% for o in item.options_with_values %}
+                        <li>{{ o.value }}</li>
                       {% endfor %}
-                    {% endif %}
+                    </ul>
+                  </div>
                 </div>
 
                 <div class="quantity">
@@ -136,8 +119,26 @@
     {% else %}
 
       <div class="cart-empty">
-        <h2>It appears that your cart is currently empty!</h2>
-        <h3>You can continue browsing <a href="/collections/all">here</a>.</h3>
+
+        <div class="empty-wrapper">
+          <div class="empty-card-title">
+            <h2>{{ 'Your cart is empty' }}</h2>
+          </div>
+        </div>
+
+        <div class="continue-shopping">
+          <a 
+            {% if settings.cart_continue_shopping_link == blank %}
+              href="/collections/all"
+            {% else %}
+              href="{{ settings.cart_continue_shopping_link }}"
+            {% endif %}
+            title="{{ settings.cart_continue_shopping_text | default: 'Continue Shopping' }}">
+            {{ settings.cart_continue_shopping_text | default: 'Continue Shopping' }}
+          </a>
+        </div>
+        
+        {% render 'recommended-products' %}
       </div>
 
     {% endif %}

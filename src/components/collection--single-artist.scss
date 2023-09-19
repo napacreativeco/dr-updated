@@ -28,8 +28,8 @@
                     position: absolute;
                     top: 0;
                     left: 0;
-                    background: var(--black);
-                    color: var(--white);
+                    background: var(--black-no-change);
+                    color: var(--white-no-change);
                     width: 30%;
 
                     .box-wrap {
@@ -41,6 +41,7 @@
 
                     h1 {
                         font-size: var(--42px);
+                        color: var(--white-no-change);
                     }
 
                     span {
@@ -49,10 +50,11 @@
                         align-items: center;
                         gap: 8px;
                         font-family: var(--type-writer);
+                        color: var(--white-no-change);
 
                         svg {
                             width: 16px !important;
-                            fill: white;
+                            fill: var(--white-no-change);
                             stroke-width: 0px;
                         }
                     }
@@ -140,6 +142,7 @@
 
                     h3 {
                         font-size: var(--18px);
+                        color: var(--black);
                         line-height: 176%;
                         text-transform: uppercase;
                     }
@@ -152,6 +155,7 @@
                         p {
                             line-height: 1.6;
                             margin-bottom: 14px;
+                            color: var(--black);
                         }
                     }
 
@@ -165,6 +169,7 @@
                         .meta-block {
                             strong {
                                 font-family: var(--sans-serif);
+                                color: var(--black);
                                 font-weight: normal;
                             }
 
@@ -172,12 +177,14 @@
                                 margin: 0 0 10px 0;
                                 font-size: var(--18px);
                                 font-family: var(--type-writer);
+                                color: var(--black);
                             }
 
                             h4 {
                                 font-size: var(--22px);
                                 display: block;
                                 margin: 0 0 20px 0;
+                                color: var(--black);
                             }
 
                             ul {
@@ -187,6 +194,7 @@
                                 display: flex;
                                 flex-direction: column;
                                 gap: 6px;
+                                color: var(--black);
                             }
                         }
                     }
@@ -230,6 +238,7 @@
                             a {
                                 text-transform: uppercase;
                                 font-family: var(--type-writer);
+                                color: var(--black);
                             }
                         }
                     }
@@ -251,6 +260,7 @@
                             a {
                                 text-transform: uppercase;
                                 font-family: var(--type-writer);
+                                color: var(--black);
                             }
                         }
                     }
@@ -262,10 +272,12 @@
                                 .title {
                                     margin: 0 0 12px 0;
                                     text-transform: uppercase;
+                                    color: var(--black);
                                 }
 
                                 .dates {
                                     font-family: var(--type-writer);
+                                    color: var(--black);
                                     text-transform: uppercase;
                                     > div {
                                         display: flex;
@@ -275,12 +287,14 @@
                                         margin: 0 0 14px 0;
                                     }
                                 }
+
                                 .flier {
                                     margin: 10px 0 30px 0;
 
                                     a {
                                         text-transform: uppercase;
                                         text-decoration: underline;
+                                        color: var(--black);
                                     }
                                 }
                             }

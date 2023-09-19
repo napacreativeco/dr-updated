@@ -31,6 +31,7 @@
                 {% endif %}
                 <script>console.log('{{ today_date | date }}');</script>
                 {% for image in product.media %}
+                  {% assign has_images = forloop.length %}
                   <div class="swiper-slide">
                     <div class="view-larger" data-image="{{ image | image_url: width: 1000 }}">   
                       {% render 'icon--view-more' %}
@@ -41,18 +42,20 @@
               
               </div>
 
-              <div class="product-gallery-pagination-container">
-                <div class="swiper-pagination"></div>
-              </div>
-            
-              <div class="product-gallery-navigation-container">
-                <div class="product-gallery-prev">
-                  {% render 'svg--left-arrow' %}
+              {% if has_images > 1 %}
+                <div class="product-gallery-pagination-container">
+                  <div class="swiper-pagination"></div>
                 </div>
-                <div class="product-gallery-next">
-                  {% render 'svg--right-arrow' %}
+              
+                <div class="product-gallery-navigation-container">
+                  <div class="product-gallery-prev">
+                    {% render 'svg--left-arrow' %}
+                  </div>
+                  <div class="product-gallery-next">
+                    {% render 'svg--right-arrow' %}
+                  </div>
                 </div>
-              </div>
+              {% endif %}
 
             </div>
           </div>

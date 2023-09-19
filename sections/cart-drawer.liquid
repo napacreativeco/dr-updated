@@ -1,42 +1,35 @@
 <div class="cart-drawer--wrapper">
 
-    {% comment %} ITEM TITLE {% endcomment %}
-    <div class="cart-drawer--title">
-      
+    <div class="cart-drawer--header">
       <div class="cart-drawer--close">
         <span>&times;</span>
       </div>
-
-      <h3 class="cart-title">Shopping Cart</h3>
-
+      <h3 class="cart-title">{{ 'Shopping Cart' | escape }}</h3>
     </div>    
 
-    {% comment %} CART {% endcomment %}
     <form action="{{ routes.cart_url }}" method="post" class="my-cart">
         <div data-ajax-cart-section>
 
-          {% comment %} ITEMS {% endcomment %}
           <ul class="my-cart__items" data-ajax-cart-section-scroll>
             {% for item in cart.items %}
 
               {% comment %} ITEM {% endcomment %}
               <li class="item">
                 <div class="item-wrapper">
-
                 
-                  <div class="title">
+                  <div class="item-title">
                     
-                    {% comment %} ARTIST {% endcomment %}
                     <a class="vendor" href="{{ item.url }}" title="{{ item.title }}">
                       {{ item.vendor }}
                     </a>
 
-                    {% comment %} TITLE {% endcomment %}
-                    <div class="cart-item--title">
-                      <a href="{{ item.url }}" title="{{ item.title }}">
-                        {{ item.title }}
-                      </a>
-                    </div>
+                    <a class="title" href="{{ item.url }}" title="{{ item.title }}">
+                      {{ item.product.title }}
+                    </a>
+
+                    {% for o in item.options_with_values %}
+                      {{ o.value }}
+                    {% endfor %}
 
                   </div>
 

@@ -8,6 +8,7 @@
         align-items: center;
         gap: 20px;
         text-transform: uppercase;
+        color: var(--black);
 
         ul {
             display: flex;
@@ -26,10 +27,14 @@
                     display: flex;
                     align-items: center;
                     justify-content: center;
+                    color: var(--black);
 
                     svg {
                         width: 25px;
                         height: 25px;
+                        stroke: var(--black);
+                        stroke-width: 0px;
+                        fill: var(--black);
                     }
                 }
             }

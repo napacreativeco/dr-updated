@@ -24,6 +24,7 @@
             justify-content: center;
             gap: 14px;
             list-style: none;
+            color: var(--black);
 
             li.current-page {
                 position: relative;
@@ -51,6 +52,7 @@
             a, span.end {
                 display: block;
                 padding: 20px;
+                color: var(--black);
             }
 
             a:hover {

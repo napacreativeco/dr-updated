@@ -7,15 +7,18 @@
 
             header {
                 padding: 0 0 50px 0;
+
                 .meta {
                     font-size: 1.6rem;
                     font-family: var(--type-writer);
+                    color: var(--black);
                     text-transform: uppercase;
                     padding: 10px 0;
                 }
 
                 h1 {
                     font-size: 6rem;
+                    color: var(--black);
                 }
     
             }
@@ -25,6 +28,7 @@
                 border-top: var(--border-gry);
                 padding: 40px 0;
                 font-size: 2rem;
+                color: var(--black);
 
                 iframe {
                     width: 100%;

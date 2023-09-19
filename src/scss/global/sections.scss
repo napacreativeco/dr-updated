@@ -15,6 +15,7 @@ section.section {
         h2.title {
             display: inline-block;
             font-size: var(--32px);
+            color: var(--black);
             letter-spacing: -7%;
             line-height: 0.1;
             text-transform: uppercase;
@@ -24,6 +25,7 @@ section.section {
 
         a.view-more {
             font-size: var(--18px);
+            color: var(--black);
             text-transform: uppercase;
         }
         a.view-more:hover {

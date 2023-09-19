@@ -1,8 +1,12 @@
 <div class="contact-wrapper">
+  <ul>
     {% for block in section.blocks %}
-        <h4>{{ block.type }}</h4>
-        <a href="{{ block.link }}" title="{{ block.name }}">{{ block.name }}</a>
+      <li>
+        <h4>{{ block.settings.name }}</h4>
+        {{ block.settings.link }}
+      </li>
     {% endfor %}
+  </ul>
 </div>
 
 {% schema %}

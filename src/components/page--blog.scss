@@ -1,5 +1,9 @@
 .blog-page {
 
+    h1 {
+        color: var(--black);
+    }
+
     .posts {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -16,6 +20,7 @@
             .posted-at {
                 font-size: 1.4rem;
                 text-transform: uppercase;
+                color: var(--black);
             }
 
             .image {
@@ -40,11 +45,13 @@
                     a {
                         font-family: var(--sans-serif);
                         font-size: 1.8rem;
+                        color: var(--black);
                     }
                 }
 
                 h2::before {
                     content: '\25BA';
+                    color: var(--black);
                 }
 
                 .metadata {
@@ -52,6 +59,7 @@
                     text-transform: uppercase;
                     letter-spacing: 0px;
                     font-size: 1.4rem;
+                    color: var(--black);
                 }
 
                 .read-more {

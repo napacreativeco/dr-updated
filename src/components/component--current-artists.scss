@@ -14,8 +14,11 @@
             gap: 12px;
             min-width: 100%;
             overflow-x: scroll;
-            // padding: 0 0 60px 0;
             list-style: none;
+
+            a {
+                color: var(--black);
+            }
         }
         // Scrollbar
         ul.current-artists--list::-webkit-scrollbar {

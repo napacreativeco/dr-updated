@@ -106,7 +106,12 @@
     });
 
     $('.logo--head').on('click', function() {
-        $(body).attr('data-theme', 'dark');
+        if ( $('body').attr('data-theme') == 'dark' ) {
+            $('body').attr('data-theme', 'lite');
+        } else {
+            $('body').attr('data-theme', 'dark');
+        }
+       
     });
 
     // //////////////////////////////

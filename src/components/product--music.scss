@@ -150,12 +150,15 @@
 
                     h2 {
                         font-size: var(--40px);
+                        color: var(--black);
                     }
                 }
 
                 .product-title {
                     h1 {
                         font-size: var(--40px);
+                        color: var(--black);
+                        line-height: 1.1;
                     }
                 }
 
@@ -163,6 +166,7 @@
                     display: block;
                     width: 100%;
                     font-size: var(--16px);
+                    color: var(--black);
                     text-transform: uppercase;
                     letter-spacing: 0px;
                     margin-bottom: 16px;
@@ -178,6 +182,7 @@
 
                     .price {
                         font-size: var(--45px);
+                        color: var(--black);
                     }
 
                     #product-add {
@@ -234,6 +239,7 @@
                                 font-family: var(--type-writer);
                                 text-transform: uppercase;
                                 font-size: var(--14px);
+                                color: var(--black);
 
                                 label {
                                     display: flex;
@@ -308,6 +314,7 @@
 
             h3 {
                 font-size: var(--18px);
+                color: var(--black);
                 margin-bottom: 21px;
                 text-transform: uppercase;
             }
@@ -319,6 +326,7 @@
                     border-top: var(--border-blk);
                     padding-top: 24px;
                     font-size: var(--18px);
+                    color: var(--black);
                     line-height: 176%;
                 }
 
@@ -365,6 +373,7 @@
                         li {
                             font-family: var(--type-writer);
                             font-size: var(--18px);
+                            color: var(--black);
                             text-transform: uppercase;
                             counter-increment: tracklist;
 
@@ -387,12 +396,15 @@
                     span {
                         font-size: var(--18px);
                         font-family: var(--type-writer);
+                        color: var(--black);
                     }
+
                     span.title {
                         display: block;
                         margin: 0 0 14px 0;
                         font-size: var(--20px);
                         font-family: var(--sans-serif);
+                        color: var(--black);
                     }
 
                     ul {
@@ -407,6 +419,7 @@
                             font-family: var(--type-writer);
                             text-transform: uppercase;
                             font-size: var(--16px);
+                            color: var(--black);
                         }
                     }
                 }
@@ -423,6 +436,7 @@
                         a {
                             display: block;
                             font-size: var(16px);
+                            color: var(--black);
                             border: var(--border-blk);
                             padding: 22px 32px;
                         }

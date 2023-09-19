@@ -184,17 +184,21 @@
               <p>{{ product.description | newline_to_br }}</p>
             </div>
 
-            
-            <div class="media">
-              <div class="title">
-                <h3>{{ 'Media' | escape }}</h3>
+            {% for vid in product.metafields.music.media.value %}
+              {% assign has_videos = forloop.length %}
+            {% endfor %}
+            {% if has_videos > 0 %}
+              <div class="media">
+                <div class="title">
+                  <h3>{{ 'Media' | escape }}</h3>
+                </div>
+                <div class="media-wrapper">
+                  {% for vid in product.metafields.music.media.value %}
+                    {{ vid }}
+                  {% endfor %}
+                </div>
               </div>
-              <div class="media-wrapper">
-                {% for vid in product.metafields.music.media.value %}
-                  {{ vid }}
-                {% endfor %}
-              </div>
-            </div>
+            {% endif %}
           </div>
 
           <div class="right">
@@ -233,15 +237,19 @@
                 </ul>
               </div>
 
-              <div class="block product-release">
-                <span class="title">{{ 'Release date' | escape }}</span>
-                <span>{{ product.metafields.music.release_date.value | date: "%b %d, %y" }}</span>
-              </div>
+              {% if product.metafields.music.release_date.value != blank %}
+                <div class="block product-release">
+                  <span class="title">{{ 'Release date' | escape }}</span>
+                  <span>{{ product.metafields.music.release_date.value | date: "%b %d, %y" }}</span>
+                </div>
+              {% endif %}
 
-              <div class="block catalog-number">
-                <span class="title">{{ 'Catalog No.' | escape }}</span>
-                <span>{{ product.metafields.music.catalog_number.value | escape }}</span>
-              </div>
+              {% if product.metafields.music.catalog_number.value != blank %}
+                <div class="block catalog-number">
+                  <span class="title">{{ 'Catalog No.' | escape }}</span>
+                  <span>{{ product.metafields.music.catalog_number.value | escape }}</span>
+                </div>
+              {% endif %}
 
             </div>
 
@@ -249,14 +257,19 @@
                 {% for collection in product.collections %}
                   {% if collection.title == product.vendor %}
                     <div class="link">
-                      <a href="{{ collection.url }}" title="">Artist Page</a>
+                      <a href="{{ collection.url }}" title="{{ 'Artist Page' | escape }}">
+                        {{ 'Artist Page' | escape }}
+                      </a>
                     </div>
                   {% endif %}
                 {% endfor %}
 
                 <div class="link">
-                  <a href="{{ shop.url }}/all?filter.p.vendor={{ product.vendor | url_escape }}" title="">Merchandise</a>
+                  <a href="{{ shop.url }}/collections/all?filter.p.vendor={{ product.vendor | url_escape }}" title="{{ 'Merchandise' | escape }}">
+                    {{ 'Merchandise' | escape }}
+                  </a>
                 </div>
+
                 <div class="link">
                   {% for collection in product.collections %}
                     {% for link in collection.metafields.custom.social_media_links.values %}
@@ -272,7 +285,6 @@
 
         </div>
       </div>
-
 
     </form>
 

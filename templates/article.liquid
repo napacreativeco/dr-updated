@@ -1,3 +1,5 @@
+{{ 'page--blog-post.css' | asset_url | stylesheet_tag }}
+
 <div class="blog-post">
   <div class="blog-post-wrapper page-wrapper"> 
     {% paginate article.comments by 50 %}
