@@ -109,9 +109,11 @@
     // THEME MODE                  //
     // //////////////////////////////
     $('.theme-mode').on('click', function() {
-        if ( $('body').attr('data-theme') == 'dark' ) {
+        if ( localStorage.getItem("theme") == 'dark' ) {
+            localStorage.setItem("theme", "lite");
             $('body').attr('data-theme', 'lite');
         } else {
+            localStorage.setItem("theme", "dark");
             $('body').attr('data-theme', 'dark');
         }
     });

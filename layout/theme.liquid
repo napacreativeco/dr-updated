@@ -54,12 +54,17 @@
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
     {% # theme-check-enable RemoteAsset %}
 
+    <script type="module">
+        console.log("current theme: " + localStorage.getItem("theme"));
+        document.querySelector('body').setAttribute('data-theme', localStorage.getItem("theme"));
+    </script>
+
   </head>
 
   <body 
     id="{{ page_title | handle }}" 
     class="{% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}"
-    data-theme="{% if settings.color_theme == 'lite' %}lite{% elsif settings.color_theme == 'dark' %}dark{% endif %}">
+    data-theme="">
     
     {% # theme-check-disable RemoteAsset %}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js" integrity="sha512-cOH8ndwGgPo+K7pTvMrqYbmI8u8k6Sho3js0gOqVWTmQMlLIi6TbqGWRTpf1ga8ci9H3iPsvDLr4X7xwhC/+DQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
