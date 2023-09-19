@@ -4,19 +4,19 @@
     "theme_name": "Dais Records",
     "theme_version": "1.0.0",
     "theme_author": "Throne",
-    "theme_documentation_url": "https://throne.work",
-    "theme_support_url": "https://throne.work"
+    "theme_documentation_url": "https:\/\/throne.work",
+    "theme_support_url": "https:\/\/throne.work"
   },
   {
     "name": "Contact Email",
     "settings": [
-        {
-          "type": "text",
-          "id": "contact_email",
-          "label": "Email",
-          "default": "contact@daisrecords.com"
-        }
-      ]
+      {
+        "type": "text",
+        "id": "contact_email",
+        "label": "Email",
+        "default": "contact@daisrecords.com"
+      }
+    ]
   },
   {
     "name": "Color Theme",
@@ -42,12 +42,12 @@
   {
     "name": "Attribution",
     "settings": [
-        {
-          "type": "text",
-          "id": "site_attribution",
-          "label": "Text",
-          "default": "COPYRIGHT © 2023, DAIS RECORDS"
-        }
-      ]
+      {
+        "type": "text",
+        "id": "site_attribution",
+        "label": "Text",
+        "default": "COPYRIGHT © 2023, DAIS RECORDS"
+      }
+    ]
   }
 ]
