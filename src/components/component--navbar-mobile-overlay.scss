@@ -145,17 +145,3 @@
 
 
 }
-
-body[data-theme="lite"] {
-    .theme-mode {
-        .dark-mode { display: flex; }
-        .lite-mode { display: none; }
-    }
-}
-
-body[data-theme="dark"] {
-    .theme-mode {
-        .dark-mode { display: none; }
-        .lite-mode { display: flex; }
-    }
-}
