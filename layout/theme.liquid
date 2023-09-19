@@ -55,8 +55,13 @@
     {% # theme-check-enable RemoteAsset %}
 
     <script type="module">
-        console.log("current theme: " + localStorage.getItem("theme"));
-        document.querySelector('body').setAttribute('data-theme', localStorage.getItem("theme"));
+      var theme = localStorage.getItem("theme");
+        if (theme == '') {
+          console.log("no theme specified");
+        } else {
+          console.log(theme);
+        }
+        document.querySelector('body').setAttribute('data-theme', theme);
     </script>
 
   </head>
