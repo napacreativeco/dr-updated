@@ -2,8 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300&display=swap');
 
-body[data-theme="lite"] {
-    /* Colors */
+:root {
     --bright-white: #ffffff;
     --white: #F9F9F9;
     --white-dim: #efefef;
@@ -13,40 +12,6 @@ body[data-theme="lite"] {
     --grey-mid: #dfe1e5;
     --red: #7D1128;
     --black: #000000;
-    
-
-    /* Borders */
-    --border-blk: 2px solid var(--black);
-    --border-wht: 2px solid var(--white);
-    --border-gry: 2px solid var(--grey-light);
-
-    --border-blk-thin: 1px solid var(--black);
-    --border-wht-thin: 1px solid var(--white);
-}
-
-body[data-theme="dark"] {
-    /* Colors */
-    --bright-white: #000000;
-    --white: #111111;
-    --white-dim: #090909;
-    --grey: #8f8f8f;
-    --grey-dark: #444444;
-    --grey-light: #111111;
-    --grey-mid: #dfe1e5;
-    --red: #7D1128;
-    --black: #ffffff;
-
-    /* Borders */
-    --border-blk: 2px solid var(--black);
-    --border-wht: 2px solid var(--white);
-    --border-gry: 2px solid var(--grey-light);
-
-    --border-blk-thin: 1px solid var(--black);
-    --border-wht-thin: 1px solid var(--white);
-}
-
-:root {
-
     --black-no-change: #000000;
     --white-no-change: #ffffff;
 
@@ -93,6 +58,50 @@ body[data-theme="dark"] {
     --hover-transition: 0.6s ease-in-out;
     --image-opacity-transition: 0.54s ease-in-out;
 }
+
+body[data-theme="lite"] {
+    /* Colors */
+    --bright-white: #ffffff;
+    --white: #F9F9F9;
+    --white-dim: #efefef;
+    --grey: #8f8f8f;
+    --grey-dark: #242424;
+    --grey-light: #e7e7e7;
+    --grey-mid: #dfe1e5;
+    --red: #7D1128;
+    --black: #000000;
+    
+
+    /* Borders */
+    --border-blk: 2px solid var(--black);
+    --border-wht: 2px solid var(--white);
+    --border-gry: 2px solid var(--grey-light);
+
+    --border-blk-thin: 1px solid var(--black);
+    --border-wht-thin: 1px solid var(--white);
+}
+
+body[data-theme="dark"] {
+    /* Colors */
+    --bright-white: #000000;
+    --white: #111111;
+    --white-dim: #090909;
+    --grey: #8f8f8f;
+    --grey-dark: #444444;
+    --grey-light: #111111;
+    --grey-mid: #dfe1e5;
+    --red: #7D1128;
+    --black: #ffffff;
+
+    /* Borders */
+    --border-blk: 2px solid var(--black);
+    --border-wht: 2px solid var(--white);
+    --border-gry: 2px solid var(--grey-light);
+
+    --border-blk-thin: 1px solid var(--black);
+    --border-wht-thin: 1px solid var(--white);
+}
+
 
 @media screen and (max-width: 767px) {
     :root {

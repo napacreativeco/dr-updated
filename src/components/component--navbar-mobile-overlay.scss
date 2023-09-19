@@ -14,6 +14,8 @@
     .overlay-wrap {
         position: relative;
         padding: 0 20px;
+        height: 100vh;
+        overflow-y: scroll;
 
         .theme-mode {
             position: absolute;
