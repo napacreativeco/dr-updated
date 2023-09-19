@@ -52,6 +52,10 @@ footer {
                     text-transform: uppercase;
                     color: var(--black);
                 }
+
+                a:hover {
+                    text-decoration: underline;
+                }
             }
         }
     }

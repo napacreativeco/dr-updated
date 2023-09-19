@@ -105,13 +105,15 @@
         $('body').removeClass('js-my-cart-open');
     });
 
-    $('.logo--head').on('click', function() {
+    // //////////////////////////////
+    // THEME MODE                  //
+    // //////////////////////////////
+    $('.theme-mode').on('click', function() {
         if ( $('body').attr('data-theme') == 'dark' ) {
             $('body').attr('data-theme', 'lite');
         } else {
             $('body').attr('data-theme', 'dark');
         }
-       
     });
 
     // //////////////////////////////
