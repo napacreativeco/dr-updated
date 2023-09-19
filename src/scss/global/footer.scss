@@ -133,6 +133,11 @@ footer {
         .right {
             padding-bottom: 20px;
 
+
+            input[type="email"] {
+                width: 100%;
+            }
+
             .attribution {
                 font-size: 10px;
                 letter-spacing: 0;
