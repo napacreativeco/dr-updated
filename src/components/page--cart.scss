@@ -177,6 +177,10 @@
                 list-style: none;
             }
 
+            summary::-webkit-details-marker {
+                display: none !important;
+            }
+
             details summary > * { 
                 display: inline;
             }
