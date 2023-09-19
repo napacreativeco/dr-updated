@@ -95,7 +95,9 @@
 
     });
 
-    // cart
+    // //////////////////////////////
+    // CART                        //
+    // //////////////////////////////
     $('.cart-nav-opener').on('click', function() {
         $('body').addClass('js-my-cart-open');
     });
@@ -103,13 +105,9 @@
         $('body').removeClass('js-my-cart-open');
     });
 
-    // Product Page Pinning
-    // ScrollTrigger.create({
-    //     trigger: ".single-artist--wrapper",
-    //     pin: true,
-    //     start: "top center",
-    //     end: '100vh'
-    // });
+    $('.logo--head').on('click', function() {
+        $(body).attr('data-theme', 'dark');
+    });
 
     // //////////////////////////////
     // COLLECTION - SHOW FILTERS   //

@@ -8,14 +8,15 @@
     "theme_support_url": "https://throne.work"
   },
   {
-  "name": "Contact Email",
-  "settings": [
-      {
-        "type": "text",
-        "id": "contact_email",
-        "label": "Email"
-      }
-    ]
+    "name": "Contact Email",
+    "settings": [
+        {
+          "type": "text",
+          "id": "contact_email",
+          "label": "Email",
+          "default": "contact@daisrecords.com"
+        }
+      ]
   },
   {
     "name": "Color Theme",
@@ -37,5 +38,16 @@
         "default": "lite"
       }
     ]
-  }  
+  },
+  {
+    "name": "Attribution",
+    "settings": [
+        {
+          "type": "text",
+          "id": "site_attribution",
+          "label": "Text",
+          "default": "COPYRIGHT © 2023, DAIS RECORDS"
+        }
+      ]
+  }
 ]

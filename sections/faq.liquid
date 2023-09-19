@@ -1,7 +1,10 @@
 <div class="faq-wrapper">
     {% for block in section.blocks %}
         <details class="faq-accordion">
-            <summary>{{ block.settings.title }}</summary>
+            <summary>
+              <h2>{{ block.settings.title }}</h2>
+              {% render 'icon--arrow-down' %}
+            </summary>
     
             <div class="faq-body">
                 {{ block.settings.body }}

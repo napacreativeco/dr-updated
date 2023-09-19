@@ -19,6 +19,7 @@
 
             .about {
                 font-size: 38px;
+                line-height: 1.2;
             }
 
             .meta-block {
@@ -31,6 +32,20 @@
         .right {
             padding: 20px 0 0 0;
             border-top: var(--border-blk);
+
+            details {
+                border-bottom: var(--border-blk);
+
+                > summary {
+                    padding: 20px 0;
+                    list-style: none;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    align-items: center;
+                    gap: 10px;
+                }
+            }
         }
         
     }
