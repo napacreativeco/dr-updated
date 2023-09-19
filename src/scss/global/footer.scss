@@ -121,6 +121,10 @@ footer {
         grid-template-columns: 100%;
         border-bottom: 0;
 
+        .footer-block {
+            padding: 10px 30px 20px 30px;
+        }
+
         .left {
             border-bottom: var(--border-blk);
             border-right: 0;
