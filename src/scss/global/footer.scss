@@ -125,6 +125,10 @@ footer {
             border-bottom: var(--border-blk);
             border-right: 0;
 
+            .link-block {
+                padding-bottom: 10px;
+            }
+
             .link-block:last-of-type {
                 border-right: 0;
             }
