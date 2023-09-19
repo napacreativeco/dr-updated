@@ -173,6 +173,10 @@
         .additional-notes-holder {
             color: var(--black);
 
+            details {
+                list-style: none;
+            }
+
             details summary > * { 
                 display: inline;
             }
