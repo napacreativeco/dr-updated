@@ -126,7 +126,9 @@ footer {
             border-right: 0;
 
             .link-block {
-                padding-bottom: 10px;
+                ul {
+                    padding-bottom: 10px;
+                }
             }
 
             .link-block:last-of-type {
