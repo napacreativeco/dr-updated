@@ -34,6 +34,11 @@
         </label>
 
     </fieldset>
+{% else %}
+
+    <div class="no-filters">
+        {{ 'There is only one product in this collection' | escape }}
+    </div>
 {% endif %}
 
 <script>

@@ -111,10 +111,10 @@
     $('.theme-mode').on('click', function() {
         if ( localStorage.getItem("theme") == 'dark' ) {
             localStorage.setItem("theme", "lite");
-            $('body').attr('data-theme', 'lite');
+            $('body').attr('data-theme', localStorage.getItem("theme"));
         } else {
             localStorage.setItem("theme", "dark");
-            $('body').attr('data-theme', 'dark');
+            $('body').attr('data-theme', localStorage.getItem("theme"));
         }
     });
 
