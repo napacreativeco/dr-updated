@@ -197,10 +197,13 @@
 
                         input[type="submit"] {
                             background-color: var(--black);
+                            font-family: var(--sans-serif);
+                            font-weight: normal;
                             color: var(--white);
                             padding: 10px 40px;
                             outline: 0;
                             border: var(--border-blk);
+                            border-radius: 0px !important;
                             text-transform: uppercase;
                             cursor: pointer;
                         }
