@@ -56,8 +56,10 @@
 
     <script type="module">
         var theme = localStorage.getItem("theme");
-        if (theme == '') {
+        
+        if (theme == null) {
           console.log("no theme specified");
+          localStorage.setItem("theme", "lite");
         } else {
           console.log(theme);
         }
