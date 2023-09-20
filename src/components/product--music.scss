@@ -190,6 +190,7 @@
                         .preorder-status {
                             text-transform: uppercase;
                             font-family: var(--type-writer);
+                            color: var(--black);
                             display: block;
                             margin: 0 0 6px 0;
                             text-align: right;
@@ -201,6 +202,9 @@
                             padding: 10px 40px;
                             outline: 0;
                             border: var(--border-blk);
+                            border-radius: 0px;
+                            font-family: var(--sans-serif);
+                            font-weight: normal;
                             text-transform: uppercase;
                             cursor: pointer;
                         }
