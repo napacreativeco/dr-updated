@@ -1,7 +1,7 @@
 #hero-swiper {
     .slide__announcement.swiper-slide {
         display: grid;
-        grid-template-columns: 50% 1fr;
+        grid-template-columns: 1fr 1fr;
         align-items: stretch;
         height: 100%;
 
@@ -47,7 +47,7 @@
     
     /* Pagination */
     .swiper-pagination-container[data-layout="text_left"] {
-        left: 50vw;
+        left: 50%;
     }
     .swiper-navigation-container[data-layout="text_left"] {
         right: 0vw;
@@ -57,7 +57,7 @@
         left: 0vw;
     }
     .swiper-navigation-container[data-layout="text_right"] {
-        right: 50vw;
+        right: 50%;
     }
     
 

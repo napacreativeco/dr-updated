@@ -1,5 +1,6 @@
 #hero-swiper {
     width: 100%;
+    overflow: hidden;
 
     .swiper-slide {
         width: 100%;
@@ -100,7 +101,7 @@
 @media screen and (max-width: 767px) {
     
     #hero-swiper {
-        overflow: visible;
+        //overflow: visible;
 
         .slide-box { 
             width: 90vw;
