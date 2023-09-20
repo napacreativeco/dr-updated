@@ -5,7 +5,7 @@
 :root {
 
     --border-thick: 1px;
-    --border-thin: 0.5px;
+    --border-thin: 1px;
     /* Initial */
     //------------------------
     --bright-white: #ffffff;
@@ -77,9 +77,9 @@ body[data-theme="lite"] {
 
 
     --border-thick: 1px;
-    --border-thin: 0.5px;
+    --border-thin: 1px;
 
-    
+
     /* Colors */
     --bright-white: #ffffff;
     --white: #F9F9F9;
@@ -104,7 +104,7 @@ body[data-theme="lite"] {
 body[data-theme="dark"] {
 
     --border-thick: 1px;
-    --border-thin: 0.5px;
+    --border-thin: 1px;
 
     /* Colors */
     --bright-white: #000000;
