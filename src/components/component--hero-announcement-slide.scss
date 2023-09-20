@@ -71,6 +71,7 @@
         .slide__announcement.swiper-slide {
             display: grid;
             grid-template-columns: 1fr;
+            grid-template-rows: 50svh 50svh;
             height: 100svh;
             
             .slide-content {
