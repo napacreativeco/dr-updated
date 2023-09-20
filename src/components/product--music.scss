@@ -25,8 +25,8 @@
                         z-index: 44;
 
                         span {
-                            background: var(--white);
-                            color: var(--black);
+                            background: var(--white-no-change);
+                            color: var(--black-no-change);
                             border-radius: 50%;
                             text-transform: uppercase;
                             font-size: 16px;
@@ -475,6 +475,16 @@
 
                     .product-gallery-swiper {
                         height: 100%;
+
+
+                    .preorder-status {
+
+                        span {
+                            font-size: 12px;
+                            width: 80px;
+                            height: 80px;
+                        }
+                    }
                     }
                 }
 
