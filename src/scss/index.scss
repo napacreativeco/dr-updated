@@ -3,6 +3,9 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300&display=swap');
 
 :root {
+
+    --border-thick: 1px;
+    --boreder-thin: 0.5px;
     /* Initial */
     //------------------------
     --bright-white: #ffffff;
@@ -17,12 +20,12 @@
     --black-no-change: #000000;
     --white-no-change: #ffffff;
     /* Borders */
-    --border-blk: 2px solid var(--black);
-    --border-wht: 2px solid var(--white);
-    --border-gry: 2px solid var(--grey-light);
+    --border-blk: var(--border-thick) solid var(--black);
+    --border-wht: var(--border-thick) solid var(--white);
+    --border-gry: var(--border-thick) solid var(--grey-light);
 
-    --border-blk-thin: 1px solid var(--black);
-    --border-wht-thin: 1px solid var(--white);
+    --border-blk-thin: var(--border-thin) solid var(--black);
+    --border-wht-thin: var(--border-thin) solid var(--white);
     //------------------------
     /* End Initial*/
 
@@ -84,12 +87,12 @@ body[data-theme="lite"] {
     
 
     /* Borders */
-    --border-blk: 2px solid var(--black);
-    --border-wht: 2px solid var(--white);
-    --border-gry: 2px solid var(--grey-light);
+    --border-blk: var(--border-thick) solid var(--black);
+    --border-wht: var(--border-thick) solid var(--white);
+    --border-gry: var(--border-thick) solid var(--grey-light);
 
-    --border-blk-thin: 1px solid var(--black);
-    --border-wht-thin: 1px solid var(--white);
+    --border-blk-thin: var(--border-thin) solid var(--black);
+    --border-wht-thin: var(--border-thin) solid var(--white);
 }
 
 body[data-theme="dark"] {
@@ -105,12 +108,12 @@ body[data-theme="dark"] {
     --black: #ffffff;
 
     /* Borders */
-    --border-blk: 2px solid var(--black);
-    --border-wht: 2px solid var(--white);
-    --border-gry: 2px solid var(--grey);
+    --border-blk: var(--border-thick) solid var(--black);
+    --border-wht: var(--border-thick) solid var(--white);
+    --border-gry: var(--border-thick) solid var(--grey);
 
-    --border-blk-thin: 1px solid var(--black);
-    --border-wht-thin: 1px solid var(--white);
+    --border-blk-thin: var(--border-thin) solid var(--black);
+    --border-wht-thin: var(--border-thin) solid var(--white);
 }
 
 
