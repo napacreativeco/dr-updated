@@ -126,7 +126,7 @@
         color: var(--black);
         border-top: var(--border-blk);
         border-right: var(--border-blk);
-        border-bottom: var(--border-blk);
+        border-bottom: 0;
         height: 40px;
         display: flex;
         align-items: center;
@@ -143,7 +143,10 @@
         right: 0;
         background: var(--white);
         color: var(--black);
-        border: var(--border-blk);
+        border-top: var(--border-blk);
+        border-left: 0;
+        border-right: var(--border-blk);
+        border-bottom: 0;
         display: grid;
         grid-template-columns: 1fr 1fr;
         transition: all 0.23s ease-in-out;
