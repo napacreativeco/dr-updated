@@ -1,5 +1,5 @@
 li.artist-card {
-    border: var(--border-blk-thin);
+    border: var(--border-blk);
 
     .image {
         overflow: hidden;
@@ -10,7 +10,7 @@ li.artist-card {
         transition: opacity 0.5 ease-out;
         transition-delay: 200ms;
         position: relative;
-        border-bottom: var(--border-blk-thin);
+        border-bottom: var(--border-blk);
 
         .view-more {
             position: absolute;
