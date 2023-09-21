@@ -103,6 +103,9 @@
 
 }
 
+/*
+----------------------------------------------------------------
+*/
 @media screen and (max-width: 767px) {
     
     #hero-swiper {
@@ -128,7 +131,7 @@
         .swiper-navigation-container {
             right: 0;
             left: 0;
-            bottom: 2px;
+            bottom: 0px;
             width: 100%;
             display: flex;
             flex-direction: row;

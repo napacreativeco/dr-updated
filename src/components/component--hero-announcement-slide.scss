@@ -72,16 +72,17 @@
         .slide__announcement.swiper-slide {
             display: grid;
             grid-template-columns: 1fr;
-            grid-template-rows: 50% 50%;
+            grid-template-rows: auto;
             height: 100svh;
             
             .slide-content {
-                height: 100%;
+                height: 60svh;
                 border-bottom: var(--border-blk);
+                border-right: 0;
             }
             
             .slide-image {
-                height: 100%;
+                height: 40svh;
             }
         }
 
