@@ -23,7 +23,18 @@
 
         <div class="right">
             <div class="articles">
-                <ul>
+                <ul class="legend">
+                    <li>
+                        {{ 'Headline' }}
+                    </li>
+                    <li>
+                        {{ 'Release' }}
+                    </li>
+                    <li>
+                        {{ 'Company' }}
+                    </li>
+                </ul>
+                <ul class="list">
                     {% for b in blogs.sync-licensing.articles %}
                         <li class="item">
                             <div class="article-wrap">

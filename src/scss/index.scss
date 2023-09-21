@@ -3,9 +3,9 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300&display=swap');
 
 :root {
-
     --border-thick: 1px;
     --border-thin: 1px;
+
     /* Initial */
     //------------------------
     --bright-white: #ffffff;
@@ -19,9 +19,11 @@
     --black: #000000;
     --black-no-change: #000000;
     --white-no-change: #ffffff;
+
     /* Borders */
     --border-blk: var(--border-thick) solid var(--black);
     --border-wht: var(--border-thick) solid var(--white);
+    --border-wht-no-change: var(--border-thick) solid var(--white);
     --border-gry: var(--border-thick) solid var(--grey-light);
 
     --border-blk-thin: var(--border-thin) solid var(--black);
@@ -37,7 +39,6 @@
     /* Type */
     --section-title: 4.8rem;
     --view-more-size: 2rem;
-    // --sans-serif: Arial, sans-serif;
     --sans-serif: 'Work Sans', sans-serif;
     --type-writer: 'DM Mono', monospace;
 
@@ -74,11 +75,8 @@
 }
 
 body[data-theme="lite"] {
-
-
     --border-thick: 1px;
     --border-thin: 1px;
-
 
     /* Colors */
     --bright-white: #ffffff;

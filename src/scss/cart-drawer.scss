@@ -10,7 +10,7 @@
     background: var(--white);
     border-left: var(--border-blk);
     color: var(--black);
-    z-index: 999;
+    z-index: 99999;
     transition: 0.3s ease-in-out;
 
     .cart-drawer--wrapper {
@@ -137,9 +137,6 @@
                 }
             }
 
-
- 
-
             button[type="submit"] {
                 width: 100%;
                 background: var(--black);
@@ -161,8 +158,6 @@
                 color: var(--black);
                 text-decoration: underline;
             }
-
-            
 
         }
     }
@@ -207,6 +202,9 @@
 
     .view-cart {
         font-size: 1.6rem;
+        text-align: center;
+        text-transform: uppercase;
+        padding: 14px;
     }
 
     .view-cart:hover {

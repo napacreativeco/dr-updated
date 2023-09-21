@@ -52,6 +52,12 @@
         "type": "page",
         "id": "cart_continue_shopping_link",
         "label": "'Continue Shopping' destination"
+      },
+      {
+        "type": "text",
+        "id": "cart_empty_text",
+        "label": "Empty Cart text",
+        "default": "Your cart is empty"
       }
     ]
   },
