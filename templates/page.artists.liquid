@@ -55,33 +55,29 @@
 
             <ul>
                 {% for product in collections.all.products %}
-
-
                     {% case product.type %}
                         {% when 'vinyl' %}
             
-                                {% for collection in collections %}
-            
-                                    {% if collection.title == product.vendor %}
-            
-                                        {% case collection.metafields.custom.alumni_status %}
-                                            {% when true %}
-            
-                                                <li class="artist">
-                                                    <h3>
-                                                        <a href="{{ collection.url }}" title="{{ collection.title }}">
-                                                            {{ collection.title }}
-                                                        </a>
-                                                    </h3>
-                                                </li>
-            
-                                        {% endcase %}
-            
-                                    {% endif %}
-                                {% endfor %}
-            
+                            {% for collection in collections %}
+        
+                                {% if collection.title == product.vendor %}
+        
+                                    {% case collection.metafields.custom.alumni_status %}
+                                        {% when true %}
+        
+                                            <li class="artist">
+                                                <h3>
+                                                    <a href="{{ collection.url }}" title="{{ collection.title }}">
+                                                        {{ collection.title }}
+                                                    </a>
+                                                </h3>
+                                            </li>
+        
+                                    {% endcase %}
+        
+                                {% endif %}
+                            {% endfor %}
                     {% endcase %}
-            
                 {% endfor %}
             </ul>
         </div>

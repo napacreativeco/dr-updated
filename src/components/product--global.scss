@@ -1,5 +1,5 @@
-.single-product.default {
-    //padding-top: 78px;
+.single-product {
+    padding-top: 78px;
 
     /* 1 */
     .product-section-one {
@@ -41,7 +41,7 @@
 
                     .swiper-slide {
                         position: relative;
-                        //border-right: var(--border-blk);
+                        border-right: var(--border-blk);
                         border-bottom: var(--border-blk);
 
                         .view-larger {
@@ -114,9 +114,7 @@
                         right: 0;
                         background: var(--white);
                         color: var(--black);
-                        border-top: var(--border-blk);
-                        border-left: var(--border-blk);
-                        border-bottom: var(--border-blk);
+                        border: var(--border-blk);
                         display: grid;
                         grid-template-columns: 1fr 1fr;
                         transition: all 0.23s ease-in-out;
@@ -324,7 +322,7 @@
 @media screen and (max-width: 767px) {
     
     .single-product.default {
-        //padding-top: 72px;
+        padding-top: 0px;
 
         /* 1 */
         .product-section-one {

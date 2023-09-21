@@ -91,9 +91,12 @@
                             display: inline-block;
                             text-transform: uppercase;
                             font-size: var(--22px);
-                            background: #D9D9D9;
+                            background: var(--white);
+                            border: var(--border-blk);
+                            color: var(--black);
                             padding: 10px 20px;
                             white-space: nowrap;
+
                         }
         
                         a.button:hover {
@@ -167,7 +170,7 @@
         }
 
         .swiper-slide {
-            height: 100svh;
+            height: calc(100svh - 70px);
         }
 
         .slide__product.swiper-slide {

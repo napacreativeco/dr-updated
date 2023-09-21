@@ -3,9 +3,11 @@
 {% assign unavailable = 'Unavailable' %}
 {% assign pre_order = 'Preorder' %}
 
+{{ 'product--global.css' | asset_url | stylesheet_tag }}
 {{ 'product--default.css' | asset_url | stylesheet_tag }}
 
-<div class="single-product music">
+
+<div class="single-product default">
   <div class="single-product-wrapper">
 
     <meta itemprop="url" content="{{ shop.url }}{{ product.url }}" />

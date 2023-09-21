@@ -8,6 +8,7 @@
     grid-gap: 0px;
     align-items: stretch;
     min-height: 800px;
+    border-top: var(--border-blk);
 
     .text-side {
         background-color: var(--black-no-change);
@@ -18,6 +19,7 @@
         align-items: center;
         gap: 20px;
         text-align: center;
+        border-right: var(--border-blk);
 
         span {
             text-transform: uppercase;

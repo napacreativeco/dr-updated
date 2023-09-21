@@ -34,7 +34,7 @@
     
             .slide-image {
                 width: 100%;
-                height: 100svh;
+                height: calc(100svh - 70px);
                 object-fit: cover;
             }
     

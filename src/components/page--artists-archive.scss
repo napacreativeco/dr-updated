@@ -64,6 +64,10 @@
 
         .right {
             ul {
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+                
                 li {
                     white-space: nowrap;
                     color: var(--black);
