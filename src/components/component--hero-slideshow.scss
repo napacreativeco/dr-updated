@@ -31,6 +31,7 @@
         color: var(--black);
         border-top: var(--border-blk);
         border-right: var(--border-blk);
+        border-bottom: var(--border-blk);
         border-bottom: 0;
         height: 40px;
         display: flex;
@@ -53,6 +54,7 @@
         display: grid;
         grid-template-columns: 1fr 1fr;
         transition: all 0.23s ease-in-out;
+        border-bottom: var(--border-blk);
     }
     
     .swiper-pagination-bullet {
