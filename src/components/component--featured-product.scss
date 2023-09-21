@@ -1,11 +1,29 @@
 .featured-product-section {
+
     .featured-product-wrapper {
         display: grid;
         grid-template-columns: 1fr 1fr;
+        align-items: stretch;
+        min-height: 800px;
 
         .product-info {
             background: var(--black);
             color: var(--white);
+        }
+
+        .featured-product-image {
+            height: 100%;
+        }
+    }
+}
+
+/*
+----------------------------------------------------------------
+*/
+@media screen and (max-width: 767px) {
+    .featured-product-section {
+        .featured-product-wrapper {
+
         }
     }
 }

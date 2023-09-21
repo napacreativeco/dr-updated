@@ -29,15 +29,19 @@
           </li>
         {% endif %}
 
-        <li class="elipsis">
-          ...
-        </li>
+        {% if paginate.items > 1 %}
+          <li class="elipsis">
+            {{ 'of' | escape }}
+          </li>
+        {% endif %}
 
-        <li class="total-pages">
-          <a href="{{ request.path }}?page={{ paginate.pages }}">
-            {{ paginate.pages }}
-          </a>
-        </li>
+        {% if paginate.items > 1 %}
+          <li class="total-pages">
+            <a href="{{ request.path }}?page={{ paginate.pages }}">
+              {{ paginate.pages }}
+            </a>
+          </li>
+        {% endif %}
 
       </ul>
 

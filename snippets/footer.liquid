@@ -8,7 +8,7 @@
         </div>
         <div class="link-block footer-block">
             <span class="block-title">
-                {{ 'Links' | escape }}
+                {{ 'Label' | escape }}
             </span>
             <ul>
                 {% for link in linklists.footer-left.links %}
@@ -20,7 +20,7 @@
         </div>
         <div class="link-block footer-block">
             <span class="block-title">
-                {{ 'Links' | escape }}
+                {{ 'Shop' | escape }}
             </span>
             <ul>
                 {% for link in linklists.footer-right.links %}
@@ -37,7 +37,7 @@
             <div class="wrapper">
 
                 <div class="block-title">
-                    <span>DAIS RECORDS<br />NEWSLETTER</span>
+                    <span>{{ settings.newsletter_title | default: 'DAIS RECORDS NEWSLETTER' }}</span>
                 </div>
 
 

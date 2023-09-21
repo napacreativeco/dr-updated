@@ -56,12 +56,35 @@
     ]
   },
   {
-    "name": "Site Attribution",
+    "name": "Search",
     "settings": [
       {
         "type": "text",
+        "id": "search_placeholder",
+        "label": "Placeholder",
+        "default": "Start search"
+      },
+      {
+        "type": "text",
+        "id": "search_button",
+        "label": "Button Text: Search",
+        "default": "Start search"
+      }
+    ]
+  },
+  {
+    "name": "Footer",
+    "settings": [
+      {
+        "type": "text",
+        "id": "newsletter_title",
+        "label": "Newsletter Title",
+        "default": "DAIS RECORDS NEWSLETTER"
+      },
+      {
+        "type": "text",
         "id": "site_attribution",
-        "label": "Text",
+        "label": "Attribution",
         "default": "COPYRIGHT © 2023, DAIS RECORDS"
       }
     ]

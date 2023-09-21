@@ -28,6 +28,7 @@
                 aspect-ratio: 4/3;
                 cursor: pointer;
                 transition: all var(--image-opacity-transition);
+                border: var(--border-blk);
             }
 
             .image:hover {
