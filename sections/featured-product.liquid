@@ -38,7 +38,7 @@
         </div>
   
         {% for c in collect.metafields.dais.artist_gallery.value limit: 1 %}
-          <div id="featured-product-image" style="background: url('{{ c | image_url: width: 800 }}'); background-size: cover;"></div>
+          <div class="featured-product-image" style="background: url('{{ c | image_url: width: 800 }}'); background-size: cover;"></div>
         {% endfor %}
  
     {% endcase %}
