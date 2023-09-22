@@ -40,6 +40,17 @@
     ]
   },
   {
+    "name": "Announcement Bar",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "announcement_marquee_mode",
+        "label": "Mode",
+        "default": false
+      }
+    ]
+  },
+  {
     "name": "Cart",
     "settings": [
       {

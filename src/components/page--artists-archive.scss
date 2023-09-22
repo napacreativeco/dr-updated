@@ -3,7 +3,7 @@
 
     .artists-wrapper {
         display: grid;
-        grid-template-columns: 60% auto;
+        grid-template-columns: 60% 1fr;
         grid-gap: 60px;
 
         .section-title {
@@ -63,19 +63,56 @@
         }
 
         .right {
-            ul {
+
+            .content {
                 display: flex;
                 flex-direction: column;
-                gap: 8px;
-                
-                li {
-                    white-space: nowrap;
-                    color: var(--black);
+                justify-content: space-between;
+                gap: 60px;
+                margin: 0 0 60px 0;
 
-                    a:hover {
-                        text-decoration: underline;
+                ul {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 8px;
+                    
+                    li {
+                        white-space: nowrap;
+                        color: var(--black);
+
+                        a:hover {
+                            text-decoration: underline;
+                        }
                     }
                 }
+
+                .link-blocks {
+                    .link-block {
+                        border-top: var(--border-blk);
+                        border-bottom: var(--border-blk);
+                        margin: 0 0 8px 0;
+    
+                        a {
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: space-between;
+                            align-items: center;
+                            width: 100%;
+                            padding: 10px 0;
+                            transition: var(--quick-transition);
+                        }
+                        svg {
+                            transform: rotate(-90deg);
+                        }
+                    }
+
+                    .link-block:hover {
+                        a {
+                            padding: 10px 6px;
+                        }
+                    }
+                }
+
             }
         }
     }

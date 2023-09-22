@@ -53,33 +53,49 @@
                 <h2>{{ 'Alumni' | escape }}</h2>
             </div>
 
-            <ul>
-                {% for product in collections.all.products %}
-                    {% case product.type %}
-                        {% when 'vinyl' %}
-            
-                            {% for collection in collections %}
-        
-                                {% if collection.title == product.vendor %}
-        
-                                    {% case collection.metafields.custom.alumni_status %}
-                                        {% when true %}
-        
-                                            <li class="artist">
-                                                <h3>
-                                                    <a href="{{ collection.url }}" title="{{ collection.title }}">
-                                                        {{ collection.title }}
-                                                    </a>
-                                                </h3>
-                                            </li>
-        
-                                    {% endcase %}
-        
-                                {% endif %}
-                            {% endfor %}
-                    {% endcase %}
-                {% endfor %}
-            </ul>
+            <div class="content">
+                <div class="">
+                    <ul>
+                        {% for product in collections.all.products %}
+                            {% case product.type %}
+                                {% when 'vinyl' %}
+                    
+                                    {% for collection in collections %}
+                
+                                        {% if collection.title == product.vendor %}
+                
+                                            {% case collection.metafields.custom.alumni_status %}
+                                                {% when true %}
+                
+                                                    <li class="artist">
+                                                        <h3>
+                                                            <a href="{{ collection.url }}" title="{{ collection.title }}">
+                                                                {{ collection.title }}
+                                                            </a>
+                                                        </h3>
+                                                    </li>
+                
+                                            {% endcase %}
+                
+                                        {% endif %}
+                                    {% endfor %}
+                            {% endcase %}
+                        {% endfor %}
+                    </ul>
+                </div>
+    
+                <div class="link-blocks">
+                    <div class="link-block">
+                        <a href="/pages/on-tour">{{ 'On Tour' | escape | upcase }}{% render 'icon--arrow-down' %}</a>
+                    </div>
+    
+                    <div class="link-block">
+                        <a href="/collections/merch/">{{ 'Merchandise' | escape | upcase }}{% render 'icon--arrow-down' %}</a>
+                    </div>
+                </div>
+
+            </div>
+
         </div>
     </div>
 </div>

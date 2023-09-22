@@ -19,7 +19,7 @@
             padding: 0;
             margin: 0;
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(6, 1fr);
             grid-gap: 12px;
 
             .image {
@@ -46,15 +46,19 @@
                 .artist {
                     margin: 0 0 2px 0;
                     color: var(--black);
+                    font-size: 14px;
                 }
 
                 .title {
                     display: block;
                     color: var(--grey);
+                    font-size: 10px;
+                    letter-spacing: 0px;
                 }
 
                 .price {
                     color: var(--grey);
+                    font-size: 12px;
                 }
             }
         }
