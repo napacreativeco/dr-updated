@@ -9,9 +9,7 @@
           <div class="wrap">
 
             <div class="image">
-              {% for img in section.settings.featured_product.media limit: 1 %}
-                <img src="{{ img | image_url: width: 400 }}" alt="{{ img.alt }}" />
-              {% endfor %}
+              <img src="{{ section.settings.featured_product.media[1] | image_url: width: 400 }}" alt="{{ img.alt }}" />
             </div>
 
             <div class="artist">
@@ -39,25 +37,9 @@
           </div>
         </div>
   
-        {% for img in section.settings.featured_product.media %}
-          {% if forloop.length > 1 %}
-            {% assign multiple_images = true %}
-          {% else %}
-            {% assign multiple_images = false %}
-          {% endif %}
+        {% for c in collect.metafields.dais.artist_gallery.value limit: 1 %}
+          <div id="featured-product-image" style="background: url('{{ c | image_url: width: 800 }}'); background-size: cover;"></div>
         {% endfor %}
-
-        {% if multiple_images == true %}
-
-          <div id="featured-product-image" style="background: url('{{ section.settings.featured_product.media[1] | image_url: width: 800 }}'); background-size: cover;"></div>
-
-        {% else %}
-            
-          {% for c in collect.metafields.dais.artist_gallery.value limit: 1 %}
-            <div id="featured-product-image" style="background: url('{{ c | image_url: width: 800 }}'); background-size: cover;"></div>
-          {% endfor %}
-
-        {% endif %}
  
     {% endcase %}
   {% endfor %}
