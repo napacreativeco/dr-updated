@@ -2,6 +2,11 @@
 
 <div class="product-sorting">
   
+  {% comment %} 
+  *
+  * Title Bar
+  *
+  {% endcomment %}
   <div class="sorting-title">
 
     <div class="filter-title">
@@ -12,31 +17,55 @@
       </div>
     </div>
 
-    {% comment %} Search {% endcomment %}
     <div class="search-title search-trigger">
       {{ 'Search' | escape }} 
       <span class="search-icon">{% render 'icon--search' %}</span>
       <span class="close-search">{% render 'icon--close' %}</span>
     </div>
+
   </div>
 
+  {% comment %} 
+  *
+  * Sorting Modules
+  *
+  {% endcomment %}
   <div class="sorting-wrapper">
+
     <div class="sort-by-attribute">
       <span class="title">{{ 'Sort' | escape }}</span>
-      {% render 'sorting-radios' %}
+      {% render 'radios--sorting' %}
     </div>
+
     <div class="sort-by-artist">
       <span class="title">{{ 'Artist' | escape }}</span>
-      {% render 'artist-radios' %}
+      {% render 'radios--artists' %}
     </div>
+
+    <div class="sort-by-type">
+      <span class="title">{{ 'Type' | escape }}</span>
+      {% render 'radios--type' %}
+    </div>
+
   </div>
 
+  {% comment %} 
+  *
+  * Search Module
+  *
+  {% endcomment %}
   <div class="search-wrapper">
     {% render 'searchbar--collection' text: "Try 'Drab Majesty T-shirts'" %}
   </div>
 
 </div>
 
+
+{% comment %} 
+*
+* Active Filter
+*
+{% endcomment %}
 <ul class="active-filters">
   {%- for filter in collection.filters -%}
       {%- if filter.type == "price_range" -%}

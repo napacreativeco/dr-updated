@@ -20,10 +20,12 @@
     // NAVBAR - MOUSE OUT          //
     // //////////////////////////////    
     $('.nav-link').mouseleave(function($) {
+
         gsap.to( '.submenu', {
             display: 'none',
             duration: 0.3
         });
+        
     });
 
 
@@ -123,19 +125,21 @@
     // //////////////////////////////
     $('.filter-trigger').on('click', function() {
         if ( $('.sorting-wrapper').hasClass('opened') ) {
-            $('.sorting-wrapper').removeClass('opened');
-
+            
             gsap.to('.sorting-wrapper', {
                 height: '0px',
             });
             $('.filter-icon').show();
             $('.close-filters').hide();
+
+            $('.sorting-wrapper').removeClass('opened');
         } else {
             $('.sorting-wrapper').addClass('opened');
 
             gsap.to('.sorting-wrapper', {
                 height: 'auto',
             });
+            
             $('.filter-icon').hide();
             $('.close-filters').show();
         }
