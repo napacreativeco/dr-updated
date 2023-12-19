@@ -59,7 +59,7 @@
 
         <div class="attribution">
             {% render 'social-media--dais' %}
-            <span>{{ settings.site_attribution | default: 'COPYRIGHT © 2023, DAIS RECORDS' }}</span>
+            <span>{{ 'COPYRIGHT © ' | escape }}{{ "now" | date: "%Y" }}{{ ', DAIS RECORDS' }}</span>
         </div>
 
     </div>

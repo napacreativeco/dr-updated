@@ -136,18 +136,18 @@
 
         .theme-mode {
             cursor: pointer;
-            svg {
-                width: 15px;
-            }
+            padding-top: 1px;
 
             .dark-mode {
                 svg {
-                    transform: rotate(0deg)
+                    transform: rotate(0deg);
+                    width: 16px;
                 }
             }
             .lite-mode {
                 svg {
-                    transform: rotate(90deg)
+                    transform: rotate(90deg);
+                    width: 22px;
                 }
             }
         }

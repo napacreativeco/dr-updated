@@ -1,7 +1,7 @@
 <div class="theme-mode">
     <div class="dark-mode">
         <span class="icon">
-            {% render 'icon--theme-mode' %}
+            {% render 'icon--moon' %}
         </span>
         {% if location == 'mobile-overlay' %}
             <p>{{ 'Dark mode' | escape }}</p>
@@ -9,7 +9,7 @@
     </div>
     <div class="lite-mode">
         <span class="icon">
-            {% render 'icon--theme-mode' %}
+            {% render 'icon--sun' %}
         </span>
         {% if location == 'mobile-overlay' %}
             <p>{{ 'Lite mode' | escape }}</p>

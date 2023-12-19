@@ -24,6 +24,10 @@ li.artist-card {
             font-size: 1.8rem;
             transition: all 0.24s ease-in-out;
             font-family: var(--type-writer);
+
+            path {
+                stroke-width: 0px;
+            }
         }
 
         .view-more:hover {

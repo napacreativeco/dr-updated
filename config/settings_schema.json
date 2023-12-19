@@ -97,12 +97,6 @@
         "id": "newsletter_title",
         "label": "Newsletter Title",
         "default": "DAIS RECORDS NEWSLETTER"
-      },
-      {
-        "type": "text",
-        "id": "site_attribution",
-        "label": "Attribution",
-        "default": "COPYRIGHT © 2023, DAIS RECORDS"
       }
     ]
   }

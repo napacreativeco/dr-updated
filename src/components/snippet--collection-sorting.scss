@@ -1,6 +1,8 @@
-.sorting {
+.product-sorting {
     --input-padding: 5px;
     --title-font-size: 2.4rem;
+    --block-title-size: 22px;
+    --block-option-size: 16px;
 }
 
 .product-sorting {
@@ -9,6 +11,7 @@
     justify-content: space-between;
     padding: 0 var(--side-padding);
 
+    // Title Bar
     .sorting-title {
         display: flex;
         flex-direction: row;
@@ -62,7 +65,7 @@
 
     /* 
     *
-    * Sorting Modules
+    * Sorting Blocks
     *
     */
     .sorting-wrapper {
@@ -72,16 +75,18 @@
         height: 0px;
         overflow: hidden;
 
+        // Block Title
         span.title {
             text-transform: uppercase;
-            font-size: var(--28px);
+            font-size: var(--block-title-size);
             color: var(--black);
             display: block;
             margin: 10px 0 30px 0;
         }
 
+        // Option Title
         label {
-            font-size: var(--28px);
+            font-size: var(--block-option-size);
             text-transform: uppercase;
             display: flex;
             align-items: center;

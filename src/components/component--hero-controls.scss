@@ -5,7 +5,7 @@
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    background: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.7);
     backdrop-filter: blur(3px);
     color: var(--black);
     border: var(--border-blk);
@@ -21,6 +21,11 @@
         display: flex;
         align-items: center;
     }
+}
+
+// Hover
+.swiper-pagination-container:hover {
+    background: rgba(255, 255, 255, 0.9);
 }
 
 .swiper-horizontal>.swiper-pagination-bullets, 
@@ -72,12 +77,20 @@
     cursor: pointer;
     width: 40px;
     height: 40px;
-    background: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.7);
+    transition: all 0.23s ease-in-out;
 
     svg {
         width: 16px;
         stroke: var(--black);
     }
+}
+
+
+// Hover
+.swiper-button-next:hover, 
+.swiper-button-prev:hover {
+    background: rgba(255, 255, 255, 0.9);
 }
 
 .swiper-button-prev {
