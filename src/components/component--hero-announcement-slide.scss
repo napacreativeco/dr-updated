@@ -48,19 +48,19 @@
 
     
     /* Pagination */
-    .swiper-pagination-container[data-layout="text_left"] {
-        left: 50%;
-    }
-    .swiper-navigation-container[data-layout="text_left"] {
-        right: 0vw;
-    }
+    // .swiper-pagination-container[data-layout="text_left"] {
+    //     left: 50%;
+    // }
+    // .swiper-navigation-container[data-layout="text_left"] {
+    //     right: 0vw;
+    // }
 
-    .swiper-pagination-container[data-layout="text_right"] {
-        left: 0vw;
-    }
-    .swiper-navigation-container[data-layout="text_right"] {
-        right: 50%;
-    }
+    // .swiper-pagination-container[data-layout="text_right"] {
+    //     left: 0vw;
+    // }
+    // .swiper-navigation-container[data-layout="text_right"] {
+    //     right: 50%;
+    // }
     
 
 }
@@ -87,20 +87,20 @@
         }
 
         /* Pagination */
-        .swiper-pagination-container[data-layout="text_left"] {
-            display: none;
-        }
-        .swiper-navigation-container[data-layout="text_left"] {
-            right: 0vw;
-            left: 0vw;
-        }
+        // .swiper-pagination-container[data-layout="text_left"] {
+        //     display: none;
+        // }
+        // .swiper-navigation-container[data-layout="text_left"] {
+        //     right: 0vw;
+        //     left: 0vw;
+        // }
 
-        .swiper-pagination-container[data-layout="text_right"] {
-            display: none;
-        }
-        .swiper-navigation-container[data-layout="text_right"] {
-            right: 0vw;
-            left: 0vw;
-        }  
+        // .swiper-pagination-container[data-layout="text_right"] {
+        //     display: none;
+        // }
+        // .swiper-navigation-container[data-layout="text_right"] {
+        //     right: 0vw;
+        //     left: 0vw;
+        // }  
     }
 }

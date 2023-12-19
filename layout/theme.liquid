@@ -335,35 +335,27 @@
             afterInit: function(e) {
               var val = $('.swiper-slide-active').attr('data-type');
               var layout = $('.swiper-slide-active').attr('data-layout');
-              $('.swiper-pagination-container').attr('data-slide-type', val).attr('data-layout', layout);
-              $('.swiper-navigation-container').attr('data-slide-type', val).attr('data-layout', layout);
+              //$('.swiper-pagination-container').attr('data-slide-type', val).attr('data-layout', layout);
+              //$('.swiper-navigation-container').attr('data-slide-type', val).attr('data-layout', layout);
             },
             touchStart: function(e) { 
               console.log('change');
-              //$('.swiper-pagination-container').css('transform', 'translateY(100px)');
-              //$('.swiper-navigation-container').css('transform', 'translateY(100px)');
-              $('.swiper-pagination-container').css('opacity', '0');
-              $('.swiper-navigation-container').css('opacity', '0');
+              //$('.swiper-pagination-container').css('opacity', '0');
+              //$('.swiper-navigation-container').css('opacity', '0');
             },
             touchEnd: function(e) {
-              //$('.swiper-pagination-container').css('transform', 'translateY(0px)');
-              //$('.swiper-navigation-container').css('transform', 'translateY(0px)');
-              $('.swiper-pagination-container').css('opacity', '1');
-              $('.swiper-navigation-container').css('opacity', '1');
+              //$('.swiper-pagination-container').css('opacity', '1');
+              //$('.swiper-navigation-container').css('opacity', '1');
             },
             slideChangeTransitionStart: function(e) { 
               var val = $('.swiper-slide-active').attr('data-type');
               var layout = $('.swiper-slide-active').attr('data-layout');
-              //$('.swiper-pagination-container').css('transform', 'translateY(100px)').attr('data-slide-type', val).attr('data-layout', layout);
-              //$('.swiper-navigation-container').css('transform', 'translateY(100px)').attr('data-slide-type', val).attr('data-layout', layout);
-              $('.swiper-pagination-container').css('opacity', '0').attr('data-slide-type', val).attr('data-layout', layout);
-              $('.swiper-navigation-container').css('opacity', '0').attr('data-slide-type', val).attr('data-layout', layout);
+              //$('.swiper-pagination-container').css('opacity', '0').attr('data-slide-type', val).attr('data-layout', layout);
+              //$('.swiper-navigation-container').css('opacity', '0').attr('data-slide-type', val).attr('data-layout', layout);
             },
             slideChangeTransitionEnd: function(e) {
-              //$('.swiper-pagination-container').css('transform', 'translateY(0px)');
-              //$('.swiper-navigation-container').css('transform', 'translateY(0px)');
-              $('.swiper-pagination-container').css('opacity', '1');
-              $('.swiper-navigation-container').css('opacity', '1');
+              //$('.swiper-pagination-container').css('opacity', '1');
+              //$('.swiper-navigation-container').css('opacity', '1');
 
               gsap.to('.hero-product', {
                 duration: 0.4,

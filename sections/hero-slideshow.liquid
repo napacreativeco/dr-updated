@@ -1,4 +1,5 @@
 {{ 'component--hero-slideshow.css' | asset_url | stylesheet_tag }}
+{{ 'component--hero-controls.css' | asset_url | stylesheet_tag }}
 {{ 'component--hero-product-slide.css' | asset_url | stylesheet_tag }}
 {{ 'component--hero-announcement-slide.css' | asset_url | stylesheet_tag }}
 {{ 'component--hero-image-slide.css' | asset_url | stylesheet_tag }}
@@ -7,144 +8,39 @@
   <div class="swiper-wrapper">
     {% for block in section.blocks %}
 
+      {% comment %} 
+      *
+      * Product Slide
+      *
+      {% endcomment %}
       {% if block.type == 'product' %}
-        <div class="swiper-slide slide__product" data-layout="product" data-type="product">
+        {% render 'hero--slide-product', block: block %}
 
-          {% comment %} Left {% endcomment %}
-          <div class="left">
-            <div class="left-wrapper">
-              {% assign collection_image = '' %}
-              {% for prod in block.settings.product %}
-
-                {% for coll in prod.collections %}
-                  {% if coll.title == prod.vendor %}
-                    {% assign collection_image = coll.image %}
-                  {% endif %}
-                {% endfor %}
-
-                <div class="hero-product">
-
-                  <div class="product-image">
-                    {% for image in prod.images limit: 2 %}
-                        {% if forloop.index0 == 0 %}
-                          {% assign first = image %}
-                        {% endif %}
-                        {% if forloop.index0 == 1 %}
-                          {% assign second = image %}
-                        {% endif %}
-
-                        {% assign length = forloop.length %}
-                    {% endfor %}
-
-                    <a href="{{ prod.url }}" title="{{ prod.title }} by {{ prod.vendor }}">
-                      <img
-                        src="{{ first | image_url: width: 600 }}"
-                        class="hero-product-image product-image-{{ forloop.index }}" 
-                        data-first="{{ first | image_url: width: 600 }}"
-                        {% if length == 1 %}
-                          data-second="{{ first | image_url: width: 600 }}"
-                        {% else %}
-                          data-second="{{ second | image_url: width: 600 }}"
-                        {% endif %}
-                        alt="{{ prod.title }} by {{ prod.vendor }}"
-                      />
-                    </a>
-                    
-                  </div>
-
-                  <div class="data">
-                    <div class="product-vendor">
-                      {% for collection in prod.collections %}
-                        {% if collection.title == prod.vendor %}
-                          <a href="{{ collection.url }}" title="{{ prod.vendor }}">
-                              <h3>{{ prod.vendor }}</h3>
-                          </a>
-                        {% endif %}
-                      {% endfor %}               
-                    </div>
-  
-                    <div class="product-title">
-                      <a href="{{ prod.url }}" title="{{ prod.title }}{{ ' by ' }}{{ prod.vendor }}">
-                        <h2>{{ prod.title }}</h2>
-                      </a>
-                    </div>
-  
-                    <div class="product-variants">
-                      {% render 'music-formats-list' prod: prod %}
-                    </div>
-  
-                    <div class="actions">
-                      <a class="button" href="{{ prod.url }}" title="{{ prod.title }}{{ ' by ' }}{{ prod.vendor }}">
-                        {% if prod.metafields.product.preorder_status == true %}
-                          {{ 'Pre-order' | escape }}
-                        {% else %}
-                          {{ 'View Product' | escape }}
-                        {% endif %}
-                      </a>
-                    </div>
-                  </div>
-
-                </div>
-
-              {% endfor %}
-            </div>
-          </div>
-
-          {% comment %} Right {% endcomment %}
-          <div class="right">
-            <div class="image" style="background-image: url('{{ collection_image | image_url }}'); background-size: cover; background-position: center center;">
-            </div>
-          </div>
-
-        </div>
-
+      {% comment %} 
+      *
+      * Announcement Slide
+      * text-right
+      *
+      {% endcomment %}
       {% elsif block.type == 'announcement' and block.settings.announcement_slide_layout == 'text_right' %}
-        <div class="swiper-slide slide__announcement" data-type="announcement" data-layout="{{ block.settings.announcement_slide_layout }}">
-          <div class="slide-image" style="background-image: url('{{ block.settings.announcement_image | image_url }}'); background-size: cover; background-position: center center;">
-          </div>
-          <div class="slide-content">
-            <div class="announcement-subtitle">
-              <span>{{ block.settings.announcement_subtitle | default: 'collborations' }}</span>
-            </div>
-            <div class="announcement-content">
-              <a href="{{ block.settings.announcement_slide_url }}" title="{{ block.settings.announcement_subtitle | default: 'collborations' }}">
-                <h2>{{ block.settings.announcement_slide_content | default: 'collborations' }}</h2>
-              </a>
-            </div>
-          </div>
-        </div>
+        {% render 'hero--slide-text-right', block: block %}
 
+      {% comment %} 
+      *
+      * Announcement Slide
+      * text-left
+      *
+      {% endcomment %}
       {% elsif block.type == 'announcement' and block.settings.announcement_slide_layout == 'text_left' %}
-        <div class="swiper-slide slide__announcement" data-type="announcement" data-layout="{{ block.settings.announcement_slide_layout }}">
-          <div class="slide-content">
-            <div class="announcement-subtitle">
-              <span>{{ block.settings.announcement_subtitle | default: 'collborations' }}</span>
-            </div>
-            <div class="announcement-content">
-              <a href="{{ block.settings.announcement_slide_url }}" title="{{ block.settings.announcement_subtitle | default: 'collborations' }}">
-                <h2>{{ block.settings.announcement_slide_content | default: 'collborations' }}</h2>
-              </a>
-            </div>
-          </div>    
-          <div class="slide-image" style="background-image: url('{{ block.settings.announcement_image | image_url }}'); background-size: cover; background-position: center center;">
-          </div>
-        </div>
+        {% render 'hero--slide-text-left', block: block %}
 
+      {% comment %} 
+      *
+      * Image Slide
+      *
+      {% endcomment %}
       {% elsif block.type == 'image' %}
-        <style>
-          .swiper-slide {
-            --background: url('{{ block.settings.image_slide_image | image_url }}');
-          }
-          @media screen and (max-width: 767px) {
-            .swiper-slide {
-              --background: url('{{ block.settings.image_slide_image_mobile | image_url }}');
-            }
-          }
-        </style>
-        <div class="swiper-slide slide__image" data-type="image">
-          <div class="slide-image" data-type="image" data-layout="image" style="background-image: var(--background); background-size: cover; background-position: center center;">
-          </div>
-        </div>
+        {% render 'hero--slide-image', block: block %}
 
       {% endif %}
 
@@ -152,17 +48,26 @@
   </div>
 
 
+  {% comment %} 
+  *
+  * Pagination
+  *
+  {% endcomment %}
   <div class="swiper-pagination-container">
     <div class="swiper-pagination"></div>
   </div>
 
-  <div class="swiper-navigation-container">
-    <div class="swiper-button-prev">
-      {% render 'svg--left-arrow' %}
-    </div>
-    <div class="swiper-button-next">
-      {% render 'svg--right-arrow' %}
-    </div>
+  {% comment %} 
+  *
+  * Navigation
+  *
+  {% endcomment %}
+  <div class="swiper-button-prev">
+    {% render 'svg--left-arrow' %}
+  </div>
+
+  <div class="swiper-button-next">
+    {% render 'svg--right-arrow' %}
   </div>
 
 </div>
