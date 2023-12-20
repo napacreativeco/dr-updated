@@ -1,9 +1,16 @@
+/*
+*
+* Product Page Mods
+*
+* main css in Product Global
+*
+*/
+
 .single-product.music {
-    //padding-top: 78px;
+    --block-padding: 16px;
 
-    /* 1 */
+    /* Top */
     .product-section-one {
-
 
         .product-section-wrapper {
 
@@ -20,11 +27,12 @@
                 }
 
             }
+            
         }
 
     }
 
-    /* 2 */
+    /* Bottom */
     .product-section-two {
         margin-top: 30px;
 
@@ -33,28 +41,24 @@
             grid-template-columns: 58% 1fr;
             grid-gap: 80px;
 
-            h3 {
-                font-size: var(--18px);
-                color: var(--black);
-                margin-bottom: 21px;
-                text-transform: uppercase;
-            }
-
+            /*
+            * Left
+            */
             .left {
                 padding-left: var(--side-padding);
 
+                // Description
                 .description {
                     border-top: var(--border-blk);
-                    padding-top: 24px;
-                    font-size: var(--18px);
+                    font-size: 14px;
                     color: var(--black);
                     line-height: 176%;
                 }
 
+                // Media
                 .media {
                     margin: 80px 0 0 0;
                     border-top: var(--border-blk);
-                    padding-top: 24px;
                     padding-bottom: 40px;
 
                     .media-wrapper {
@@ -71,16 +75,20 @@
                     }
                 }
 
+
             }
     
+
+            /*
+            * Right
+            */
             .right {
                 padding-bottom: 40px;
                 padding-right: var(--side-padding);
 
+                // Tracklisting
                 .tracklisting {
                     border-top: var(--border-blk);
-                    padding-top: 24px;
-                    padding-right: var(--side-padding);
                     margin: 0 0 30px 0;
 
                     ul {
@@ -92,15 +100,24 @@
                         gap: 12px;
                         counter-reset: tracklist;
 
-                        li {
+                        li.track {
+                            display: flex;
+                            flex-direction: row;
+                            flex-wrap: nowrap;
                             font-family: var(--type-writer);
-                            font-size: var(--18px);
+                            font-size: 14px;
+                            letter-spacing: 0px;
+                            line-height: 1.4;
                             color: var(--black);
                             text-transform: uppercase;
                             counter-increment: tracklist;
 
-                            span.counter::after {
+                            .counter::after {
                                 content: counter(tracklist);
+                            }
+
+                            .track-name {
+                                padding-left: 10px;
                             }
                         }
 
@@ -108,25 +125,30 @@
                     }
                 }
 
+                // Meta Block
                 .meta-block {
                     border: var(--border-blk);
-                    padding: 32px;
+                    padding: var(--block-padding);
                     display: flex;
                     flex-direction: column;
-                    gap: 50px;
-
-                    span {
-                        font-size: var(--18px);
-                        font-family: var(--type-writer);
-                        color: var(--black);
-                    }
+                    gap: 30px;
 
                     span.title {
                         display: block;
                         margin: 0 0 14px 0;
-                        font-size: var(--20px);
+                        font-size: 18px;
                         font-family: var(--sans-serif);
                         color: var(--black);
+                        text-transform: uppercase;
+                    }
+
+                    .data {
+                        font-family: var(--type-writer);
+                        text-transform: uppercase;
+                        font-size: 12px;
+                        color: var(--black);
+                        line-height: 1.4;
+                        letter-spacing: 0px;
                     }
 
                     ul {
@@ -135,17 +157,11 @@
                         padding: 0;
                         display: flex;
                         flex-direction: column;
-                        gap: 8px;
-
-                        li {
-                            font-family: var(--type-writer);
-                            text-transform: uppercase;
-                            font-size: var(--16px);
-                            color: var(--black);
-                        }
+                        gap: 10px;
                     }
                 }
 
+                // Link Block
                 .link-block {
                     display: flex;
                     flex-direction: column;
@@ -157,16 +173,20 @@
 
                         a {
                             display: block;
-                            font-size: var(16px);
+                            margin: 0 0 14px 0;
+                            font-size: 18px;
+                            font-family: var(--sans-serif);
+                            text-transform: uppercase;
                             color: var(--black);
                             border: var(--border-blk);
-                            padding: 22px 32px;
+                            padding: var(--block-padding);
                         }
                     }
 
                 }
 
             }
+
         }
 
     }
