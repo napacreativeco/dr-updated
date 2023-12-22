@@ -1,16 +1,20 @@
 .product-card {
+    --font-size--vendor: 16px;
+    --font-size--title: 13px;
+    --font-size--other: 12px;
 
     .product-card-wrapper {
         display: flex;
         flex-direction: column;
-        gap: 10px;
+        gap: 6px;
+ 
 
         // Image
         .image {
             cursor: pointer;
             transition: var(--image-opacity-transition);
             position: relative;
-            border: var(--border-blk-thin);
+            border: var(--border-blk);
 
             img {
                 max-width: 100%;
@@ -39,40 +43,59 @@
 
         // Data
         .data {
-            display: flex;
-            flex-direction: column;
-            gap: 3px;
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            grid-gap: 6px;
 
             a {
                 text-transform: uppercase;
             }
 
-            .artist {
-                h3 {
-                    font-size: var(--16px);
-                    font-family: var(--sans-serif);
-                    color: var(--black);
+            .left {
+                display: flex;
+                flex-direction: column;
+                gap: 3px;
+                align-items: flex-start;
+
+                .artist {
+                    h3 {
+                        font-size: var(--font-size--vendor);
+                        font-family: var(--sans-serif);
+                        color: var(--black);
+                    }
+                }
+    
+                .title {
+                    h4 {
+                        font-size: var(--font-size--title);
+                        font-family: var(--type-writer);
+                        word-spacing: -4px;
+                        color: var(--grey);
+                        letter-spacing: 0px;
+                        line-height: 1.2;
+                    }
                 }
             }
 
-            .title {
-                h2 {
-                    font-size: var(--16px);
-                    font-family: var(--type-writer);
-                    color: var(--grey);
+            .right {
+
+                .price {
+                    text-align: right;
+
+                    a {
+                        font-size: var(--font-size--other);
+                        color: var(--grey);
+                        font-family: var(--type-writer);
+                    }
+
+                    a:hover {
+                        text-decoration: underline;
+                    }
                 }
+    
+          
             }
 
-            .price {
-                text-align: right;
-                font-size: 1.4rem;
-                color: var(--grey);
-                font-family: var(--type-writer);
-            }
-
-            a:hover {
-                text-decoration: underline;
-            }
         }
 
     }

@@ -1,14 +1,14 @@
-.recommended-products {
+.recommended-products { 
     margin: 30px 0 30px 0;
     padding: 0 var(--side-padding);
 
-    .recommended-wrapper {
+    .wrapper {
 
-        .title {
+        .component-title {
             margin: 0 0 16px 0;
 
             h3 {
-                font-size: var(--32px);
+                font-size: 18px;
                 color: var(--black);
                 text-transform: uppercase;
             }

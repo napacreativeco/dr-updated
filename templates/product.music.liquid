@@ -1,7 +1,9 @@
-{% assign add_to_cart = 'Add to cart' %}
-{% assign sold_out = 'Sold Out' %}
-{% assign unavailable = 'Unavailable' %}
-{% assign pre_order = 'Preorder' %}
+{% liquid
+  assign add_to_cart = 'Add to cart'
+  assign sold_out = 'Sold Out'
+  assign unavailable = 'Unavailable'
+  assign pre_order = 'Preorder'
+%}
 
 {{ 'product--global.css' | asset_url | stylesheet_tag }}
 {{ 'product--music.css' | asset_url | stylesheet_tag }}
@@ -10,65 +12,30 @@
   <div class="single-product-wrapper">
 
     <meta itemprop="url" content="{{ shop.url }}{{ product.url }}" />
-    <meta itemprop="image" content="{{ product | img_url: 'grande' }}" />
+    <meta itemprop="image" content="{{ product | image_url: 700 }}" />
     
     <form action="/cart/add" method="post" enctype="multipart/form-data">
 
       <div data-ajax-cart-messages="form"></div>
 
       {% comment %}
-      * -----------------
+      * 
       * Top
-      * -----------------
+      * 
       {% endcomment %}
       <div class="product-section-one">
-        <div class="product-section-wrapper">
+        <div class="wrapper">
 
           {% comment %} 
           *
           * Left
           *
           {% endcomment %}
+          {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
           <div class="left">
-            <div class="product-gallery-swiper swiper">
-              <div class="swiper-wrapper">
-                {% assign today_date = 'now' | date: '%s' %}
-                {% assign preorder_date = product.metafields.music.release_date | date: '%s' %}
-                {% if preorder_date > today_date %}
-                  <div class="preorder-status">
-                    <span>{{ 'Preorder' | escape }}</span>
-                  </div>
-                {% endif %}
-                <script>console.log('{{ today_date | date }}');</script>
-                {% for image in product.media %}
-                  <div class="swiper-slide">
-                    <div class="view-larger" data-image="{{ image | image_url: width: 1000 }}">   
-                      {% render 'icon--view-more' %}
-                    </div>
-                    <img src="{{ image | image_url: width: 950 }}" alt="{{ product.title }} by {{ product.vendor }}" />
-                  </div>
-                {% endfor %}
-              
-              </div>
 
-              {% if product.media > 1 %}
-                <div class="product-gallery-pagination-container">
-                  <div class="swiper-pagination"></div>
-                </div>
-              {% endif %}
-            
-              {% if product.media > 1 %}
-                <div class="product-gallery-navigation-container">
-                  <div class="product-gallery-prev">
-                    {% render 'svg--left-arrow' %}
-                  </div>
-                  <div class="product-gallery-next">
-                    {% render 'svg--right-arrow' %}
-                  </div>
-                </div>
-              {% endif %}
+            {% render 'product--image-gallery', product: product, variant_images: variant_images %}
 
-            </div>
           </div>
 
           {% comment %} 
@@ -78,7 +45,7 @@
           {% endcomment %}
           <div class="right">
 
-            {% render 'product--music-actions', product: product %}
+            {% render 'product--actions', product: product, pre_order: pre_order, add_to_cart: add_to_cart %}
 
           </div>
 
@@ -86,12 +53,12 @@
       </div>
 
       {% comment %}
-      * ---------------
+      * 
       * Bottom
-      * ----------------
+      * 
       {% endcomment %}
       <div class="product-section-two">
-        <div class="product-section-wrapper">
+        <div class="wrapper">
 
 
           {% comment %} 
@@ -135,6 +102,7 @@
 
           </div>
 
+
           {% comment %} 
           *
           * Right
@@ -142,9 +110,6 @@
           {% endcomment %}
           <div class="right">
 
-            {% comment %} 
-              Tracklisting 
-            {% endcomment %}
             <div class="tracklisting">
               <h3 class="block-title">{{ 'Tracklisting' | escape }}</h3>
 
@@ -167,17 +132,14 @@
               {% endif %}
             </div>
 
-            {% comment %} 
-              Meta Block 
-            {% endcomment %}
-            <div class="meta-block">
+            <div class="meta-blocks">
 
               {% comment %} Variants {% endcomment %}
               <div class="block product-variants">
 
                 <h3 class="block-title">{{ 'Formats' | escape }}</h3>
 
-                <ul>
+                <ul class="list">
                   {% for variant in product.variants %}
                     <li>    
                       <span class="variant-name data">{{ variant.title }}</span>              
@@ -217,7 +179,7 @@
                   {% if collection.title == product.vendor %}
                     <div class="link">
                       <a class="block-title" href="{{ collection.url }}" title="{{ 'Artist Page' | escape }}">
-                        {{ 'Artist Page' | escape }}
+                        {{ 'Artist Page' | escape }} {% render 'icon--link' %}
                       </a>
                     </div>
                   {% endif %}
@@ -225,7 +187,7 @@
 
                 <div class="link">
                   <a class="block-title" href="{{ shop.url }}/collections/all?filter.p.vendor={{ product.vendor | url_escape }}" title="{{ 'Merchandise' | escape }}">
-                    {{ 'Merchandise' | escape }}
+                    {{ 'Merchandise' | escape }} {% render 'icon--link' %}
                   </a>
                 </div>
 
@@ -294,7 +256,6 @@ Image Overlay
 </script>
 
 <script>
-  
   var selectCallback = function(variant, selector) {
 
     if (variant) {
@@ -308,6 +269,8 @@ Image Overlay
       
       // Selected a valid variant that is available.
       if (variant.available) {
+
+        console.log('variant available');
             
         // Enabling add to cart button.
         jQuery('#add').removeClass('disabled').prop('disabled', false).val({{ add_to_cart | json }});

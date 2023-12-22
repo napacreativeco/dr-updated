@@ -1,51 +1,71 @@
 {{ 'component--latest-products.css' | asset_url | stylesheet_tag }}
-{{ 'card--product-card-collection.css' | asset_url | stylesheet_tag }}
+{{ 'card--product-card.css' | asset_url | stylesheet_tag }}
 
 {% render 'section-header', data: section.settings, destination: '/collections/all/' %}
 
 <div class="latest-products--wrapper">
   {% if section.settings.use_default_collection == false %}
 
+
     {% comment %}
-    Selected Collection
+    *
+    * Selected Collection
+    *
     {% endcomment %}
     <ul class="product-list selected-collection">
-      {% if section.settings.latest_collection_rows == 'three' %}
+      {%- if section.settings.latest_collection_rows == 'three' -%}
+
         {% for prod in collections[section.settings.latest_collection].products limit: 12 %}
-          {% render 'product-card--collection', prod: prod %}
+          {% render 'product-card', prod: prod %}
         {% endfor %}
-      {% elsif section.settings.latest_collection_rows == 'four' %}
+
+      {%- elsif section.settings.latest_collection_rows == 'four' -%}
+
         {% for prod in collections[section.settings.latest_collection].products limit: 16 %}
-          {% render 'product-card--collection', prod: prod %}
+          {% render 'product-card', prod: prod %}
         {% endfor %}
-      {% else %}
+
+      {%- else -%}
+
         {% for prod in collections[section.settings.latest_collection].products limit: 8 %}
-          {% render 'product-card--collection', prod: prod %}
+          {% render 'product-card', prod: prod %}
         {% endfor %}
-      {% endif %}
+
+      {%- endif -%}
     </ul>
+
 
   {% elsif section.settings.use_default_collection == true %}
 
+
     {% comment %}
-    Default Collection
+    *
+    * Default Collection
+    *
     {% endcomment %}
     <ul class="product-list default-collection">
-      {% if section.settings.latest_collection_rows == 'three' %}
+      {%- if section.settings.latest_collection_rows == 'three' -%}
+
         {% for prod in collections.all.products limit: 12 %}
-          {% render 'product-card--collection', prod: prod %}
+          {% render 'product-card', prod: prod %}
         {% endfor %}
-      {% elsif section.settings.latest_collection_rows == 'four' %}
+
+      {%- elsif section.settings.latest_collection_rows == 'four' -%}
+
         {% for prod in collections.all.products limit: 16 %}
-          {% render 'product-card--collection', prod: prod %}
+          {% render 'product-card', prod: prod %}
         {% endfor %}
-      {% else %}
+
+      {%- else -%}
+
         {% for prod in collections.all.products limit: 8 %}
-          {% render 'product-card--collection', prod: prod %}
+          {% render 'product-card', prod: prod %}
         {% endfor %}
-      {% endif %}
+
+      {%- endif -%}
     </ul>
 
+    
   {% endif %}
 </div>
 
