@@ -4,6 +4,7 @@
     .featured-image {
         width: 100%;
         object-fit: cover;
+        border: var(--border-blk);
 
         #featured_image_element {
             display: block;
@@ -16,7 +17,7 @@
 
     .thumbnail-rack {
         display: grid;
-        grid-template-columns: repeat(5, 1fr);
+        grid-template-columns: repeat(6, 1fr);
         grid-gap: 4px;
         margin-top: 10px;
 
