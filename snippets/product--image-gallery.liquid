@@ -1,4 +1,4 @@
-{{ 'product--gallery.css' | asset_url| stylesheet_tag }}
+{{ 'product--gallery.css' | asset_url | stylesheet_tag }}
 
 <div class="image-gallery">
 
@@ -20,8 +20,8 @@
         <div class="thumbnail-rack">
 
             {% for v in product.variants %}
-                <div class="variant-thumbnail">
-                    <img data-id="{{ v.id }}" src="{{ v.featured_image | image_url }}" />
+                <div class="variant-thumbnail" data-id="{{ v.id }}" data-image="{{ v.featured_image | image_url }}">
+                    <img src="{{ v.featured_image | image_url }}" />
                 </div>
             {% endfor %}
 

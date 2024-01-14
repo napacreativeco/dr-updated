@@ -93,6 +93,11 @@
 
                         jQuery(".price-field del").html(first_variant_compare_at_price);
 
+                        /*
+                        *
+                        * Radio Links
+                        * 
+                        */
                         jQuery("input[type='radio']").click(function() {
 
                             var variant_price = jQuery(this).attr("data-price");
@@ -109,9 +114,36 @@
                             if (variant_image) {
                                 jQuery('#featured_image_element').attr('src', variant_image);
                             }
-                            
 
-                            console.log(variant_image);
+                            // Update Checked
+                            jQuery(this).attr('checked', 'checked');
+                            
+                            //console.log(variant_image);
+
+                        });
+
+                        /*
+                        *
+                        * Thumbnail Links
+                        * 
+                        */
+                        jQuery('.variant-thumbnail').on('click', function(e) {
+                            var variant_price = jQuery(this).attr("data-price");
+                            var t = e.currentTarget;
+                            var targ = $(t).attr('data-id');
+                            //console.log(targ);
+
+                            // Update Image
+                            var variant_image = jQuery(this).attr('data-image');
+                            if (variant_image) {
+                                jQuery('#featured_image_element').attr('src', variant_image);
+                            }
+
+                            //  Update Price
+                            jQuery('.price-read').html(variant_price);
+
+                            // Update Checked
+                            jQuery('#' + targ).attr('checked', 'checked');
 
                         });
 
@@ -143,7 +175,7 @@
                                             data-compare-at-price="{{ variant.compare_at_price | money_without_trailing_zeros }}"
                                            {% endif %} 
                                            data-price="{{ variant.price | money_without_trailing_zeros }}" 
-                                        data-image="{% if variant.featured_image %} {{ variant.featured_image | image_url: width: 700 }} {% endif %}"
+                                           data-image="{% if variant.featured_image %} {{ variant.featured_image | image_url: width: 700 }} {% endif %}"
                                            id="{{ variant.id }}" 
                                            value="{{ variant.id }}" 
                                            name="id"

@@ -25,12 +25,18 @@
             aspect-ratio: 1/1;
             overflow: hidden;
             object-fit: cover;
+            cursor: pointer;
+            transition: all 0.23s ease-in-out;
 
             img {
                 object-fit: cover;
                 max-width: 100%;
             }
 
+        }
+
+        .variant-thumbnail:hover {
+            opacity: 0.7;
         }
 
     }
