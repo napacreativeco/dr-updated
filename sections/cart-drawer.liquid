@@ -16,6 +16,11 @@
                 <li class="item">
                   <div class="item-wrapper">
                   
+                    {% comment %}
+                    *
+                    * Item
+                    *
+                    {% endcomment %}
                     <div class="item-title">
                       
                       <a class="vendor" href="{{ item.url }}" title="{{ item.title }}">
@@ -26,9 +31,12 @@
                         {{ item.product.title }}
                       </a>
 
-                      {% for o in item.options_with_values %}
-                        {{ o.value }}
-                      {% endfor %}
+                      <ul class="options">
+                        {% for o in item.options_with_values %}
+                          <li>{{ o.value }}</li>
+                        {% endfor %}
+                      </ul>
+
 
                     </div>
 
