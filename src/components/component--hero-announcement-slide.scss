@@ -81,6 +81,9 @@
         grid-template-columns: 1fr;
         grid-template-rows: 1fr 1fr;
         height: calc(100svh - 70px);
+
+        --title: 36px;
+        --subtitle: 14px;
         
         .slide-content {
             border-top: var(--border-blk);

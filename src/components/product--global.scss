@@ -6,12 +6,12 @@
 .single-product {
 
     // Fonts
+    --band-name: 24px;
     --product-title: 32px;
-    --band-name: 32px;
     --price: 30px;
-    --variant-title: 14px;
+    --variant-title: 16px;
     --add-to-cart: 16px;
-    --block-title: 18px;
+    --block-title: 20px;
     --description: 16px;
     --meta-data: 13px;
     --tracklist: 14px;
@@ -21,15 +21,16 @@
 
 }
 
-@media screen and (min-width: 1920px) {
+@media screen and (min-width: 1800px) {
 
     .single-product {
-        --product-title: 44px;
-        --band-name: 44px;
-        --price: 38px;
-        --variant-title: 24px;
-        --add-to-cart: 32px;
-        --block-title: 32px;
+        --band-name: 32px;
+        --product-title: 36px;
+        
+        --price: 32px;
+        --variant-title: 18px;
+        --add-to-cart: 20px;
+        --block-title: 26px;
     }
 
 }
@@ -100,9 +101,10 @@
     margin: 0 0 6px 0;
 
     h2 {
-        font-size: 38px;
+        font-size: var(--band-name);
         color: var(--black);
         letter-spacing: -2px;
+        text-transform: uppercase;
     }
 
 }
@@ -113,12 +115,15 @@
 *
 */
 .single-product .product-title {
+    margin-top: 4px;
+    margin-bottom: 16px;
 
     h1 {
         font-size: var(--product-title);
         color: var(--black);
         letter-spacing: -2px;
         line-height: 1.1;
+        text-transform: uppercase;
     }
 
 }
@@ -195,7 +200,7 @@
 
     #product-variants {
         width: 100%;
-        padding-top: 20px;
+        padding-top: 30px;
     
         ul {
             width: 100%;
@@ -213,6 +218,7 @@
                     align-items: center;
                     gap: 10px;
                     font-size: var(--variant-title);
+                    word-spacing: -3px;
                     letter-spacing: 0;
                     color: var(--black);
                     cursor: pointer;
