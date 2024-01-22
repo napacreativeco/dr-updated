@@ -13,6 +13,8 @@
     transition: all 0.3s;
     border-bottom: var(--border-blk);
 
+    --main-link: 18px;
+
     .navbar--row {
         display: grid;
         grid-template-columns: 3fr 6fr 3fr;
@@ -20,9 +22,15 @@
         padding: 3px 10px;
         position: relative;
     }
-
+    
     a {
         display: block;
+        color: var(--black);
+        font-size: var(--main-link);
+        display: flex;
+        flex-direction: row;
+        gap: 6px;
+        white-space: nowrap;
     }
 
     // Left
@@ -52,6 +60,7 @@
         flex-direction: row;
         justify-content: center;
         align-items: center;
+        gap: 1%;
         height: 100%;
 
         li {
@@ -69,22 +78,7 @@
             a {
                 color: var(--white);
             }
-
-            // .more {
-            //     transition: var(--quick-transition);
-            //     transform: rotate(90deg);
-            //     color: var(--white);
-            // }
             
-        }
-                    
-        a {
-            color: var(--black);
-            font-size: var(--24px);
-            display: flex;
-            flex-direction: row;
-            gap: 6px;
-            white-space: nowrap;
         }
 
         .more {
@@ -125,38 +119,46 @@
 
     }
 
+    // Account
+    .account {
+        svg {
+            width: var(--main-link);
+        }
+    }
+
+
+    // Theme Mode
+    .theme-mode {
+        cursor: pointer;
+        padding-top: 1px;
+        display: flex;
+        align-items: center;
+
+        .dark-mode {
+            svg {
+                transform: rotate(0deg);
+                width: var(--main-link);
+            }
+        }
+
+        .lite-mode {
+            svg {
+                transform: rotate(90deg);
+                width: var(--main-link);
+            }
+        }
+
+    }
+
+
     // Cart
     .cart {
         display: flex;
         justify-content: flex-end;
         align-items: center;
         gap: 10px;
-        font-size: var(--20px);
+        font-size: calc(var(--main-link) - 4px);
         color: var(--black);
-
-        .account {
-            svg {
-                width: 16px;
-            }
-        }
-
-        .theme-mode {
-            cursor: pointer;
-            padding-top: 1px;
-
-            .dark-mode {
-                svg {
-                    transform: rotate(0deg);
-                    width: 16px;
-                }
-            }
-            .lite-mode {
-                svg {
-                    transform: rotate(90deg);
-                    width: 22px;
-                }
-            }
-        }
 
         .cart-link--wrapper {
             cursor: pointer;
@@ -178,13 +180,26 @@
 * Large Screen
 *
 */
-@media screen and (min-width: 2200px) {
+@media screen and (min-width: 1800px) {
     .navbar {
 
+        --main-link: 24px;
+
+        .navbar--row {
+            display: grid;
+            grid-template-columns: 3fr 6fr 3fr;
+            align-items: center;
+            padding: 6px 20px;
+            position: relative;
+        }
+
         ul.main-menu {
-            a {
-                font-size: 24px;
-            }
+            gap: 2%;
+        }
+
+        // Theme Mode
+        .theme-mode {
+            padding-top: 4px;
         }
 
     }

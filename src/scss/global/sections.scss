@@ -1,7 +1,7 @@
 section.section {
 
     --title: 30px;
-    --link: 22px;
+    --link: 18px;
 
     /* Header */
     header.section--header {
@@ -38,7 +38,7 @@ section.section {
     }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1800px) {
     
     section.section {
         --title: 36px;
