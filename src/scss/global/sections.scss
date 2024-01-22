@@ -1,5 +1,8 @@
 section.section {
 
+    --title: 30px;
+    --link: 22px;
+
     /* Header */
     header.section--header {
 
@@ -14,7 +17,7 @@ section.section {
 
         h2.title {
             display: inline-block;
-            font-size: var(--32px);
+            font-size: var(--title);
             color: var(--black);
             letter-spacing: -7%;
             line-height: 0.1;
@@ -24,7 +27,7 @@ section.section {
         }
 
         a.view-more {
-            font-size: var(--18px);
+            font-size: var(--link);
             color: var(--black);
             text-transform: uppercase;
         }
@@ -35,22 +38,23 @@ section.section {
     }
 }
 
+@media screen and (min-width: 1200px) {
+    
+    section.section {
+        --title: 36px;
+        --link: 22px;
+    }
+}
+
 @media screen and (max-width: 768px) {
 
     section.section {
-        // margin: 0;
+        --title: 24px;
+        --link: 16px;
 
         /* Header */
         header.section--header {
             padding: 30px var(--side-padding) 30px var(--side-padding);
-    
-            h2.title {
-                font-size: 2.4rem;
-            }
-
-            a.view-more {
-                font-size: 1.8rem;
-            }
         }
     }
 

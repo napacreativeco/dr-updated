@@ -11,7 +11,10 @@
             display: 'flex',
             opacity: 1,
             duration: 0.3
+        });
 
+        $('.more').css({
+            color: 'var(--white)'
         });
 
     });
@@ -19,13 +22,16 @@
     // //////////////////////////////
     // NAVBAR - MOUSE OUT          //
     // //////////////////////////////    
-    $('.nav-link').mouseleave(function($) {
+    $('.nav-link').mouseleave(function() {
 
         gsap.to( '.submenu', {
             display: 'none',
             duration: 0.3
         });
         
+        $('.more').css({
+            color: 'var(--red)'
+        });
     });
 
 

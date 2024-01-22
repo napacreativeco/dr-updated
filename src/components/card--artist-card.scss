@@ -1,4 +1,4 @@
-li.artist-card {
+.artist-card {
     border: var(--border-blk);
 
     .image {
@@ -48,7 +48,7 @@ li.artist-card {
     .artist {
         padding: 10px;
         a {
-            font-size: var(--20px);
+            font-size: 16px;
         }
     }
 
@@ -61,4 +61,18 @@ li.artist-card {
         cursor: grabbing;
     }
 
+}
+
+
+@media screen and (min-width: 1200px) {
+    
+    .artist-card {
+        .artist {
+            padding: 12px;
+
+            a {
+                font-size: 22px;
+            }
+        }
+    }
 }
