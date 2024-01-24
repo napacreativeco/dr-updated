@@ -25,11 +25,16 @@
             .image {
                 border: var(--border-blk);
                 cursor: pointer;
+                transition: var(--image-opacity-transition);
 
                 img {
                     max-width: 100%;
                     display: block;
                 }
+            }
+
+            .image:hover {
+                opacity: 0.8;
             }
 
             .data {

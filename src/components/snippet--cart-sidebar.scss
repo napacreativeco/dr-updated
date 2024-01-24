@@ -24,14 +24,24 @@
 
                 text-transform: uppercase;
 
+                a:hover {
+                    text-decoration: underline;
+                }
+
                 .image {
+                    cursor: pointer;
                     border: var(--border-blk);
                     margin: 0 0 4px 0;
+                    transition: var(--image-opacity-transition);
 
                     img {
                         max-width: 100%;
                         display: block;
                     }
+                }
+
+                .image:hover {
+                    opacity: 0.8;
                 }
 
                 .data {
@@ -47,6 +57,7 @@
                     .price {
                         margin-top: 3px;
                         color: var(--grey);
+                        pointer-events: none;
                     }
                 }
 

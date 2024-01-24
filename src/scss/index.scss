@@ -29,8 +29,10 @@
 
     --border-blk-thin: var(--border-thin) solid var(--black);
     --border-wht-thin: var(--border-thin) solid var(--white);
-    //------------------------
-    /* End Initial*/
+
+    --transparent-black: rgba(0, 0, 0, 0.4);
+    --transparent-white: rgba(255, 255, 255, 0.7);
+    --transparent-white-hero: rgba(255, 255, 255, 0.4);
 
     /* Spacing */
     --side-padding: 12px;
@@ -98,6 +100,10 @@ body[data-theme="lite"] {
 
     --border-blk-thin: var(--border-thin) solid var(--black);
     --border-wht-thin: var(--border-thin) solid var(--white);
+
+    --transparent-black: rgba(0, 0, 0, 0.4);
+    --transparent-white: rgba(255, 255, 255, 0.7);
+    --transparent-white-hero: rgba(255, 255, 255, 0.4);
 }
 
 body[data-theme="dark"] {
@@ -123,6 +129,11 @@ body[data-theme="dark"] {
 
     --border-blk-thin: var(--border-thin) solid var(--white);
     --border-wht-thin: var(--border-thin) solid var(--black);
+
+    --transparent-black: rgba(255, 255, 255, 0.4);
+    --transparent-white: rgba(0, 0, 0, 0.7);
+    --transparent-white-hero: rgba(0, 0, 0, 0.4);
+
 }
 
 
@@ -205,7 +216,7 @@ select:-webkit-autofill {
 @import 'pages/pages.scss';
 
 /* Shop > Single Products */
-@import 'shop/single-product/bandcamp-swiper.scss';
+// @import 'shop/single-product/bandcamp-swiper.scss';
 
 /* Shop > Cart */
 @import 'cart-drawer.scss';
