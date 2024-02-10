@@ -14,7 +14,7 @@
     {% comment %} CONTENT {% endcomment %}
     <div class="slide-content">
       <div class="announcement-subtitle">
-        <span>{{ block.settings.announcement_subtitle | default: 'collborations' }}</span>
+        <span>{{ block.settings.announcement_slide_subtitle | default: 'collborations' }}</span>
       </div>
       <div class="announcement-content">
         <a href="{{ block.settings.announcement_slide_url }}" title="{{ block.settings.announcement_subtitle | default: 'collborations' }}">

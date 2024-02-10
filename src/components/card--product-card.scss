@@ -48,6 +48,19 @@
             display: block;
         }
 
+        .preorder-label {
+            position: absolute;
+            top: 4px;
+            right: 4px;
+            background: var(--black);
+            color: var(--white);
+            z-index: 3;
+            padding: 4px 10px;
+            text-transform: uppercase;
+            font-family: var(--type-writer);
+            border: var(--border-wht);
+        }
+
         .view-more {
             position: absolute;
             bottom: 10px;

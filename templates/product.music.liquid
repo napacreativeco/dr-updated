@@ -5,6 +5,14 @@
   assign pre_order = 'Preorder'
 %}
 
+{% capture preorder_date %}
+  {{ product.metafields.music.release_date.value | date: '%Y' }}
+{% endcapture %}
+
+{% capture today_date %}
+  {{ "now" | date: '%Y' }}
+{% endcapture %}
+
 {{ 'product--global.css' | asset_url | stylesheet_tag }}
 {{ 'product--music.css' | asset_url | stylesheet_tag }}
 
@@ -34,7 +42,7 @@
           {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
           <div class="left">
 
-            {% render 'product--image-gallery', product: product, variant_images: variant_images %}
+            {% render 'product--image-gallery', product: product, variant_images: variant_images, preorder_date: preorder_date, today_date: today_date %}
 
           </div>
 
@@ -45,7 +53,7 @@
           {% endcomment %}
           <div class="right">
 
-            {% render 'product--actions', product: product, pre_order: pre_order, add_to_cart: add_to_cart %}
+            {% render 'product--actions', product: product, pre_order: pre_order, add_to_cart: add_to_cart, preorder_date: preorder_date, today_date: today_date %}
 
           </div>
 

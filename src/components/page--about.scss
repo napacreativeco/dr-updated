@@ -1,4 +1,10 @@
 .info-page {
+    color: var(--black);
+
+    a {
+        color: var(--black);
+    }
+
     .page-wrapper {
         padding: 100px var(--side-padding) 30px var(--side-padding);
         display: grid;
@@ -11,6 +17,7 @@
                 text-transform: uppercase;
                 display: block;
                 margin: 0 0 20px 0;
+                color: var(--black);
             }
         }
 
@@ -18,8 +25,9 @@
             padding: 20px 0 0 0;
 
             .about {
-                font-size: 38px;
-                line-height: 1.2;
+                font-size: 36px;
+                line-height: 1;
+                color: var(--black);
             }
 
             .meta-block {
@@ -38,9 +46,15 @@
                             list-style: none;
 
                             li {
+                                color: var(--black) !important;
                                 h4 {
                                     text-transform: uppercase;
                                     margin: 0 0 6px 0;
+                                    color: var(--black);
+                                }
+
+                                a {
+                                    color: var(--black);
                                 }
 
                                 a:hover {
@@ -57,9 +71,11 @@
         .right {
             padding: 20px 0 0 0;
             border-top: var(--border-blk);
+            color: var(--black);
 
             details {
                 border-bottom: var(--border-blk);
+                color: var(--black);
 
                 > summary {
                     padding: 20px 0;
@@ -70,6 +86,7 @@
                     align-items: center;
                     gap: 10px;
                     cursor: pointer;
+                    color: var(--black);
                 }
 
                 summary:hover {

@@ -11,6 +11,7 @@
 
     {% comment %} Hero {% endcomment %}
     <div class="artist-hero">
+
       <div class="slide-box mobile">
         <div class="box-wrap">
           <h1>{{ collection.title }}</h1>
@@ -19,10 +20,13 @@
           {% endif %}
         </div>  
       </div> 
+
       <div class="single-artist-swiper swiper">
         <div class="swiper-wrapper">
+
+        {% comment %} DESKTOP {% endcomment %}
           {% for img in collection.metafields.dais.artist_gallery.value %}
-            <div class="swiper-slide" style="background: url('{{ img | image_url }}'); background-size: cover; background-position: {{ img.presentation.focal_point }};">
+            <div class="swiper-slide desktop" style="background: url('{{ img | image_url: width: '2400' }}'); background-size: cover; background-position: {{ img.presentation.focal_point }};">
               <div class="slide-box desktop">
                 <div class="box-wrap">
                   <h1>{{ collection.title }}</h1>
@@ -33,6 +37,21 @@
               </div> 
             </div>
           {% endfor %}
+
+          {% comment %} MOBILE {% endcomment %}
+          {% for imgmobile in collection.metafields.dais.artist_gallery_mobile.value %}
+              <div class="swiper-slide mobile" style="background: url('{{ imgmobile | image_url }}'); background-size: cover; background-position: {{ img.presentation.focal_point }};">
+                <div class="slide-box desktop">
+                  <div class="box-wrap">
+                    <h1>{{ collection.title }}</h1>
+                    {% if collection.metafields.artist.artist_location != blank %}
+                      <span class="location">{% render 'icon--crosshair' %}{{ collection.metafields.artist.artist_location.value }}</span>
+                    {% endif %}
+                  </div>  
+                </div> 
+              </div>
+          {% endfor %}
+
         </div>
 
         <div class="single-artist-pagination-container">
@@ -138,6 +157,7 @@
                           <img src="{{ prod.featured_image | img_url: '700x' }}" alt="{{ product.title }}" />
                         </a>
                       </div>
+
                       <div class="vendor">
                         <a href="{{ prod.url }}" title="{{ prod.vendor }}">
                           {{ prod.vendor }}
