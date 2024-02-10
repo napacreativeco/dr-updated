@@ -139,7 +139,9 @@
             $('.close-filters').hide();
 
             $('.sorting-wrapper').removeClass('opened');
+
         } else {
+
             $('.sorting-wrapper').addClass('opened');
 
             gsap.to('.sorting-wrapper', {
@@ -148,6 +150,7 @@
             
             $('.filter-icon').hide();
             $('.close-filters').show();
+            
         }
     });
 
