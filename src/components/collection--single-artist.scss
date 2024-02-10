@@ -152,7 +152,7 @@
                     margin: 0 0 24px 0;
 
                     h3 {
-                        font-size: var(--18px);
+                        font-size: 20px;
                         color: var(--black);
                         line-height: 176%;
                         text-transform: uppercase;
@@ -370,7 +370,7 @@
 @media screen and (max-width: 767px) {
     .single-artist {
         .single-artist--wrapper {
-            padding: 20px 0 40px 0;
+            padding: 0px 0 40px 0;
 
             .slide-box.mobile {
                 display: block;

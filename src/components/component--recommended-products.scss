@@ -4,67 +4,69 @@
 
     .wrapper {
 
-        .component-title {
-            margin: 0 0 16px 0;
+  
+    }
 
-            h3 {
-                font-size: 18px;
-                color: var(--black);
-                text-transform: uppercase;
+    .component-title {
+        margin: 0 0 16px 0;
+
+        h3 {
+            font-size: 18px;
+            color: var(--black);
+            text-transform: uppercase;
+        }
+    }
+
+    ul.products {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        grid-gap: 12px;
+
+        .image {
+            border: var(--border-blk);
+            cursor: pointer;
+            transition: var(--image-opacity-transition);
+
+            img {
+                max-width: 100%;
+                display: block;
             }
         }
 
-        ul.products {
-            list-style: none;
-            padding: 0;
-            margin: 0;
+        .image:hover {
+            opacity: 0.8;
+        }
+
+        .data {
+            text-transform: uppercase;
             display: grid;
-            grid-template-columns: repeat(6, 1fr);
+            grid-template-columns: 1fr auto;
             grid-gap: 12px;
+            padding: 6px 0 0 0;
 
-            .image {
-                border: var(--border-blk);
-                cursor: pointer;
-                transition: var(--image-opacity-transition);
-
-                img {
-                    max-width: 100%;
-                    display: block;
-                }
+            a:hover {
+                text-decoration: underline;
             }
 
-            .image:hover {
-                opacity: 0.8;
+            .artist {
+                margin: 0 0 2px 0;
+                color: var(--black);
+                font-size: 14px;
             }
 
-            .data {
-                text-transform: uppercase;
-                display: grid;
-                grid-template-columns: 1fr auto;
-                grid-gap: 12px;
-                padding: 6px 0 0 0;
+            .title {
+                display: block;
+                color: var(--grey);
+                font-size: 10px;
+                letter-spacing: 0px;
+            }
 
-                a:hover {
-                    text-decoration: underline;
-                }
-
-                .artist {
-                    margin: 0 0 2px 0;
-                    color: var(--black);
-                    font-size: 14px;
-                }
-
-                .title {
-                    display: block;
-                    color: var(--grey);
-                    font-size: 10px;
-                    letter-spacing: 0px;
-                }
-
-                .price {
-                    color: var(--grey);
-                    font-size: 12px;
-                }
+            .price {
+                color: var(--grey);
+                font-size: 12px;
             }
         }
     }
@@ -74,10 +76,12 @@
     .recommended-products {
         .recommended-wrapper {
     
-            ul.products {
-                display: grid;
-                grid-template-columns: repeat(2, 1fr);
-            }
         }
+
+        ul.products {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
+
     } 
 }

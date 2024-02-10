@@ -5,6 +5,10 @@
 {% endcomment %}
 
 <fieldset class="artist-radios">
+    <label value="{{ 'Dais Records' }}">
+        <input class="artist-radio" data-artist="{{ 'Dais Records' }}" type="radio" value="{{ 'Dais Records' }}">
+        {{ 'Dais Records' }}
+    </label>
     {% for product in collections.all.products %}
 
         {% case product.type %}
@@ -19,8 +23,8 @@
                     {% endif %}
                 {% endfor %}
 
-
         {% endcase %}
+
     {% endfor %}
 </fieldset>
         

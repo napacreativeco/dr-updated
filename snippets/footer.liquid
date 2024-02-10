@@ -7,9 +7,13 @@
             </a>
         </div>
         <div class="link-block footer-block">
+
+            {% comment %}  
             <span class="block-title">
                 {{ 'Label' | escape }}
             </span>
+            {% endcomment %}
+            
             <ul>
                 {% for link in linklists.footer-left.links %}
                     <li>
@@ -19,9 +23,13 @@
             </ul>
         </div>
         <div class="link-block footer-block">
+
+            {% comment %}  
             <span class="block-title">
                 {{ 'Shop' | escape }}
             </span>
+            {% endcomment %}
+            
             <ul>
                 {% for link in linklists.footer-right.links %}
                     <li>
@@ -39,7 +47,6 @@
                 <div class="block-title">
                     <span>{{ settings.newsletter_title | default: 'DAIS RECORDS NEWSLETTER' }}</span>
                 </div>
-
 
                 <div class="bottom">
                     {% form 'customer' %}

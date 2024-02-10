@@ -22,7 +22,7 @@
       <div class="single-artist-swiper swiper">
         <div class="swiper-wrapper">
           {% for img in collection.metafields.dais.artist_gallery.value %}
-            <div class="swiper-slide" style="background: url('{{ img | image_url }}'); background-size: cover; background-position: center center;">
+            <div class="swiper-slide" style="background: url('{{ img | image_url }}'); background-size: cover; background-position: {{ img.presentation.focal_point }};">
               <div class="slide-box desktop">
                 <div class="box-wrap">
                   <h1>{{ collection.title }}</h1>

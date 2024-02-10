@@ -3,7 +3,7 @@
         "comments": "#a3e802"
     },
     "workbench.colorCustomizations": {
-        "editor.foreground": "#878787",
-        "editor.background": "#141414"
+        //"editor.foreground": "#878787",
+        //"editor.background": "#141414"
     },
 }
